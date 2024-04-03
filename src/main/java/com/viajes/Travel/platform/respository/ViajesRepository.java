@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ViajesRepository extends JpaRepository<viajes,Double> {
+public interface ViajesRepository extends JpaRepository<viajes,Integer> {
 
     List<viajes> findByPrice(Double price);
 

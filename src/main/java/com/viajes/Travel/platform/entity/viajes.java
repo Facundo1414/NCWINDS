@@ -6,16 +6,20 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
 @Entity
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 public class viajes {
 
-    @jakarta.persistence.Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
  private Integer Id;
 
@@ -23,7 +27,7 @@ public class viajes {
     private String Name;
 
  @NotNull
-    private Double Price;
+    private Double price;
 
  @NotEmpty
     private String Destiny;
@@ -32,4 +36,6 @@ public class viajes {
     private Date Date;
 
  private String Description;
+
+
 }
