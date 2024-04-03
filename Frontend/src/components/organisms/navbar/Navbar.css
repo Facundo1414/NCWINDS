@@ -1,0 +1,47 @@
+.toolBar {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.logoContainer{
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+}  
+
+.buttonContainer{
+    display: flex;
+    justify-content: space-between;
+    width: 40%;
+}
+
+.transparent-navbar {
+    background-color: transparent !important;
+  }
+  
+  .brand {
+    color: white;
+    text-decoration: none;
+    transition: transform 0.3s ease; 
+  }
+  
+  .brand:hover {
+    transform: scale(1.1); 
+    color: #FFB500;
+  }
+  
+  
+.nav-link {
+    color: white !important;
+  }
+  
+.login-btn {
+    background-color: #FFB500 !important;
+    border-color: black !important;
+    color: black !important;
+    font-weight: bold !important;
+    border-radius: 37px !important;
+    padding: 5px 15px 5px 15px !important;
+  }
+  
