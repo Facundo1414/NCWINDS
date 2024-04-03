@@ -1,0 +1,5 @@
+02/04
+Se inicio react app con vite 
+se agrego material Ui
+se agrego react router dom
+
