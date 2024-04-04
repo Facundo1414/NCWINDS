@@ -18,6 +18,7 @@ public class ViajesController {
     @Autowired
     private ViajesServices services;
 
+    //endpoint de listar viajes
     @GetMapping()
 
     public ResponseEntity<?>listar(){
