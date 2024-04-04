@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface ViajesServicesImp {
 
+	
     Iterable<viajes> listAllTrips();
     Iterable<viajes> findByPrice(Double price);
 
