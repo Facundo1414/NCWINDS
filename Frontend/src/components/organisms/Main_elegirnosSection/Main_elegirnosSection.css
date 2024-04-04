@@ -1,0 +1,42 @@
+.fatherContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blueContainer {
+    background-color:#002561;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    height: 550px !important;
+    border-radius: 25px;
+    padding: 0 2%;
+    gap: 5%;
+  }
+  
+  .textContainer {
+    text-align: center;
+    width: 30%;
+  }
+  
+  .textContainer h2{
+    font-size: 40px;
+    font-weight: bolder;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+
+  .textContainer h4{
+    font-size: 15px;
+    font-weight: normal;
+  }
+
+  .cardContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 65%;
+  }
+  
