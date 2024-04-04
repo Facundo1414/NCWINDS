@@ -9,5 +9,6 @@ import java.util.List;
 public interface ViajesRepository extends JpaRepository<viajes,Integer> {
 
     List<viajes> findByPrice(Double price);
+    
 
 }
