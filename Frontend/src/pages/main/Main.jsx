@@ -1,8 +1,11 @@
-import React from 'react'
+
+import Destinations from '../../components/organisms/destinations/Destinations'
 
 export const Main = () => {
     
   return (
-    <div>Main ...</div>
+    <div>
+      <Destinations/>
+    </div>
   )
 }

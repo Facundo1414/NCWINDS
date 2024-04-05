@@ -1,0 +1,14 @@
+.container-destinations{
+    
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    
+}
+.container-destinations-principal{
+    padding-left: 0.1%;
+    padding-right: 0.1%;    
+    max-width: 1350px;
+}
