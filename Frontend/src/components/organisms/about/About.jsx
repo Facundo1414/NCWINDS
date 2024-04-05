@@ -17,8 +17,8 @@ const About =()=>{
             </div>
 
             <Box component='div' display="flex" justifyContent="center" padding={'1rem'} className='col-2-description-container'>
-            <Box component='div' borderRadius={'12px'} maxWidth={'400px'} padding={'10px'} sx={{backgroundColor: 'white'}}>
-              <Typography variant='h5' component='p' align='center'>
+            <Box component='div' borderRadius={'12px'} maxWidth={'400px'} padding={'12px'} sx={{backgroundColor: 'white'}}>
+              <Typography variant='h5' component='p' align='center' color={'black'}>
                 Somos los que no dejan que las distancias nos separen de los que más queremos. Somos los que hoy estamos acá y mañana podemos estar allá. Somos un equipo trabajando para que todos podamos volar.
               </Typography>
             </Box>
