@@ -10,7 +10,7 @@ import './Navbar.css'
 
 const Navbar = () => {
   return (
-    <AppBar position="fixed" className="transparent-navbar">
+    <AppBar position="absolute" className="transparent-navbar">
       <Toolbar className="toolBar">
         <Typography  variant="h6" component="div" sx={{ flexGrow: 1, color: 'white' }} className="logoContainer">
           <Link to="/" className="brand">FlyAirlines</Link>
