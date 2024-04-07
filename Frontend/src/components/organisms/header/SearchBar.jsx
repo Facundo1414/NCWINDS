@@ -39,8 +39,8 @@ const SearchBar = () => {
             </div>
             <FormControl className='check-container'>
                     <RadioGroup row aria-labelledby="demo-form-control-label-placement" name="position" defaultValue="only">
-                        <FormControlLabel checked={idaChecked} onChange={handleIdaChange} value="only"control={<Radio />}label="Solo ida" labelPlacement="top"/>
-                        <FormControlLabel checked={idaVueltaChecked} onChange={handleIdaVueltaChange} value="both" control={<Radio />} label="Ida y vuelta" labelPlacement="top" />
+                        <FormControlLabel checked={idaChecked} onChange={handleIdaChange} value="only"control={<Radio />}label="Solo ida" labelPlacement="right"/>
+                        <FormControlLabel checked={idaVueltaChecked} onChange={handleIdaVueltaChange} value="both" control={<Radio />} label="Ida y vuelta" labelPlacement="right" />
                     </RadioGroup>
                 </FormControl>
         </div>

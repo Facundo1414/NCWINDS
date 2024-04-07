@@ -38,3 +38,9 @@
 .span_yellow {
   color: #EFB750;
 }
+
+
+.searchBar{
+  display: flex;
+  justify-content: center;
+}
