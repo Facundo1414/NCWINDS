@@ -1,0 +1,22 @@
+.search-bar-container{
+    background-color: white;
+    width: 80%;
+    padding: 1rem 1.2rem;
+    border-radius: 1rem;
+    
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.input-viaje-container{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.donde-viaje-container-search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
