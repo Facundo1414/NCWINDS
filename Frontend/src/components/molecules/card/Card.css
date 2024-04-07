@@ -6,8 +6,6 @@
 .container {
     height: 289px;
     width: 439px;
-    position: relative;
-    overflow:hidden;
     border-radius: 30px;
 }
 .container:hover .image {

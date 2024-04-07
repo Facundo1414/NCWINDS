@@ -1,33 +1,35 @@
 /* eslint-disable react/prop-types */
-
 import { useState } from 'react';
-import './Carousel.css';
 import Card from '../../molecules/card/Card';
-
+import './Carousel.css';
 const Carousel = ({ images }) => {
+
+  const [startIndex, setStartIndex] = useState(0);
+
+  const nextSlide = () => {
+    setStartIndex(prevIndex => prevIndex + 1);
+  };
+
+  const prevSlide = () => {
+    setStartIndex(prevIndex => prevIndex - 1);
+  };
   
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const goToPrevSlide = () => { 
-    setCurrentIndex(currentIndex === 0 ? images.length - 4 : currentIndex - 1);
-  };
-  const goToNextSlide = () => {
-    
-    setCurrentIndex(currentIndex === images.length - 4 ? 0 : currentIndex + 1);
-  };
+  
 
   return (
     <div className="carousel">
-      <button className="prevBtn" onClick={goToPrevSlide}>&#10094;</button>
-      <div className="carousel-container" style={{ transform: `translateX(-${currentIndex * 60}%)` }}>
+      <button className="prevBtn" onClick={prevSlide} disabled={startIndex === 0}>&#10094;</button>
+      <div className="carousel-container" style={{ transform: `translateX(-${0 * 10}%)` }}>
         <div className="slide" >
-          {images.map((image, index) => {
+          {images.slice(startIndex, startIndex +3).map((image, index) => {
           return (
             <Card {...image} key={index}/>
           )
 })}
         </div>
       </div>
-      <button className="nextBtn" onClick={goToNextSlide}>&#10095;</button>
+      <button className="nextBtn" onClick={nextSlide} disabled={startIndex + 3 >= images.length}>&#10095;</button>
+      
     </div>
   );
 };
