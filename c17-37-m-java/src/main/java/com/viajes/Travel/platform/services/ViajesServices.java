@@ -1,6 +1,7 @@
 package com.viajes.Travel.platform.services;
 
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
+
 import com.viajes.Travel.platform.respository.ViajesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,29 +18,29 @@ public class ViajesServices implements  ViajesServicesImp{
     @Autowired
     private ViajesRepository viajesRepository;
 
-    public Iterable<viajes> listAllTrips() {
+    public Iterable<Viajes> listAllTrips() {
         return viajesRepository.findAll();
     }
 
-    public Iterable<viajes> findByPrice(Double price){
+    public Iterable<Viajes> findByPrice(Double price){
         return viajesRepository.findByPrice(price);
     }
 
-    public List<viajes>listar(){
+    public List<Viajes>listar(){
 
         return  this.viajesRepository.findAll();
     }
 
     @Override
-    public void guardar(viajes via) {
+    public void guardar(Viajes via) {
         this.viajesRepository.save(via);
     }
 
 
     @Override
-    public viajes buscarPorId(Integer id) {
+    public Viajes buscarPorId(Integer id) {
 
-        Optional<viajes>optional= this.viajesRepository.findById(id);
+        Optional<Viajes>optional= this.viajesRepository.findById(id);
 
         if (optional.isPresent()){
 
