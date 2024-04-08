@@ -1,5 +1,4 @@
 import { Typography } from "@mui/material";
-import Card from "../../molecules/card/Card";
 import "./Destinations.css";
 
 import dataDestinations from "../../../utils/destinations/destinations.json"
@@ -9,7 +8,7 @@ export default function Destinations() {
   return (
     <div className="container-destinations-principal">
       <Typography 
-        style={{ fontWeight: "medium", fontSize: 40 , textAlign:"left", marginLeft: "6%"}}
+        style={{ fontWeight: "medium", fontSize: 40 , textAlign:"left", marginLeft: "6%"}} color={'#002561'}
       >
         DESCUBRE TU PROXIMO DESTINO
       </Typography>

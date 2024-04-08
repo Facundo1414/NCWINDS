@@ -50,21 +50,21 @@ const Footer = () => {
           </Typography>
           <Box component={'div'}>
             <Link href={'#'}>
-              <InstagramIcon sx={{height: '50px', width: '50px', margin: '8px', color: 'black'}}/>
+              <InstagramIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
 
             <Link href={'#'}>
-              <FacebookIcon sx={{height: '50px', width: '50px', margin: '8px', color: 'black'}}/>
+              <FacebookIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
 
             <Link href={'#'}>
-              <XIcon sx={{height: '50px', width: '50px', margin: '8px', color: 'black'}}/>
+              <XIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
           </Box>
         </Grid>
       </Grid>
       <Divider variant='middle'/>
-      <Typography variant='p' component='p' align='center' marginY={'10px'}>
+      <Typography variant='p' component='p' align='center' marginY={'10px'} color={'#4c4c4d'}>
         Copyright© 2024 | FlyAirlines.com | Todos Los Derechos Reservados
       </Typography>
     </footer>
