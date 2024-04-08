@@ -19,27 +19,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class viajes {
+public class Viajes {
 
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Integer Id;
+ private Integer id;
 
  @NotEmpty
-    private String Name;
+    private String name;
 
  @NotNull
     private Double price;
 
  @NotEmpty
-    private String Destiny;
+    private String destiny;
 
  @NotNull
-    private String Date;
+    private String date;
+ 
+ private String origins;
  
 
  @NotBlank
- private String Description;
+ private String description;
 
 
 
