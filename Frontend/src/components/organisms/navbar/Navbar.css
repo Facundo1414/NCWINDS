@@ -1,7 +1,6 @@
 .toolBar {
     display: flex;
     justify-content: space-between;
-    
 }
 
 .logoContainer{
@@ -9,12 +8,6 @@
     display: flex;
     justify-content: flex-start;
 }  
-
-.buttonContainer{
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-}
 
 .transparent-navbar {
     background-color: transparent !important;
@@ -38,7 +31,6 @@
   
 .login-btn {
     background-color: #FFB500 !important;
-    border-color: black !important;
     color: black !important;
     font-weight: bold !important;
     border-radius: 37px !important;
