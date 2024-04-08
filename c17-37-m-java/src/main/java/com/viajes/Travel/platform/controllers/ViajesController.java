@@ -1,7 +1,9 @@
 package com.viajes.Travel.platform.controllers;
 
 
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
+
+
 import com.viajes.Travel.platform.services.ViajesServices;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,14 @@ public class ViajesController {
         return  ResponseEntity.status(HttpStatus.OK).body(this.services.listar());
     }
 
+ 
+    
+    @GetMapping("/precio/{price}")
+    
+    public ResponseEntity<?>buscarPorPrecio(@PathVariable Double price){
+    	
+    	return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByPrice(price));
+    }
 
     @GetMapping("/{id}")
 
@@ -42,7 +52,7 @@ public class ViajesController {
 
 
     @PostMapping()
-    public ResponseEntity<?>crear(@Valid @RequestBody viajes vi,BindingResult result){
+    public ResponseEntity<?>crear(@Valid @RequestBody Viajes vi,BindingResult result){
 
         try {
 
