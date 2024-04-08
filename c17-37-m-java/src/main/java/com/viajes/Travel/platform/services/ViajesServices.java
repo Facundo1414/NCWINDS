@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -27,5 +28,24 @@ public class ViajesServices implements  ViajesServicesImp{
     public List<viajes>listar(){
 
         return  this.viajesRepository.findAll();
+    }
+
+    @Override
+    public void guardar(viajes via) {
+        this.viajesRepository.save(via);
+    }
+
+
+    @Override
+    public viajes buscarPorId(Integer id) {
+
+        Optional<viajes>optional= this.viajesRepository.findById(id);
+
+        if (optional.isPresent()){
+
+            return optional.get();
+        }
+
+        return null;
     }
 }
