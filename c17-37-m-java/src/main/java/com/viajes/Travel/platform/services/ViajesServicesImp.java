@@ -1,6 +1,7 @@
 package com.viajes.Travel.platform.services;
 
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -8,16 +9,16 @@ import java.util.Optional;
 public interface ViajesServicesImp {
 
 	
-    Iterable<viajes> listAllTrips();
-    Iterable<viajes> findByPrice(Double price);
+    Iterable<Viajes> listAllTrips();
+    Iterable<Viajes> findByPrice(Double price);
 
 
-    List<viajes>listar();
+    List<Viajes>listar();
 
-   void guardar(viajes via);
+   void guardar(Viajes via);
 
 
-   viajes buscarPorId(Integer id);
+   Viajes buscarPorId(Integer id);
 
 
 }
