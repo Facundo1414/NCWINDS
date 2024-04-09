@@ -16,7 +16,7 @@ function App() {
         <Navbar currentPage={currentPage}/>
         <Routes>
           <Route path="/" Component={Main}></Route>
-          <Route path="/search" Component={Search}></Route>  
+          <Route path='/search' Component={Search}></Route>  
         </Routes>
         <Footer/>
       </>
