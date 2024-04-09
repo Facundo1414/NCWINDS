@@ -5,7 +5,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import './Navbar.css'
 
 
-const Navbar = () => {
+const Navbar = (currentPage) => {
   const [anchorNav, setAnchorNav] = useState(null);
 
   const handleOpenNav = (event) => {
@@ -15,9 +15,9 @@ const Navbar = () => {
   const handleCloseNavMenu = () => {
     setAnchorNav(null);
   };
-
+console.log(currentPage.currentPage)
   return (
-    <AppBar position="absolute" className="transparent-navbar">
+    <AppBar position="absolute" className={currentPage.currentPage==="/"? "transparent-navbar":"background-navbar"}>
       <Toolbar className="toolBar">
         <Typography  variant="h6" component="div" sx={{color: 'white' }} className="logoContainer">
           <Link to="/" className="brand">FlyAirlines</Link>

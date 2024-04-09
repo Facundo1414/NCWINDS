@@ -12,6 +12,9 @@
 .transparent-navbar {
     background-color: transparent !important;
   }
+.background-navbar {
+    background-color: rgb(0, 37, 97) !important;
+}
   
   .brand {
     color: white;

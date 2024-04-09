@@ -1,0 +1,10 @@
+.search_cards_container {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: fit-content;
+    /* el background color es temporal, para poder identifar lo que ocupa el container */
+    background-color: rgb(66, 70, 70); 
+    padding: 1rem 3rem;
+    gap: 2rem;
+}

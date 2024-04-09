@@ -1,0 +1,26 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem 3rem;
+    border-radius: 0.8rem !important;
+}
+
+
+.card_tipo,.card_precio,.card_horas{
+    font-weight: 600;
+    color: #002561;
+}
+
+.card_tipo{
+    font-size: 24px;
+}
+.card_precio{
+    font-size: 36px;
+}
+.card_horas{
+    font-size: 20px;
+}
