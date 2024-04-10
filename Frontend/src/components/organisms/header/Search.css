@@ -11,12 +11,17 @@
 
 .input-viaje-container{
     display: flex;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
     gap: 1rem;
+    
 }
 
 .donde-viaje-container-search{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
+}
+.cuando-viaje-container{ 
+    transform: translate(0%,-6%);
 }

@@ -12,7 +12,7 @@ export default function Date({vueltaChecked}) {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DemoContainer components={['DatePicker', 'DatePicker']}>
+            <DemoContainer components={['DatePicker', 'DatePicker']} >
             <DatePicker
                 label="IDA"
                 value={ida}

@@ -27,15 +27,19 @@ const SearchBar = () => {
         <div className='search-bar-container'>
             <div className='input-viaje-container'>
                 <div className='donde-viaje-container-search'>
-                    <UbicacionInput label={"Origen"} />
+                    <div>
+                    <UbicacionInput label={"Origen"}/>
+                    </div>
+                    <div>
                     <UbicacionInput label={"Destino"} />
+                    </div>
                 </div>
                 <div className='cuando-viaje-container'>
                     <Date vueltaChecked={idaChecked}/>
                 </div>
                 <div className='search-button'>
-                    <SearchButton/>
-                    </div>
+                <SearchButton/>
+                </div>
             </div>
             <FormControl className='check-container'>
                     <RadioGroup row aria-labelledby="demo-form-control-label-placement" name="position" defaultValue="only">

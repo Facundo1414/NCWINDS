@@ -11,7 +11,7 @@ const Card_eS = () => {
   return (
     <>
       {data.card?.map(item => (
-        <Paper key={item.id} className='card' elevation={6}>
+        <Paper key={item.id} className='card-elegirnos-section' elevation={6} >
           <div className='imgContainer'>
             <img src={item.icon} alt="card_img" className='card_img'/> 
           </div> 

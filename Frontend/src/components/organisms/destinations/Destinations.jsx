@@ -8,7 +8,7 @@ export default function Destinations() {
   return (
     <div className="container-destinations-principal">
       <Typography 
-        style={{ fontWeight: "medium", fontSize: 40 , textAlign:"left", marginLeft: "6%"}} color={'#002561'}
+        style={{ fontWeight: "medium", fontSize: 40 ,marginLeft:"10%"}} color={'#002561'}
       >
         DESCUBRE TU PROXIMO DESTINO
       </Typography>
