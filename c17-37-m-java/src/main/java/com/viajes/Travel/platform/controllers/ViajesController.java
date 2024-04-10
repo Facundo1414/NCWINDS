@@ -64,6 +64,14 @@ public class ViajesController {
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin));
     }
 
+@GetMapping("/findByOriginAndDestinyAndDateOfDestiny/{origin}/{destinty}/{DateOfDestiny}")
+
+public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @PathVariable String destinty, @PathVariable LocalDateTime DateOfDestiny){
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfDestiny(origin,destinty,DateOfDestiny));
+}
+
 
     @GetMapping("/{id}")
 

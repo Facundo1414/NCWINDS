@@ -68,8 +68,14 @@ public class ViajesServices implements  ViajesServicesImp{
         return viajesRepository.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin);
     }
 
-   @Override
+    @Override
+    public List<Viajes> findByOriginAndDestinyAndDateOfDestiny(String origin, String destiny, LocalDateTime DateOfDestiny) {
+        return this.viajesRepository.findByOriginAndDestinyAndDateOfDestiny(origin,destiny,DateOfDestiny);
+    }
+
+    @Override
     public void delete (Viajes viajes){
+
         viajesRepository.delete(viajes);
    }
 

@@ -29,6 +29,8 @@ public interface ViajesServicesImp {
 
     List<Viajes> findByOriginAndDestinyAndDateOfOrigin (String origin, String destiny, LocalDateTime dateOfOrigin);
 
+    List<Viajes> findByOriginAndDestinyAndDateOfDestiny(String origin,String destiny,LocalDateTime DateOfDestiny);
+
     void delete (Viajes viajes);
 
 
