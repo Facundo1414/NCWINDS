@@ -1,6 +1,8 @@
 .carousel {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding: 6%;
     height: 300px;
     width: 100%;
     z-index: 0;
@@ -24,7 +26,6 @@
   }
   
   button {
-   
     top: 50%;
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
@@ -36,7 +37,7 @@
   .prevBtn {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    transform: translate(250%);
+    transform: translate(85%);
     left: 0;
     z-index: 1;
   }
@@ -44,7 +45,7 @@
   .nextBtn {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
-    transform: translate(-250%);
+    transform: translate(-85%);
     right: 0;
     z-index: 1 ;
   }

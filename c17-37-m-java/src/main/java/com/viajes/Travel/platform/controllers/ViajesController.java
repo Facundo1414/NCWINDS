@@ -24,7 +24,6 @@ public class ViajesController {
 
     //endpoint de listar viajes
     @GetMapping()
-
     public ResponseEntity<?>listar(){
 
         return  ResponseEntity.status(HttpStatus.OK).body(this.services.listar());

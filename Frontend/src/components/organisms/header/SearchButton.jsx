@@ -8,6 +8,7 @@ const CustomButton = styled(Button)({
   '&:hover': {
     backgroundColor: "#CC9400", 
   },
+  width:"80%",
   fontSize: "1.2rem",
   fontWeight: "bolder",
   borderRadius: "25px !important",
