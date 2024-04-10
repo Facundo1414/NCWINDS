@@ -13,17 +13,14 @@ export const Search =()=>{
 
   return(
     <Grid container marginTop={"5rem"}>
-      <Grid xs md={3} >
-        {/* Vuelos Cards */}
-      </Grid>
-      <Grid item xs={9}>
-        <Search_topCards/>
-      </Grid>
 
       <Grid item xs={3}>
         {/* Flight Details should be here */}
+        <SearchBar xs/>
       </Grid>
       <Grid item xs={9} paddingX={'20px'}>
+      <Search_topCards/>
+
         <FlightCard 
           horaSalida={'12:00'} 
           horaLlegada={'04:20'} 

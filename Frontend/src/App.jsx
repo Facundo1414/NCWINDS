@@ -9,7 +9,7 @@ function App() {
   const[currentPage, setCurrentPage] = useState("");
   useEffect(()=>{
     setCurrentPage(window.location.pathname);
-  },[])
+  },[window.location.pathname])
   return (
       <>
         <Navbar currentPage={currentPage}/>
