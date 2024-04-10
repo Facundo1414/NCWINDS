@@ -4,7 +4,7 @@
     justify-content: center;
     flex-wrap: wrap; 
     width: 100%; 
-    background-color: rgb(66, 70, 70); 
+    /* background-color: rgb(66, 70, 70);  */
     padding: 1rem 1.5rem; /* Adjust padding as needed */
     gap: 1rem; /* Adjust gap as needed */
 }

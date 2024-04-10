@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Grid, Typography } from '@mui/material'; 
 import FlightCard from "../../components/molecules/flightCard/FlightCard";
 import Search_topCards from '../../components/organisms/Search_topCards/Search_topCards'
-
+import SearchBar from '../../components/organisms/header/SearchBar'
 
 export const Search =()=>{
   const salida = "Buenos Aires, Argentina";
@@ -12,12 +12,17 @@ export const Search =()=>{
   let destunoSplit = destino.split(', ');
 
   return(
-    <Grid container>
-      <Grid item xs={3}>
-        {/* Flight Details should be here */}
+    <Grid container marginTop={"5rem"}>
+      <Grid xs md={3} >
+        {/* Vuelos Cards */}
+      </Grid>
+      <Grid item xs={9}>
         <Search_topCards/>
       </Grid>
 
+      <Grid item xs={3}>
+        {/* Flight Details should be here */}
+      </Grid>
       <Grid item xs={9} paddingX={'20px'}>
         <FlightCard 
           horaSalida={'12:00'} 
