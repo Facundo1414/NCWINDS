@@ -4,7 +4,9 @@ package com.viajes.Travel.platform.controllers;
 import com.viajes.Travel.platform.entity.Viajes;
 
 
+import com.viajes.Travel.platform.respository.ViajesRepository;
 import com.viajes.Travel.platform.services.ViajesServices;
+import com.viajes.Travel.platform.services.ViajesServicesImp;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -34,12 +37,31 @@ public class ViajesController {
 
  
     
-    @GetMapping("/precio/{price}")
+    @GetMapping("/price/{price}")
     
-    public ResponseEntity<?>buscarPorPrecio(@PathVariable Double price){
+    public ResponseEntity<?>findByPrice(@PathVariable Double price){
     	
     	return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByPrice(price));
     }
+
+    @GetMapping("/origin/{origin}")
+    public ResponseEntity<?>findByOrigin(@PathVariable String origin){
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOrigin(origin));
+    }
+
+    @GetMapping("/destiny/{destiny}")
+    public ResponseEntity<?>findByDestiny(@PathVariable String destiny){
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByDestiny(destiny));
+    }
+
+    @GetMapping("/originAndDestiny/{origin}/{destiny}")
+    public ResponseEntity<?>findByOriginAndDestiny(@PathVariable String origin, @PathVariable String destiny){
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestiny(origin, destiny));
+    }
+
 
     @GetMapping("/{id}")
 
@@ -49,7 +71,6 @@ public class ViajesController {
         return ResponseEntity.status(HttpStatus.OK).body(this.services.buscarPorId(id));
 
     }
-
 
     @PostMapping()
     public ResponseEntity<?>crear(@Valid @RequestBody Viajes vi,BindingResult result){

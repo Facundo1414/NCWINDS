@@ -8,8 +8,7 @@ import java.util.Optional;
 
 public interface ViajesServicesImp {
 
-	
-    Iterable<Viajes> listAllTrips();
+
     Iterable<Viajes> findByPrice(Double price);
 
 
@@ -19,6 +18,13 @@ public interface ViajesServicesImp {
 
 
    Viajes buscarPorId(Integer id);
+
+
+   Viajes findByOrigin (String origin);
+
+    Viajes findByDestiny (String destiny);
+
+    Viajes findByOriginAndDestiny (String origin, String destiny);
 
 
 }

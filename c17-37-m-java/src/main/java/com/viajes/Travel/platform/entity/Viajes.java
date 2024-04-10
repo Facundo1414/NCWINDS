@@ -26,19 +26,19 @@ public class Viajes {
  private Integer id;
 
  @NotEmpty
-    private String name;
+    private String origin;
+
+    @NotEmpty
+    private String destiny;
 
  @NotNull
     private Double price;
 
- @NotEmpty
-    private String destiny;
+ @NotNull
+    private String dateOfOrigin;
 
  @NotNull
-    private String date;
- 
- private String origins;
- 
+ private String dateOfDestiny;
 
  @NotBlank
  private String description;

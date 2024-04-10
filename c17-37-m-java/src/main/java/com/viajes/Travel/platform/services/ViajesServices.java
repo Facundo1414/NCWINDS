@@ -18,9 +18,6 @@ public class ViajesServices implements  ViajesServicesImp{
     @Autowired
     private ViajesRepository viajesRepository;
 
-    public Iterable<Viajes> listAllTrips() {
-        return viajesRepository.findAll();
-    }
 
     public Iterable<Viajes> findByPrice(Double price){
         return viajesRepository.findByPrice(price);
@@ -49,4 +46,19 @@ public class ViajesServices implements  ViajesServicesImp{
 
         return null;
     }
+
+    @Override
+  public Viajes findByOrigin(String origin){
+        return (Viajes) viajesRepository.findByOrigin(origin);
+    }
+
+    @Override
+    public Viajes findByDestiny(String destiny){
+       return (Viajes) viajesRepository.findByDestiny(destiny);
+    }
+
+    @Override
+    public Viajes findByOriginAndDestiny(String origin, String destiny){
+       return (Viajes) viajesRepository.findByOriginAndDestiny(origin, destiny);
+   }
 }

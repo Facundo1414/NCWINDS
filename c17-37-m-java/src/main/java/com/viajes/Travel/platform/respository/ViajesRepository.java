@@ -12,8 +12,10 @@ public interface ViajesRepository extends JpaRepository<Viajes,Integer> {
     List<Viajes> findByPrice(Double price);
     
    List<Viajes> findByDestiny(String destiny);
+
+   List<Viajes> findByOrigin(String origin);
    
-   List<Viajes> findByOriginsAndDestiny(String origins,String destiny);
+   List<Viajes> findByOriginAndDestiny(String origin,String destiny);
    
     
 
