@@ -6,6 +6,7 @@ import com.viajes.Travel.platform.respository.ViajesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,17 +49,29 @@ public class ViajesServices implements  ViajesServicesImp{
     }
 
     @Override
-  public Viajes findByOrigin(String origin){
-        return (Viajes) viajesRepository.findByOrigin(origin);
+  public List<Viajes> findByOrigin(String origin){
+        return viajesRepository.findByOrigin(origin);
     }
 
     @Override
-    public Viajes findByDestiny(String destiny){
-       return (Viajes) viajesRepository.findByDestiny(destiny);
+    public List<Viajes> findByDestiny(String destiny){
+       return  viajesRepository.findByDestiny(destiny);
     }
 
     @Override
-    public Viajes findByOriginAndDestiny(String origin, String destiny){
-       return (Viajes) viajesRepository.findByOriginAndDestiny(origin, destiny);
+    public List<Viajes> findByOriginAndDestiny(String origin, String destiny){
+       return viajesRepository.findByOriginAndDestiny(origin, destiny);
    }
+
+    @Override
+    public List<Viajes> findByOriginAndDestinyAndDateOfOrigin(String origin, String destiny, LocalDateTime dateOfOrigin){
+        return viajesRepository.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin);
+    }
+
+   @Override
+    public void delete (Viajes viajes){
+        viajesRepository.delete(viajes);
+   }
+
+
 }

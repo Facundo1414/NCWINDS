@@ -3,6 +3,7 @@ package com.viajes.Travel.platform.services;
 import com.viajes.Travel.platform.entity.Viajes;
 
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,11 +21,15 @@ public interface ViajesServicesImp {
    Viajes buscarPorId(Integer id);
 
 
-   Viajes findByOrigin (String origin);
+   List<Viajes> findByOrigin (String origin);
 
-    Viajes findByDestiny (String destiny);
+    List<Viajes> findByDestiny (String destiny);
 
-    Viajes findByOriginAndDestiny (String origin, String destiny);
+    List<Viajes> findByOriginAndDestiny (String origin, String destiny);
+
+    List<Viajes> findByOriginAndDestinyAndDateOfOrigin (String origin, String destiny, LocalDateTime dateOfOrigin);
+
+    void delete (Viajes viajes);
 
 
 }

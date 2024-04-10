@@ -4,9 +4,7 @@ package com.viajes.Travel.platform.controllers;
 import com.viajes.Travel.platform.entity.Viajes;
 
 
-import com.viajes.Travel.platform.respository.ViajesRepository;
 import com.viajes.Travel.platform.services.ViajesServices;
-import com.viajes.Travel.platform.services.ViajesServicesImp;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,8 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 
@@ -34,8 +32,6 @@ public class ViajesController {
 
         return  ResponseEntity.status(HttpStatus.OK).body(this.services.listar());
     }
-
- 
     
     @GetMapping("/price/{price}")
     
@@ -60,6 +56,12 @@ public class ViajesController {
     public ResponseEntity<?>findByOriginAndDestiny(@PathVariable String origin, @PathVariable String destiny){
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestiny(origin, destiny));
+    }
+
+    @GetMapping("/originAndDestinyAndDateOfOrigin/{origin}/{destiny}/{dateOfOrigin}")
+    public ResponseEntity<?>findByOriginAndDestinyAndDateOfOrigin
+            (@PathVariable String origin, @PathVariable String destiny, @PathVariable LocalDateTime dateOfOrigin){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin));
     }
 
 
@@ -111,4 +113,5 @@ public class ViajesController {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
 }
