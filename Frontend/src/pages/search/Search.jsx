@@ -40,16 +40,25 @@ export const Search =()=>{
   }
 
   return(
+<<<<<<< HEAD
     <Grid container marginTop={"5rem"}>
 
       <Grid item xs={12} md={3}>
+=======
+    <Grid container marginTop={"5rem"} paddingX={"10px"} >
+      <Grid item xs={3}  display={'flex'} flexDirection={"column"} alignItems={'center'} paddingTop={'1rem'}>
+>>>>>>> d42cc782c84f259a3e6083a30fad33ba46ca9274
         {/* Flight Details should be here */}
-        <SearchBar xs/>
+        <SearchBar searchStyles={{bgcolor: 'white',bgcolorContainer: "#002561"}}/>
         <FlightDetails />
       </Grid>
 
       
+<<<<<<< HEAD
       <Grid item xs={12} md={9} paddingX={'20px'}>
+=======
+      <Grid item xs={9} >
+>>>>>>> d42cc782c84f259a3e6083a30fad33ba46ca9274
         <Search_topCards/>
 
         {jsonFlights.map((value)=>{
