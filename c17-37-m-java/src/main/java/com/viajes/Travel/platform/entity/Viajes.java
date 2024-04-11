@@ -12,6 +12,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -19,31 +22,35 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class viajes {
+public class Viajes {
 
    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
- private Integer Id;
+ private Integer id;
 
  @NotEmpty
-    private String Name;
+    private String origin;
+
+    @NotEmpty
+    private String destiny;
 
  @NotNull
     private Double price;
 
- @NotEmpty
-    private String Destiny;
+ @NotNull
+    private LocalDateTime dateOfOrigin;
 
  @NotNull
-    private String Date;
- 
+ private LocalDateTime dateOfDestiny;
+
+ @NotNull
+ private Integer scaleNumbers;
 
  @NotBlank
- private String Description;
+ private String description;
 
+ @NotNull
+ private String duration;
 
-
- 
- 
 
 }
