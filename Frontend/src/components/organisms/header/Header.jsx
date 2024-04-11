@@ -12,7 +12,7 @@ const Header = () => {
                 </div>
             </div>
             <div className='searchBar'>
-                <SearchBar/>
+                <SearchBar translateStyle={'true'}/>
             </div>
 
         </div>

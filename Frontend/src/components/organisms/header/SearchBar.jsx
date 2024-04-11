@@ -9,7 +9,7 @@ import SearchButton from './SearchButton';
 import "./Search.css"
 
 
-const SearchBar = () => {
+const SearchBar = ({translateStyle}) => {
     const [idaChecked, setIdaChecked] = useState();
     const [idaVueltaChecked, setIdaVueltaChecked] = useState();
 
@@ -23,10 +23,12 @@ const SearchBar = () => {
         setIdaChecked(false)
     };
 
+    // translateStyle = (transform: translate(0%, -50%);)
+
     return (
-        <div className='search-bar-container'>
+        <div className={`search-bar-container ${translateStyle? "search-bar-containerTransform" : ""}`}>
             <div className='input-viaje-container'>
-                <div className='donde-viaje-container-search'>
+                <div className="donde-viaje-container-search">
                     <div>
                     <UbicacionInput label={"Origen"}/>
                     </div>

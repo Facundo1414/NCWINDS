@@ -43,7 +43,7 @@ export const Search =()=>{
 
       <Grid item xs={3} marginTop={""} bgcolor={"red"}>
         {/* Flight Details should be here */}
-        <SearchBar className={"aaa"}/>f
+        <SearchBar/>
       </Grid>
 
       <Grid item xs={9} paddingX={'20px'}>
