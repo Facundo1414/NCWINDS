@@ -4,6 +4,7 @@ import Navbar from './components/organisms/navbar/Navbar'
 import Footer from './components/organisms/footer/Footer'
 import { useEffect, useState } from 'react'
 import {Search} from './pages/search/Search'
+import Login from './pages/login/Login'
 
 function App() {
   const[currentPage, setCurrentPage] = useState("");
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route path="/" Component={Main}></Route>
           <Route path='/search' Component={Search}></Route>  
+          <Route path='/login' Component={Login}></Route>  
         </Routes>
         <Footer/>
       </>
