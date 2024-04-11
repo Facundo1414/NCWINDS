@@ -3,6 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 import FlightCard from "../../components/molecules/flightCard/FlightCard";
 import Search_topCards from '../../components/organisms/Search_topCards/Search_topCards'
 import SearchBar from '../../components/organisms/header/SearchBar'
+import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
 
 export const Search =()=>{
   const salida = "Buenos Aires, Argentina";
@@ -13,17 +14,14 @@ export const Search =()=>{
 
   return(
     <Grid container marginTop={"5rem"}>
-      <Grid xs md={3} >
-        {/* Vuelos Cards */}
-      </Grid>
-      <Grid item xs={9}>
-        <Search_topCards/>
-      </Grid>
-
       <Grid item xs={3}>
         {/* Flight Details should be here */}
+
+        <FlightDetails />
       </Grid>
+      
       <Grid item xs={9} paddingX={'20px'}>
+        <Search_topCards/>
         <FlightCard 
           horaSalida={'12:00'} 
           horaLlegada={'04:20'} 
