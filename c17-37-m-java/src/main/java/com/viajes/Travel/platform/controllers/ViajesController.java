@@ -1,7 +1,9 @@
 package com.viajes.Travel.platform.controllers;
 
 
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
+
+
 import com.viajes.Travel.platform.services.ViajesServices;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +31,45 @@ public class ViajesController {
 
         return  ResponseEntity.status(HttpStatus.OK).body(this.services.listar());
     }
+    
+    @GetMapping("/price/{price}")
+    
+    public ResponseEntity<?>findByPrice(@PathVariable Double price){
+    	
+    	return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByPrice(price));
+    }
+
+    @GetMapping("/origin/{origin}")
+    public ResponseEntity<?>findByOrigin(@PathVariable String origin){
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOrigin(origin));
+    }
+
+    @GetMapping("/destiny/{destiny}")
+    public ResponseEntity<?>findByDestiny(@PathVariable String destiny){
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByDestiny(destiny));
+    }
+
+    @GetMapping("/originAndDestiny/{origin}/{destiny}")
+    public ResponseEntity<?>findByOriginAndDestiny(@PathVariable String origin, @PathVariable String destiny){
+
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestiny(origin, destiny));
+    }
+
+    @GetMapping("/originAndDestinyAndDateOfOrigin/{origin}/{destiny}/{dateOfOrigin}")
+    public ResponseEntity<?>findByOriginAndDestinyAndDateOfOrigin
+            (@PathVariable String origin, @PathVariable String destiny, @PathVariable LocalDateTime dateOfOrigin){
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin));
+    }
+
+@GetMapping("/findByOriginAndDestinyAndDateOfDestiny/{origin}/{destinty}/{DateOfDestiny}")
+
+public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @PathVariable String destinty, @PathVariable LocalDateTime DateOfDestiny){
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfDestiny(origin,destinty,DateOfDestiny));
+}
 
 
     @GetMapping("/{id}")
@@ -39,9 +81,8 @@ public class ViajesController {
 
     }
 
-
     @PostMapping()
-    public ResponseEntity<?>crear(@Valid @RequestBody viajes vi,BindingResult result){
+    public ResponseEntity<?>crear(@Valid @RequestBody Viajes vi,BindingResult result){
 
         try {
 
@@ -79,4 +120,5 @@ public class ViajesController {
 
         return ResponseEntity.badRequest().body(errors);
     }
+
 }
