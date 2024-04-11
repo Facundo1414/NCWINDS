@@ -2,7 +2,7 @@ import React from 'react'
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 
-const UbicacionInput = ({label}) => {
+const UbicacionInput = ({label, bgcolor}) => {
 
     // esto se deberia modificar con lo que traiga de la base de datos
 
@@ -20,7 +20,8 @@ const UbicacionInput = ({label}) => {
                 options={options.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
                 groupBy={(option) => option.firstLetter}
                 getOptionLabel={(option) => option.title}
-                sx={{ width: 280 }}
+                // Modificable
+                sx={{ width: 280, bgcolor: bgcolor }} 
                 renderInput={(params) => <TextField {...params} label= {label}
                 />}
         />
