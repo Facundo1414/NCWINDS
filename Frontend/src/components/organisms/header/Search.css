@@ -1,5 +1,4 @@
 .search-bar-container{
-    background-color: white;
     width: 80%;
     padding: 1rem 1.2rem;
     border-radius: 1rem;
@@ -27,4 +26,11 @@
 }
 .cuando-viaje-container{ 
     transform: translate(0%,-6%);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .search-bar-containerTransform{
+        transform: none !important; /* Remove transform */
+    }
 }

@@ -39,11 +39,10 @@ export const Search =()=>{
   // end of loading skeleton section 
 
   return(
-    <Grid container marginTop={"5rem"} bgcolor={"green"}>
-
-      <Grid item xs={3} marginTop={""} bgcolor={"red"}>
+    <Grid container marginTop={"5rem"} >
+      <Grid item xs={3}  display={'flex'} justifyContent={'center'} alignItems={'flex-start'} paddingTop={'1rem'}>
         {/* Flight Details should be here */}
-        <SearchBar/>
+        <SearchBar searchStyles={{bgcolor: 'white',bgcolorContainer: "#002561"}}/>
       </Grid>
 
       <Grid item xs={9} paddingX={'20px'}>
