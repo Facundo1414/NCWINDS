@@ -68,7 +68,7 @@ const Navbar = (currentPage) => {
             <MenuItem
               onClick={handleCloseNavMenu}
               component={Link}
-              to="/destinos"
+              to="/search"
             >
               Destinos
             </MenuItem>
@@ -100,7 +100,7 @@ const Navbar = (currentPage) => {
         <Box sx={{ display: { xs: "none", md: "flex" } }}>
           <Button
             component={Link}
-            to="/destinos"
+            to="/search"
             color="inherit"
             className="nav-link"
           >

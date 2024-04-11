@@ -1,10 +1,12 @@
 package com.viajes.Travel.platform.services;
 
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
+
 import com.viajes.Travel.platform.respository.ViajesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,29 +19,26 @@ public class ViajesServices implements  ViajesServicesImp{
     @Autowired
     private ViajesRepository viajesRepository;
 
-    public Iterable<viajes> listAllTrips() {
-        return viajesRepository.findAll();
-    }
 
-    public Iterable<viajes> findByPrice(Double price){
+    public Iterable<Viajes> findByPrice(Double price){
         return viajesRepository.findByPrice(price);
     }
 
-    public List<viajes>listar(){
+    public List<Viajes>listar(){
 
         return  this.viajesRepository.findAll();
     }
 
     @Override
-    public void guardar(viajes via) {
+    public void guardar(Viajes via) {
         this.viajesRepository.save(via);
     }
 
 
     @Override
-    public viajes buscarPorId(Integer id) {
+    public Viajes buscarPorId(Integer id) {
 
-        Optional<viajes>optional= this.viajesRepository.findById(id);
+        Optional<Viajes>optional= this.viajesRepository.findById(id);
 
         if (optional.isPresent()){
 
@@ -48,4 +47,37 @@ public class ViajesServices implements  ViajesServicesImp{
 
         return null;
     }
+
+    @Override
+  public List<Viajes> findByOrigin(String origin){
+        return viajesRepository.findByOrigin(origin);
+    }
+
+    @Override
+    public List<Viajes> findByDestiny(String destiny){
+       return  viajesRepository.findByDestiny(destiny);
+    }
+
+    @Override
+    public List<Viajes> findByOriginAndDestiny(String origin, String destiny){
+       return viajesRepository.findByOriginAndDestiny(origin, destiny);
+   }
+
+    @Override
+    public List<Viajes> findByOriginAndDestinyAndDateOfOrigin(String origin, String destiny, LocalDateTime dateOfOrigin){
+        return viajesRepository.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin);
+    }
+
+    @Override
+    public List<Viajes> findByOriginAndDestinyAndDateOfDestiny(String origin, String destiny, LocalDateTime DateOfDestiny) {
+        return this.viajesRepository.findByOriginAndDestinyAndDateOfDestiny(origin,destiny,DateOfDestiny);
+    }
+
+    @Override
+    public void delete (Viajes viajes){
+
+        viajesRepository.delete(viajes);
+   }
+
+
 }
