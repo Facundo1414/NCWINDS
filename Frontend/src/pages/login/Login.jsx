@@ -1,6 +1,7 @@
 import React from 'react';
 import LoginPage from '@react-login-page/page7';
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => (
     <LoginPage style={{ height: 690 }} className='login-page7'>
@@ -10,7 +11,7 @@ const Login = () => (
         <LoginPage.Username />
         <LoginPage.Password/>
         <LoginPage.Footer>
-        Not a member? <a href="#">Sign up now</a>
+        Not a member? <Link to={"/signUp"}>Sign up now</Link>
         </LoginPage.Footer>
     </LoginPage>
 );

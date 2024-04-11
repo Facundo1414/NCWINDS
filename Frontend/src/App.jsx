@@ -5,6 +5,7 @@ import Footer from './components/organisms/footer/Footer'
 import { useEffect, useState } from 'react'
 import {Search} from './pages/search/Search'
 import Login from './pages/login/Login'
+import SignUp from './pages/login/SignUp'
 
 function App() {
   const[currentPage, setCurrentPage] = useState("");
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" Component={Main}></Route>
           <Route path='/search' Component={Search}></Route>  
           <Route path='/login' Component={Login}></Route>  
+          <Route path='/signUp' Component={SignUp}></Route>  
         </Routes>
         <Footer/>
       </>
