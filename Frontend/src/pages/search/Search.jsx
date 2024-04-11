@@ -42,14 +42,14 @@ export const Search =()=>{
   return(
     <Grid container marginTop={"5rem"}>
 
-      <Grid item xs={3}>
+      <Grid item xs={12} md={3}>
         {/* Flight Details should be here */}
         <SearchBar xs/>
         <FlightDetails />
       </Grid>
 
       
-      <Grid item xs={9} paddingX={'20px'}>
+      <Grid item xs={12} md={9} paddingX={'20px'}>
         <Search_topCards/>
 
         {jsonFlights.map((value)=>{
