@@ -3,10 +3,17 @@ import { Box, Button, Grid, Typography, Divider } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
 
 
-const FlightCard =({ horaSalida, horaLlegada, lugarSalida, lugarLlegada, duracionVuelo, precio })=>{
+const FlightCard =({props})=>{
+  const horaSalida = props.horaSalida;
+  const horaLlegada = props.horaLlegada;
+  const lugarSalida = props.origen;
+  const lugarLlegada = props.destino;
+  const duracionVuelo = props.duracionVuelo;
+  const precio = props.precio;
+  console.log(props)
 
   return(
-    <Grid container component='article' height='160px' marginY='15px' borderRadius='12px' color={'black'} sx={{backgroundColor: 'white', boxShadow: 3}}>
+    <Grid container component='article' height='160px' alignItems='center' marginY='15px' borderRadius='12px' color={'black'} sx={{backgroundColor: 'white', boxShadow: 3, borderLeft: '8px solid #FFB500'}}>
       <Grid item container display={'flex'} xs='9'>
         <Grid item xs='3' alignContent='center' textAlign='center'>
           <Typography variant='h4' fontWeight='600' letterSpacing={2}>{horaSalida}</Typography>
@@ -46,7 +53,7 @@ const FlightCard =({ horaSalida, horaLlegada, lugarSalida, lugarLlegada, duracio
             padding: '10px',
             width: '180px'
           }}>
-            {precio}
+            ${precio}
           </Button>
           </Box>
       </Grid>
