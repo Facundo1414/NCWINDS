@@ -12,6 +12,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
 
 @Entity
@@ -35,17 +38,19 @@ public class Viajes {
     private Double price;
 
  @NotNull
-    private String dateOfOrigin;
+    private LocalDateTime dateOfOrigin;
 
  @NotNull
- private String dateOfDestiny;
+ private LocalDateTime dateOfDestiny;
+
+ @NotNull
+ private Integer scaleNumbers;
 
  @NotBlank
  private String description;
 
+ @NotNull
+ private String duration;
 
-
- 
- 
 
 }
