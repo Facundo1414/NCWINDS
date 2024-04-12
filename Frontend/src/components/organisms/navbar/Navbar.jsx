@@ -26,7 +26,6 @@ const Navbar = (currentPage) => {
 
   return (
     <AppBar
-      position="absolute"
       className={
         currentPage.currentPage === "/"
           ? "transparent-navbar"
