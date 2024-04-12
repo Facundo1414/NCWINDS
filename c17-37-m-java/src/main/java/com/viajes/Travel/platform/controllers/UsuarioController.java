@@ -1,7 +1,7 @@
 package com.viajes.Travel.platform.controllers;
 
 import com.viajes.Travel.platform.entity.Usuario;
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
 import com.viajes.Travel.platform.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

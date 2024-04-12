@@ -1,7 +1,7 @@
 package com.viajes.Travel.platform.services;
 
 import com.viajes.Travel.platform.entity.Usuario;
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
 import com.viajes.Travel.platform.respository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,7 +27,7 @@ public class UsuarioService implements UsuarioServiceImp{
     }
 
     /*@Override
-    public viajes reservarViaje(Integer idres) {
-        usuarioRepository.save(idres);
+    public Viajes reservarViaje(Integer idRes) {
+        usuarioRepository.save(idRes);
     }*/
 }

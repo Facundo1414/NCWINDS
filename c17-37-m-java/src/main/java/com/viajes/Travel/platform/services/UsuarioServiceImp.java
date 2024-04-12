@@ -1,7 +1,7 @@
 package com.viajes.Travel.platform.services;
 
 import com.viajes.Travel.platform.entity.Usuario;
-import com.viajes.Travel.platform.entity.viajes;
+import com.viajes.Travel.platform.entity.Viajes;
 
 public interface UsuarioServiceImp {
     
@@ -11,5 +11,5 @@ public interface UsuarioServiceImp {
     
     public void eliminarUsuario(Integer id);
     
-    //viajes reservarViaje(Integer idres);
+    //Viajes reservarViaje(Integer idRes);
 }
