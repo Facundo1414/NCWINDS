@@ -15,7 +15,7 @@ const FlightDetails =()=>{
   }
 
   return(
-    <Box component='section' sx={{backgroundColor: 'white', color: 'black'}} borderRadius='12px' boxShadow='3' margin='8px' padding='20px'>
+    <Box component='section' sx={{backgroundColor: 'white', color: 'black'}} borderRadius='12px' boxShadow='3' marginY='15px' padding='20px'>
       <Box component='div'>
         <Typography variant="h6" component='h6'>Filtrar por</Typography>
       </Box>
