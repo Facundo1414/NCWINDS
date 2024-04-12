@@ -1,4 +1,4 @@
-const BASE_URL = 'https://localhost:3306/viajestravel';
+const BASE_URL = 'http://localhost:8080';
 
 // Función para obtener datos de un endpoint específico
 export const fetchData = async (endpoint) => {
