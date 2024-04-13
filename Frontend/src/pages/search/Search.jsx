@@ -40,7 +40,7 @@ export const Search =()=>{
   }
 
   return(
-    <Grid container >
+    <Grid container sx={{width:'95%'}}>
 
       <Grid item xs={12} md={4} padding='15px'>
         <SearchBar searchStyles={{bgcolor: 'white',bgcolorContainer: "#002561"}}/>
