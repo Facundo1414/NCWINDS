@@ -1,6 +1,6 @@
 import React from 'react'
 import './header.css'
-import SearchBar from './SearchBar';
+import SearchBar from '../../molecules/searchBar/SearchBar';
 
 const Header = () => {
     return (

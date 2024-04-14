@@ -2,6 +2,8 @@ import React,{useEffect, useState} from 'react'
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { fetchData } from '../../../services/apiService';
+
+
 const UbicacionInput = ({label, bgcolor}) => {
   const [value, setValue] = useState(null);
   const [data, setData] = useState(null);
@@ -49,17 +51,15 @@ const UbicacionInput = ({label, bgcolor}) => {
 
     return (
         <Autocomplete
-                value={value}
-                id="grouped-demo"
-                onChange={handleChange}
-                options={options?.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
-                groupBy={(option) => option.firstLetter}
-                getOptionLabel={(option) => option.option}
-                // Modificable
-                sx={{ width: 280, bgcolor: bgcolor }} 
-                renderInput={(params) => <TextField {...params} label= {label}
-
-                />}
+          value={value}
+          id="grouped-demo"
+          onChange={handleChange}
+          options={options?.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
+          groupBy={(option) => option.firstLetter}
+          getOptionLabel={(option) => option.option}
+          // Modificable
+          sx={{ width: 280, bgcolor: bgcolor }} 
+          renderInput={(params) => <TextField {...params} label= {label}/>}
         />
     )
 }

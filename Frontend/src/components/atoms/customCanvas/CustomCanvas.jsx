@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html } from "@react-three/drei";
-import { EarthGlobe } from "./EarthGlobe";
+import { EarthGlobe } from "../earthGlobe/EarthGlobe";
 import { CircularProgress } from '@mui/material';
 
 const CustomCanvas =()=>{
