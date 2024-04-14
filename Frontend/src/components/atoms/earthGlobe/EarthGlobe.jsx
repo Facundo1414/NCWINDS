@@ -2,10 +2,10 @@ import React from "react";
 import { useLoader } from "@react-three/fiber";
 import { TextureLoader } from "three";
 
-import EarthDayMap from "../../assets/8k_earth_daymap.jpg";
-import EarthNormalMap from "../../assets/8k_earth_normal_map.jpg";
-import EarthSpecularMap from "../../assets/8k_earth_specular_map.jpg";
-import EarthCloudsMap from "../../assets/8k_earth_clouds.jpg";
+import EarthDayMap from "../../../assets/8k_earth_daymap.jpg";
+import EarthNormalMap from "../../../assets/8k_earth_normal_map.jpg";
+import EarthSpecularMap from "../../../assets/8k_earth_specular_map.jpg";
+import EarthCloudsMap from "../../../assets/8k_earth_clouds.jpg";
 
 const EarthGlobe = () => {
   const [colorMap, normalMap, specularMap, cloudsMap] = useLoader(TextureLoader, [EarthDayMap, EarthNormalMap, EarthSpecularMap, EarthCloudsMap]);

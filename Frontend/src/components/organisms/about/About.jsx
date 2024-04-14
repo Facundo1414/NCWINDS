@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomCanvas } from '../../atoms/CustomCanvas';
+import { CustomCanvas } from '../../atoms/customCanvas/CustomCanvas';
 import { Box, Grid, Typography } from "@mui/material";
 
 

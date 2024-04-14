@@ -4,34 +4,23 @@ import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import Date from './Date';
-import SearchButton from './SearchButton';
+import Date from '../../molecules/date/Date';
+import AtomButton from '../../atoms/atomButton/AtomButton';
 import "./Search.css"
 
-
 const SearchBar = ({translateStyle, searchStyles}) => {
-    const [idaChecked, setIdaChecked] = useState();
-    const [idaVueltaChecked, setIdaVueltaChecked] = useState();
+    const [tipoViaje, setTipoViaje] = useState(false);
 
-    const handleIdaChange = (event) => {
-        setIdaChecked(event.target.checked);
-        setIdaVueltaChecked(false)
+    const handleTipoViajeChange =(event)=>{
+        setTipoViaje(event.target.value === 'true');   
     };
 
-    const handleIdaVueltaChange = (event) => {
-        setIdaVueltaChecked(event.target.checked);
-        setIdaChecked(false)
-    };
-
-    // Estilos modificables section (dependen de los parametros)
     let bgcolor = "";
     let bgcolorContainer = "white";
     if (searchStyles) {
-        bgcolor = searchStyles.bgcolor; // Access bgcolor property correctly
+        bgcolor = searchStyles.bgcolor;
         bgcolorContainer = searchStyles.bgcolorContainer;
     }
-
-    // end of estilos modificables section
 
     return (
         <div className={`search-bar-container ${translateStyle? "search-bar-containerTransform" : ""}`} style={{backgroundColor: bgcolorContainer}}>
@@ -45,19 +34,33 @@ const SearchBar = ({translateStyle, searchStyles}) => {
                     </div>
                 </div>
                 <div className='cuando-viaje-container'>
-                    <Date bgcolor={bgcolor} vueltaChecked={idaChecked}/>
+                    <Date bgcolor={bgcolor} vueltaChecked={tipoViaje}/>
                 </div>
                 <div className='search-button'>
-                <SearchButton/>
+                    <AtomButton 
+                        variant={'contained'} 
+                        inputText={'Buscar'}
+                        buttonStyles={{
+                            backgroundColor: '#FFB500',
+                            color: 'black',
+                            '&:hover': {backgroundColor: "#CC9400"},
+                            width:"80%",
+                            fontSize: "1.2rem",
+                            fontWeight: "bolder",
+                            borderRadius: "25px !important",
+                            padding: "0.7rem 2.5rem",
+                            alignContent: "center",
+                            textAlign: "center"
+                        }}
+                    />
                 </div>
             </div>
-            {/* modificable */}
             <FormControl className='check-container' style={{color:bgcolor}}>
-                    <RadioGroup row aria-labelledby="demo-form-control-label-placement" name="position" defaultValue="only">
-                        <FormControlLabel checked={idaChecked} onChange={handleIdaChange} value="only"control={<Radio />}label="Solo ida" labelPlacement="right"/>
-                        <FormControlLabel checked={idaVueltaChecked} onChange={handleIdaVueltaChange} value="both" control={<Radio />} label="Ida y vuelta" labelPlacement="right" />
-                    </RadioGroup>
-                </FormControl>
+                <RadioGroup row aria-labelledby="demo-form-control-label-placement" name="position" defaultValue='true' onChange={handleTipoViajeChange}>
+                    <FormControlLabel checked={tipoViaje} value='true' control={<Radio />} label="Solo ida" labelPlacement="right"/>
+                    <FormControlLabel checked={!tipoViaje} value='false' control={<Radio />} label="Ida y vuelta" labelPlacement="right" />
+                </RadioGroup>
+            </FormControl>
         </div>
     );
 };
