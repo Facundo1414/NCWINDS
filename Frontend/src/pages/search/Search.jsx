@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Box, Grid} from '@mui/material'; 
 import FlightCard from "../../components/molecules/flightCard/FlightCard";
 import Search_topCards from '../../components/organisms/Search_topCards/Search_topCards'
-import SearchBar from '../../components/organisms/header/SearchBar'
+import SearchBar from '../../components/molecules/searchBar/SearchBar'
 import Skeleton from '@mui/material/Skeleton';
 import { useEffect } from "react";
 import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';

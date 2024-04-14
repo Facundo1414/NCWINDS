@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import UbicacionInput from './UbicacionInput';
+import UbicacionInput from '../../atoms/ubicationInput/UbicationInput';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
-import Date from '../../molecules/date/Date';
+import Date from '../date/Date';
 import AtomButton from '../../atoms/atomButton/AtomButton';
 import "./Search.css"
 

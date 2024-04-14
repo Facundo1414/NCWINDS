@@ -1,0 +1,35 @@
+.search-bar-container{
+  padding: 1rem 1.2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+.search-bar-containerTransform{
+  transform: translate(0%, -50%);
+}
+
+
+.input-viaje-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  
+}
+
+.donde-viaje-container-search{
+  display: flex;
+  flex-wrap: wrap;
+}
+.cuando-viaje-container{ 
+  transform: translate(0%,-6%);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .search-bar-containerTransform{
+      transform: none !important; /* Remove transform */
+  }
+}
