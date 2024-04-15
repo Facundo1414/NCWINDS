@@ -7,6 +7,7 @@ import {Search} from './pages/search/Search'
 import Login from './pages/login/Login'
 import SignUp from './pages/login/SignUp'
 import ViajesContextProvider from './context/ViajesContextProvider'
+import Payment from './pages/payment/Payment'
 
 function App() {
   const location= useLocation();
@@ -23,6 +24,7 @@ function App() {
             <Route path='/search' element={<Search/>}></Route>  
             <Route path='/login' element={<Login/>}></Route>  
             <Route path='/signUp' element={<SignUp/>}></Route>  
+            <Route path='/payment' element={<Payment/>}></Route>  
           </Routes>
           <Footer/>
         </ViajesContextProvider>
