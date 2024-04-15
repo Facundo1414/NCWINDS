@@ -49,6 +49,32 @@ Now you can open [http://localhost:5173](http://localhost:5173) and start coding
 
 ## Backend Applications:
 
+<h4>Tecnologías usadas en Back End</h4>
+
+  <a  href="https://www.java.com/es/" target="_blank">
+
+  ![Java](https://img.shields.io/badge/Java-%2523ED8B00.svg?style=for-the-badge&logo=oracle&logoColor=red&color=white)
+
+  </a>
+
+  <a  href="https://spring.io/projects/spring-framework" target="_blank">
+
+  ![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+
+  </a>
+
+  <a  href="https://www.mysql.com/products/connector/" target="_blank">
+
+  ![MYSQL](https://img.shields.io/badge/MYSQL-237f97?style=for-the-badge&logo=MYSQL&logoColor=fff)
+
+  </a>
+
+  <a  href="https://projectlombok.org/" target="_blank">
+
+  ![Lombok](https://img.shields.io/badge/Lombok-bc1f2d?style=for-the-badge&logo=Lombok&logoColor=fff)
+
+  </a>
+
 ### 2.- Spring Boot Application
 
 
