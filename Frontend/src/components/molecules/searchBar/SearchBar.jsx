@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import UbicacionInput from '../../atoms/ubicationInput/UbicationInput';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
@@ -7,6 +7,7 @@ import FormControl from '@mui/material/FormControl';
 import Date from '../date/Date';
 import AtomButton from '../../atoms/atomButton/AtomButton';
 import "./Search.css"
+import { ViajesContext } from '../../../context/ViajesContextProvider';
 
 const SearchBar = ({translateStyle, searchStyles}) => {
     const [tipoViaje, setTipoViaje] = useState(false);
@@ -22,15 +23,51 @@ const SearchBar = ({translateStyle, searchStyles}) => {
         bgcolorContainer = searchStyles.bgcolorContainer;
     }
 
+  // use context para poder mostrar la informacion en todas las paginas
+  const {infoVuelo ,setInfoVuelo} = useContext(ViajesContext)
+  const [valueOrigen, setValueOrigen] = useState("");
+  const [valueDestino, setValueDestino] = useState("");
+
+  useEffect(()=>{
+    setInfoVuelo(
+      {...infoVuelo,
+        origin: valueOrigen
+      }
+    )
+  }, [valueOrigen])
+
+  useEffect(()=>{
+    setInfoVuelo(
+      {...infoVuelo,
+        origin: valueDestino
+      }
+    )
+  }, [valueDestino])
+  
+  // en caso que sea solo viaje de ida
+  useEffect(()=>{
+    if (tipoViaje) {
+      setInfoVuelo(
+        {...infoVuelo,
+          fechaVuelta: ""
+        }
+      )
+    }
+  },[tipoViaje])
+
+  // end of use context
+
+
+
     return (
         <div className={`search-bar-container ${translateStyle? "search-bar-containerTransform" : ""}`} style={{backgroundColor: bgcolorContainer}}>
             <div className='input-viaje-container'>
                 <div className="donde-viaje-container-search">
                     <div>
-                    <UbicacionInput bgcolor={bgcolor} label={"Origen"}/>
+                    <UbicacionInput bgcolor={bgcolor} label={"Origen"} setValueVuelo = {setValueOrigen}/>
                     </div>
                     <div>
-                    <UbicacionInput bgcolor={bgcolor} label={"Destino"} />
+                    <UbicacionInput bgcolor={bgcolor} label={"Destino"} setValueVuelo= {setValueDestino} />
                     </div>
                 </div>
                 <div className='cuando-viaje-container'>

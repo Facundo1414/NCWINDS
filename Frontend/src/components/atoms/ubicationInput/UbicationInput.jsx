@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import { fetchData } from '../../../services/apiService';
 
 
-const UbicacionInput = ({label, bgcolor}) => {
+const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
   const [value, setValue] = useState(null);
   const [data, setData] = useState(null);
 
@@ -12,6 +12,7 @@ const UbicacionInput = ({label, bgcolor}) => {
     setValue(newValue);
   };
 
+  // Renderizar datos: Se encarga de buscar la ubicacion de los viajes disponibles a renderizar
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
@@ -48,6 +49,15 @@ const UbicacionInput = ({label, bgcolor}) => {
           option,
         };
       });
+
+  // end of renderizar datos    
+
+
+  // enviar info del veulo para guardarla en el use Context
+  useEffect(()=>{
+    setValueVuelo(value)
+  },[value])
+  //
 
     return (
         <Autocomplete
