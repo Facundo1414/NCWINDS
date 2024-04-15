@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react'
 import {Search} from './pages/search/Search'
 import Login from './pages/login/Login'
 import SignUp from './pages/login/SignUp'
+import { Seat } from './pages/seat/Seat'
 
 function App() {
   const location= useLocation();
@@ -18,7 +19,8 @@ function App() {
         <Navbar currentPage={currentPage}/>
         <Routes>
           <Route path="/" element={<Main/>}></Route>
-          <Route path='/search' element={<Search/>}></Route>  
+          <Route path='/search' element={<Search/>}></Route>
+          <Route path='/seat' element={<Seat/>}></Route>
           <Route path='/login' element={<Login/>}></Route>  
           <Route path='/signUp' element={<SignUp/>}></Route>  
         </Routes>
