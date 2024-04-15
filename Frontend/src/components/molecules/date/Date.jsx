@@ -7,6 +7,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import "./Date.css"
 import { useEffect } from 'react';
 import { useContext } from 'react';
+import { ViajesContext } from '../../../context/ViajesContextProvider';
 
 export default function Date({vueltaChecked, bgcolor}) {
     const today = dayjs();
