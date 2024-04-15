@@ -94,3 +94,23 @@ BODY = {
 }
 
 With this data you will create a travel 
+
+
+## Members
+### Backend: 
+- **Luciana Coronel**: Backend Developer
+- **Gustavo Martinez**: Backend Developer
+- **Manuel Claros**: Backend Developer
+
+### Frontend:
+- **Bruno Sosa**: Frontend Developer
+
+### Fullstack:
+- **Marco Antonio**: Fullstack Developer
+- **Facundo Allende**: Fullstack Developer
+
+### Diseño UX/UI:
+- **Bruno Sosa**: UX/UI Designer
+
+### Team Leader:
+- **Lucas Koch**: Team Leader
