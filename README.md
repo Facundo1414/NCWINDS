@@ -55,7 +55,7 @@ Now you can open [http://localhost:5173](http://localhost:5173) and start coding
 
 ## Backend Applications:
 
-<h4>Tecnologías usadas en Back End</h4>
+<h4>Technologies used in Back End</h4>
 
 <div>
   <strong>Backend</strong>: <br><br>
