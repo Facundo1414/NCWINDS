@@ -43,7 +43,21 @@ const SearchBar = ({translateStyle, searchStyles}) => {
       }
     )
   }, [valueDestino])
+  
+  // en caso que sea solo viaje de ida
+  useEffect(()=>{
+    if (tipoViaje) {
+      setInfoVuelo(
+        {...infoVuelo,
+          fechaVuelta: ""
+        }
+      )
+    }
+  },[tipoViaje])
+
   // end of use context
+
+
 
     return (
         <div className={`search-bar-container ${translateStyle? "search-bar-containerTransform" : ""}`} style={{backgroundColor: bgcolorContainer}}>

@@ -10,8 +10,8 @@ const ViajesContextProvider = ({children}) => {
     const [infoVuelo, setInfoVuelo] = useState({
         origen: "",
         destino: "",
-        horarioIda: "",
-        horarioVuelta: "",
+        fechaIda: "",
+        fechaVuelta: "",
     })
 
     const data = {

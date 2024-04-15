@@ -21,7 +21,7 @@ export default function Date({vueltaChecked, bgcolor}) {
       setInfoVuelo(
         {
           ...infoVuelo,
-          horarioIda: ida.format('YYYY-MM-DD')
+          fechaIda: ida.format('YYYY-MM-DD')
         }
       )
     },[ida]
@@ -32,7 +32,7 @@ export default function Date({vueltaChecked, bgcolor}) {
         setInfoVuelo(
           {
             ...infoVuelo,
-            horarioIda: vuelta.format('YYYY-MM-DD')
+            fechaVuelta: vuelta.format('YYYY-MM-DD')
           }
         )}
     },[vuelta]
