@@ -6,7 +6,7 @@ const RowSeat =({rowNumber, seatColumns})=>{
 
 
   return(
-    <Box display='flex' justifyContent='space-around' paddingY='8px'>
+    <Box display='flex' justifyContent='space-evenly' paddingY='8px'>
       {seatColumns.map((seatColumn) => <PlaneSeat key={seatColumn+rowNumber} seatNumber={seatColumn+rowNumber} />)}
     </Box>
   );

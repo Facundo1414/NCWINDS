@@ -8,16 +8,16 @@ export const Seat =()=>{
 
   return(
     <Grid container component={'div'} marginY='3rem' padding='1rem' color='black'>
-      <Grid item border={'1px solid black'} xs={3}>
+      <Grid item border={'1px solid black'} xs={12} md={3}>
         <SearchBar />
       </Grid>
 
-      <Grid item border={'1px solid black'} xs={6}>
+      <Grid item border={'1px solid black'} xs={12} md={6}>
         <Plane />
 
       </Grid>
 
-      <Grid item border={'1px solid black'} xs={3}>
+      <Grid item border={'1px solid black'} xs={12} md={3}>
 
       </Grid>
     </Grid>
