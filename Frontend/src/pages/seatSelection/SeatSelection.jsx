@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Grid } from '@mui/material'
-import "./SeatSelection.css"
-import SelectFlight from '../../components/molecules/selectFligth/SelectFlight'
-import { Plane } from '../../components/organisms/plane/Plane';
-import { SeatList } from '../../components/organisms/seatsList/SeatsList';
+import React, { useState } from "react";
+import { Grid } from "@mui/material";
+import "./SeatSelection.css";
+import SelectFlight from "../../components/molecules/selectFligth/SelectFlight";
+import { Plane } from "../../components/organisms/plane/Plane";
+import FligthInfo from "../../components/organisms/flightInfo/FligthInfo";import { SeatList } from '../../components/organisms/seatsList/SeatsList';
 
 
 export default function SeatSelection() {
