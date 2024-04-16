@@ -64,12 +64,12 @@ public class ViajesServices implements  ViajesServicesImp{
    }
 
     @Override
-    public List<Viajes> findByOriginAndDestinyAndDateOfOrigin(String origin, String destiny, LocalDateTime dateOfOrigin){
+    public List<Viajes> findByOriginAndDestinyAndDateOfOrigin(String origin, String destiny, String dateOfOrigin){
         return viajesRepository.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin);
     }
 
     @Override
-    public List<Viajes> findByOriginAndDestinyAndDateOfDestiny(String origin, String destiny, LocalDateTime DateOfDestiny) {
+    public List<Viajes> findByOriginAndDestinyAndDateOfDestiny(String origin, String destiny, String DateOfDestiny) {
         return this.viajesRepository.findByOriginAndDestinyAndDateOfDestiny(origin,destiny,DateOfDestiny);
     }
 

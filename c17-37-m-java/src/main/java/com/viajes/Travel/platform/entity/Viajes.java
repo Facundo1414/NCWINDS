@@ -29,19 +29,25 @@ public class Viajes {
  private Integer id;
 
  @NotEmpty
-    private String origin;
+ private String origin;
 
-    @NotEmpty
-    private String destiny;
-
- @NotNull
-    private Double price;
+ @NotEmpty
+ private String destiny;
 
  @NotNull
-    private LocalDateTime dateOfOrigin;
+ private Double price;
 
- @NotNull
- private LocalDateTime dateOfDestiny;
+ @NotEmpty
+ private String dateOfOrigin;
+
+ @NotEmpty
+ private String dateOfDestiny;
+
+ @NotEmpty
+private String departureTime;
+
+ @NotEmpty
+ private String arrivalTime;
 
  @NotNull
  private Integer scaleNumbers;
@@ -49,7 +55,7 @@ public class Viajes {
  @NotBlank
  private String description;
 
- @NotNull
+ @NotEmpty
  private String duration;
 
 

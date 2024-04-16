@@ -60,16 +60,16 @@ public class ViajesController {
 
     @GetMapping("/originAndDestinyAndDateOfOrigin/{origin}/{destiny}/{dateOfOrigin}")
     public ResponseEntity<?>findByOriginAndDestinyAndDateOfOrigin
-            (@PathVariable String origin, @PathVariable String destiny, @PathVariable LocalDateTime dateOfOrigin){
+            (@PathVariable String origin, @PathVariable String destiny, @PathVariable String dateOfOrigin){
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestinyAndDateOfOrigin(origin, destiny, dateOfOrigin));
     }
 
-@GetMapping("/findByOriginAndDestinyAndDateOfDestiny/{origin}/{destinty}/{DateOfDestiny}")
+@GetMapping("/findByOriginAndDestinyAndDateOfDestiny/{origin}/{destiny}/{DateOfDestiny}")
 
-public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @PathVariable String destinty, @PathVariable LocalDateTime DateOfDestiny){
+public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @PathVariable String destiny, @PathVariable String DateOfDestiny){
 
 
-        return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfDestiny(origin,destinty,DateOfDestiny));
+        return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfDestiny(origin,destiny,DateOfDestiny));
 }
 
 
