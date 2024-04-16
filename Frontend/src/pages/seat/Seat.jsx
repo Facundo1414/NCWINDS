@@ -23,3 +23,5 @@ export const Seat =()=>{
     </Grid>
   );
 }
+
+export default Seat;
