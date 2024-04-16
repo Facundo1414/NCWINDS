@@ -2,7 +2,7 @@
     display: flex;
     margin: 0 !important;
     width: 100%;
-    height: 10%;
+    height: 70px;
     background-color: white ;
     position: fixed;
     margin-top: -20px !important;
@@ -35,10 +35,23 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    width: 40%;
+    width: 50%;
     height: 0.5%;
-position: fixed;
-    background-color: firebrick;
-    transform: translate(-63%,1350%);
+   position:fixed;
+    background-color: #FFB500;
+    transform: translate(-50%,46px);
     border-radius: 2px;
+    transition: transform 0.7s ease;
+}
+.slider-unselected{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 50%;
+    height: 0.5%;
+    position:fixed;
+    background-color: #FFB500;
+    transform: translate(50%,46px);
+    border-radius: 2px;
+    transition: transform 0.7s ease;
 }
