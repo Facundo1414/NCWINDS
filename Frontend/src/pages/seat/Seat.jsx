@@ -1,10 +1,10 @@
 import React from 'react';
-import { Grid, Box, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import SearchBar from '../../components/molecules/searchBar/SearchBar';
 import { Plane } from '../../components/organisms/plane/Plane';
 
 
-export const Seat =()=>{
+const Seat =()=>{
 
   return(
     <Grid container component={'div'} marginY='3rem' padding='1rem' color='black'>

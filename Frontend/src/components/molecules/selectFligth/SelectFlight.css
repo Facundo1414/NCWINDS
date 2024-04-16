@@ -7,6 +7,7 @@
     position: fixed;
     margin-top: -20px !important;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    color: black;
 }
 .container-outbound{
     display: flex;

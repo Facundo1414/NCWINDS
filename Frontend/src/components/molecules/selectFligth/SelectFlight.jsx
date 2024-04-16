@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./SelectFlight.css";
-export default function SelectFlight() {
+
+
+const SelectFlight =()=>{
   const [inBoundSelected, setInBoundSelected] = useState(false);
   const [outBoundSelected, setOutBoundSelected] = useState(true);
 
@@ -26,9 +28,11 @@ export default function SelectFlight() {
           Sao paulo a Madrid
         </div>
       </div>
-      <div
-        className={outBoundSelected ? "slider-selection" : "slider-unselected"}
-      ></div>
+      <div className={outBoundSelected ? "slider-selection" : "slider-unselected"}>
+  
+      </div>
     </>
   );
 }
+
+export default SelectFlight;
