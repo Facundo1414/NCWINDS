@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Box, Grid} from '@mui/material'; 
 import FlightCard from "../../components/molecules/flightCard/FlightCard";
 import Search_topCards from '../../components/organisms/Search_topCards/Search_topCards'
@@ -7,6 +7,7 @@ import Skeleton from '@mui/material/Skeleton';
 import { useEffect } from "react";
 import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
 import jsonFlights from '../../utils/flightCard/flightCard.json';
+import { ViajesContext } from "../../context/ViajesContextProvider";
 
 export const Search =()=>{
 
@@ -38,6 +39,9 @@ export const Search =()=>{
 
   // end of loading skeleton section 
   }
+
+  const {infoVuelo} = useContext(ViajesContext)
+
 
   return(
     <Grid container sx={{width:'95%'}}>
