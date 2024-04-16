@@ -23,6 +23,7 @@ export default function SeatSelection() {
         <Grid container component={'div'} marginY='3rem' padding='1rem' color='black'>
           <Grid item xs={12} md={3}>
             {/* Flight details should be in this column */}
+            <FligthInfo/>
           </Grid>
 
           <Grid item xs={12} md={6}>
