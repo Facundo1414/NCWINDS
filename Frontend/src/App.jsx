@@ -8,6 +8,7 @@ import Login from './pages/login/Login'
 import SignUp from './pages/login/SignUp'
 import ViajesContextProvider from './context/ViajesContextProvider'
 import Payment from './pages/payment/Payment'
+import SeatSelection from './pages/seatSelection/SeatSelection'
 
 function App() {
   const location= useLocation();
@@ -25,6 +26,7 @@ function App() {
             <Route path='/login' element={<Login/>}></Route>  
             <Route path='/signUp' element={<SignUp/>}></Route>  
             <Route path='/payment' element={<Payment/>}></Route>  
+            <Route path='/seatSelection' element={<SeatSelection/>}></Route>  
           </Routes>
           <Footer/>
         </ViajesContextProvider>
