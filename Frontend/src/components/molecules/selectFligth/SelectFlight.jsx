@@ -35,4 +35,4 @@ const SelectFlight =()=>{
   );
 }
 
-export default SelectFlight;
+export { SelectFlight };

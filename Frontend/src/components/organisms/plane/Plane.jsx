@@ -3,13 +3,14 @@ import { Grid, Box, Typography } from '@mui/material';
 import { RowSeat } from "../../molecules/rowSeats/RowSeats";
 import { RowExit } from "../../molecules/rowExist/RowExit";
 
+
 const Plane = () => {
   const seatColumns = ['A', 'B', 'C', 'D', 'E', 'F'];
   const seatRows = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 
   return (
-    <Box margin='1.5rem 2rem' paddingY='2rem' sx={{backgroundColor: 'white'}} boxShadow='3' borderRadius='12px'>
+    <Box paddingY='2rem' sx={{backgroundColor: 'white'}} boxShadow='3' borderRadius='12px'>
       <Box padding='1rem'>
         <Typography variant='h4' color='black' align='center'>Boing 737</Typography>
       </Box>

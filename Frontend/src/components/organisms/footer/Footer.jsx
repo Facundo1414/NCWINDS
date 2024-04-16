@@ -4,6 +4,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import XIcon from '@mui/icons-material/X';
 
+
 const Footer = () => {
 
   return (
@@ -71,4 +72,4 @@ const Footer = () => {
   )
 }
 
-export default Footer
+export { Footer };

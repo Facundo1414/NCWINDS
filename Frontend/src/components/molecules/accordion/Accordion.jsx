@@ -1,13 +1,10 @@
-import * as React from "react";
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
+import React, { useContext } from "react";
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { useContext } from "react";
-import {ViajesContext} from '../../../context/ViajesContextProvider'
+import { ViajesContext } from '../../../context/ViajesContextProvider'
 
-export default function ControlledAccordions() {
+
+const ControlledAccordions =()=>{
   const [expanded, setExpanded] = React.useState(false);
 
   const handleChange = (panel) => (event, isExpanded) => {
@@ -95,3 +92,5 @@ export default function ControlledAccordions() {
     </div>
   );
 }
+
+export { ControlledAccordions };

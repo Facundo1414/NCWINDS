@@ -117,4 +117,4 @@ const FlightDetails = () => {
   );
 };
 
-export default FlightDetails;
+export { FlightDetails };

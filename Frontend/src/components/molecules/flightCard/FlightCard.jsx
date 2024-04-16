@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography, Divider, Hidden, Link } from '@mui/material';
 import CircleIcon from '@mui/icons-material/Circle';
-import AtomButton from '../../atoms/atomButton/AtomButton';
+import { AtomButton }from '../../atoms/atomButton/AtomButton';
 
 //Falta definir el path de cada card
 
@@ -83,4 +83,4 @@ const FlightCard =({props})=>{
   );
 }
 
-export default FlightCard;
+export { FlightCard };

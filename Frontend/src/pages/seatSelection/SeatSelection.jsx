@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
-import "./SeatSelection.css";
-import SelectFlight from "../../components/molecules/selectFligth/SelectFlight";
+import { SelectFlight } from "../../components/molecules/selectFligth/SelectFlight";
 import { Plane } from "../../components/organisms/plane/Plane";
-import FligthInfo from "../../components/organisms/flightInfo/FligthInfo";import { SeatList } from '../../components/organisms/seatsList/SeatsList';
+import { FligthInfo } from "../../components/organisms/flightInfo/FligthInfo";
+import { SeatList } from '../../components/organisms/seatsList/SeatsList';
+import "./SeatSelection.css";
 
 
-export default function SeatSelection() {
+const SeatSelection =()=>{
   const [selectedSeats, setSelectedSeats] = useState([
     {id: 2, seatNumber: 'A2', seatPrice: '1250000'},
     {id: 10, seatNumber: 'D1', seatPrice: '1250000'},
@@ -17,20 +18,19 @@ export default function SeatSelection() {
 
   return (
     <div>
-      <Grid container justifyContent={"space-evenly"} >
+      <Grid container justifyContent={"space-evenly"}>
         <SelectFlight/>
 
         <Grid container component={'div'} marginY='3rem' padding='1rem' color='black'>
-          <Grid item xs={12} md={3}>
-            {/* Flight details should be in this column */}
+          <Grid item xs={12} md={3} marginY='1rem'>
             <FligthInfo/>
           </Grid>
 
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} md={6} paddingX='1rem' marginY='1rem'>
             <Plane />
           </Grid>
 
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} marginY='1rem'>
             <SeatList selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
         </Grid>
@@ -38,3 +38,5 @@ export default function SeatSelection() {
     </div>
   )
 }
+
+export default SeatSelection;

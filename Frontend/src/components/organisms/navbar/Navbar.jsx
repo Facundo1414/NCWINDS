@@ -13,6 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
 
+
 const Navbar = (currentPage) => {
   const [anchorNav, setAnchorNav] = useState(null);
 
@@ -135,4 +136,4 @@ const Navbar = (currentPage) => {
   );
 };
 
-export default Navbar;
+export { Navbar };

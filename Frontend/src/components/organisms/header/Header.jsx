@@ -1,6 +1,7 @@
 import React from "react";
+import { SearchBar } from "../../molecules/searchBar/SearchBar";
 import "./header.css";
-import SearchBar from "../../molecules/searchBar/SearchBar";
+
 
 const Header = () => {
   return (
@@ -21,4 +22,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export { Header };
