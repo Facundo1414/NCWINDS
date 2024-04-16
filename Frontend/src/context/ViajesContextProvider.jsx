@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import { createContext } from 'react'
+import React, { useState, createContext } from 'react'
 
 
 export const ViajesContext = createContext()
@@ -43,6 +42,4 @@ const ViajesContextProvider = ({children}) => {
 }
 
 
-
-
-export default ViajesContextProvider
+export { ViajesContextProvider };

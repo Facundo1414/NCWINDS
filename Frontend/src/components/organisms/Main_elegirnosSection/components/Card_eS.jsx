@@ -1,6 +1,6 @@
 import React from 'react'
+import { Paper } from '@mui/material';
 import data from './cards_data.json'
-import Paper from '@mui/material/Paper';
 import "./Card_eS.css"
 //Esta card se encarga de renderizar la informacion de la seccion: "Por que elegirnos?"
 // Se necesitan 3 Cards que seran renderizadas con este componente
@@ -23,7 +23,4 @@ const Card_eS = () => {
   )
 }
 
-
-
-export default Card_eS
-
+export { Card_eS };

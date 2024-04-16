@@ -11,7 +11,7 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
 
 
   return(
-    <Box borderRadius='12px' marginY='1.5rem' padding='20px 10px' sx={{backgroundColor: 'white'}} boxShadow='3'>
+    <Box borderRadius='12px' padding='20px 10px' sx={{backgroundColor: 'white'}} boxShadow='3'>
       <Box>
         <Typography variant="h5">Pasajeros</Typography>
       </Box>

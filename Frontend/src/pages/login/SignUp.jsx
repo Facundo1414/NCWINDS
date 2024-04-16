@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginPage, { Input } from '@react-login-page/page7';
 import './Login.css';
-import { Link } from 'react-router-dom';
+
 
 const SignUp = () => {
     return (

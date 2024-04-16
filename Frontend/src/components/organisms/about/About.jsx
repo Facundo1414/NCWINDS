@@ -1,6 +1,6 @@
 import React from "react";
-import { CustomCanvas } from '../../atoms/customCanvas/CustomCanvas';
 import { Box, Grid, Typography } from "@mui/material";
+import { CustomCanvas } from '../../atoms/customCanvas/CustomCanvas';
 
 
 const About =()=>{
@@ -30,4 +30,4 @@ const About =()=>{
   );
 }
 
-export default About
+export { About };

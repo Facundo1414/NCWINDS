@@ -1,5 +1,5 @@
 import React from 'react'
-import Paper from '@mui/material/Paper';
+import { Paper } from '@mui/material';
 import "./Card_Search.css"
 
 const Card_Search = ({tipo,precio, horas}) => {
@@ -12,4 +12,4 @@ const Card_Search = ({tipo,precio, horas}) => {
   )
 }
 
-export default Card_Search
+export { Card_Search };

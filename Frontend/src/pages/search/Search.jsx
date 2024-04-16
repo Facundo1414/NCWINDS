@@ -1,13 +1,12 @@
-import React, { useContext, useState } from "react";
-import { Box, Grid} from '@mui/material'; 
-import FlightCard from "../../components/molecules/flightCard/FlightCard";
-import Search_topCards from '../../components/organisms/Search_topCards/Search_topCards'
-import SearchBar from '../../components/molecules/searchBar/SearchBar'
-import Skeleton from '@mui/material/Skeleton';
-import { useEffect } from "react";
-import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
-import jsonFlights from '../../utils/flightCard/flightCard.json';
+import React, { useContext, useState, useEffect } from "react";
+import { Box, Grid, Skeleton} from '@mui/material'; 
+import { FlightCard } from "../../components/molecules/flightCard/FlightCard";
+import { Search_topCards } from '../../components/organisms/Search_topCards/Search_topCards'
+import { SearchBar } from '../../components/molecules/searchBar/SearchBar'
+import { FlightDetails } from '../../components/organisms/flightDetails/FlightDetails';
 import { ViajesContext } from "../../context/ViajesContextProvider";
+import jsonFlights from '../../utils/flightCard/flightCard.json';
+
 
 const Search =()=>{
 

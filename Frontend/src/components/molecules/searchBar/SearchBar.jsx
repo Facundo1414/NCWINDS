@@ -1,13 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import UbicacionInput from '../../atoms/ubicationInput/UbicationInput';
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import Date from '../date/Date';
-import AtomButton from '../../atoms/atomButton/AtomButton';
-import "./Search.css"
+import { Radio, RadioGroup, FormControlLabel, FormControl }from '@mui/material';
+import { UbicacionInput } from '../../atoms/ubicationInput/UbicationInput';
+import { Date } from '../date/Date';
+import { AtomButton } from '../../atoms/atomButton/AtomButton';
 import { ViajesContext } from '../../../context/ViajesContextProvider';
+import "./Search.css"
+
 
 const SearchBar = ({translateStyle, searchStyles}) => {
     const [tipoViaje, setTipoViaje] = useState(false);
@@ -102,4 +100,4 @@ const SearchBar = ({translateStyle, searchStyles}) => {
     );
 };
 
-export default SearchBar;
+export { SearchBar };
