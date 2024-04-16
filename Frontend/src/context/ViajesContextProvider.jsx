@@ -14,9 +14,25 @@ const ViajesContextProvider = ({children}) => {
         fechaVuelta: "",
     })
 
+    const [vueloSeleccionado, setVueloSeleccionado] = useState({
+        id: "",
+        origin: "",
+        destiny: "",
+        price: 0,
+        dateOfOrigin: "",
+        dateOfDestiny: "",
+        departureTime: "",
+        arrivalTime: "",
+        scaleNumbers: 0,
+        description: "",
+        duration: ""
+    })
+
     const data = {
         infoVuelo,
-        setInfoVuelo
+        setInfoVuelo,
+        vueloSeleccionado,
+        setVueloSeleccionado
     }
 
     return   (
