@@ -10,19 +10,28 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/reserva")
 public class ReservaController {
-    
     @Autowired
-    private ReservaService reservaService;
-    
+   private ReservaService reservaService;
+
+
+
+    @GetMapping
+
+    public ResponseEntity<?>listar(){
+
+        return ResponseEntity.status(HttpStatus.OK).body(this.reservaService.listar());
+    }
+
+
     @PostMapping()
     public ResponseEntity<Reserva> crearReserva(@RequestBody Reserva res) {
-        reservaService.guardarReserva(res);
+      reservaService.guardar(res);
         return ResponseEntity.status(HttpStatus.CREATED).body(res);
     }
     
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> borrarReserva(@PathVariable("id") Integer id) {
-        reservaService.eliminarReserva(id);
+        this.reservaService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
 }
