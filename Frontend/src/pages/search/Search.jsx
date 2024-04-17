@@ -13,38 +13,28 @@ const Search =()=>{
 
   // loading skeleton section 
   const [loading, setLoading] = useState(true);
-  const {infoVuelo, setVueloSeleccionado} = useContext(ViajesContext)
+  const {infoVuelo, setVueloSeleccionado} = useContext(ViajesContext) // esto deberia ir en cada CARD 
   const [vuelosFetch, setVuelosFetch] = useState([])
-  const datafalse = {
-    origen: "Brasil",
-    destino: "Italia",
-    fechaIda: "2024-06-01"
-  }
-  const endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${datafalse.origen}/${datafalse.destino}/${datafalse.fechaIda}`
-  
-  
+  const endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+    
   useEffect(() => {
-    const response = fetch(endPoint)
-    .then((data) => data.json())
-    .then((jsonData) => {
-      setVuelosFetch(jsonData)
-      setLoading(false)
-    })
-    .catch((error) => {
-      console.error('Hubo un error en la solicitud:', error);
-    });
-      
-    // esta parte es de prueba. Cuando tengamos los endpoints se borra!
-    // const temporizador = setTimeout(() => {
-    //   console.log('Han pasado 4 segundos');
-    //   setLoading(false)
-    //   console.log(vuelosFetch);
-    // }, 3000); 
-    // return () => clearTimeout(temporizador);
-    // end of test section
-  },[])
+    const fetchData = async () => {
+      try {
+        const response = await fetch(endPoint);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        setVuelosFetch(jsonData);
+        setLoading(false);
+      } catch (error) {
+        console.error('Hubo un error en la solicitud:', error); // si no se muestra: informar al usuario
+        setLoading(false);
+      }
+    };
 
-  
+    fetchData();
+  }, [endPoint]);
 
   // end of loading skeleton section 
   
