@@ -32,3 +32,22 @@ VALUES
     ('Viaje a San Marino', 'San Marino', 3200, '2026-09-15', '2026-09-13', 'Estados Unidos', '18 horas', 1, '16:30:00', '10:30:00'),
     ('Viaje a Serbia', 'Serbia', 2500, '2026-10-10', '2026-10-08', 'Brasil', '14 horas', 1, '14:15:00', '10:15:00');
 
+
+
+INSERT INTO `variables_globales` (`id`, `nombre`, `valor`) VALUES
+                                                               (1, 'Base URL', 'http://localhost:8080/'),
+                                                               (2, 'secreto jwt', '9a4f2c8d3b7a1e6f45c8a0b3f267d8b1d4e6f3c8a9d2b5f8e3a9c8b5f6v8a3d99a4f2c8d3b7a1e6f45c8a0b3f267d8b1d4e6f3c8a9d2b5f8e3a9c8b5f6v8a3d9');
+
+
+INSERT INTO `perfil` (`id`, `nombre`) VALUES
+                                          (1, 'Administrador'),
+                                          (2, 'Usuario');
+
+
+INSERT INTO `estados` (`id`, `Nombre`) VALUES
+                                           (1, 'Activo'),
+                                           (2, 'No activo');
+
+
+INSERT INTO `usuario` (`id`, `correo`, `fecha`, `nombre`, `password`, `token`, `perfil_id`, `estados_id`) VALUES
+    (1, 'info@tamila.cl', '2024-02-22 00:00:00.000000', 'Gustavo Martinez', '$2a$10$ynNqGs0slXH2OUzmqjR79u1P5lhkAtIS105f7Pl52T88UjXdlmTqS', NULL, 1, 1);
