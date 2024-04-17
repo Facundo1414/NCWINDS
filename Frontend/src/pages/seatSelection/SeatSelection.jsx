@@ -8,12 +8,7 @@ import "./SeatSelection.css";
 
 
 const SeatSelection =()=>{
-  const [selectedSeats, setSelectedSeats] = useState([
-    {id: 2, seatNumber: 'A2', seatPrice: '1250000'},
-    {id: 10, seatNumber: 'D1', seatPrice: '1250000'},
-    {id: 16, seatNumber: 'F5', seatPrice: '1250000'},
-    {id: 6, seatNumber: 'B6', seatPrice: '1250000'}
-  ]);
+  const [selectedSeats, setSelectedSeats] = useState([]);
 
 
   return (
@@ -27,7 +22,7 @@ const SeatSelection =()=>{
           </Grid>
 
           <Grid item xs={12} md={6} paddingX='1rem' marginY='1rem'>
-            <Plane />
+            <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
 
           <Grid item xs={12} md={3} marginY='1rem'>

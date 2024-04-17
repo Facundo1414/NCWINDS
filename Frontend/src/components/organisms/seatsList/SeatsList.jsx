@@ -5,8 +5,8 @@ import { SeatCard } from "../../molecules/seatCard/SeatCard";
 
 const SeatList =({ selectedSeats, setSelectedSeats })=>{
 
-  const deleteSeat = (id) => {
-    setSelectedSeats(selectedSeats.filter((seat) => seat.id !== id));
+  const deleteSeat = (seatNumber) => {
+    setSelectedSeats(selectedSeats.filter((seat) => seat.seatNumber !== seatNumber));
   };
 
 
@@ -18,7 +18,7 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
       <Box>
         {selectedSeats.map((value, index) =>{
           return <SeatCard key={index} passengerNumber={index+1} seatNumber={value.seatNumber} 
-                  seatPrice={value.seatPrice}  onDelete={()=> deleteSeat(value.id)}/>
+                  seatPrice={value.seatPrice}  onDelete={()=> deleteSeat(value.seatNumber)}/>
         })}
       </Box>
     </Box>
