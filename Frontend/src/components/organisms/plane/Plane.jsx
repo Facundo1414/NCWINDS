@@ -4,7 +4,7 @@ import { RowSeat } from "../../molecules/rowSeats/RowSeats";
 import { RowExit } from "../../molecules/rowExist/RowExit";
 
 
-const Plane = () => {
+const Plane = ({ selectedSeats,setSelectedSeats }) => {
   const seatColumns = ['A', 'B', 'C', 'D', 'E', 'F'];
   const seatRows = ['1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
@@ -22,7 +22,7 @@ const Plane = () => {
       {seatRows.map((rowNumber) => (
         <Grid container>
           <Grid item xs={5}>
-            <RowSeat rowNumber={rowNumber} seatColumns={seatColumns.slice(0, 3)} />
+            <RowSeat rowNumber={rowNumber} seatColumns={seatColumns.slice(0, 3)} selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
 
           <Grid item xs={2}>
@@ -32,7 +32,7 @@ const Plane = () => {
           </Grid>
 
           <Grid item xs={5}> 
-            <RowSeat rowNumber={rowNumber} seatColumns={seatColumns.slice(3)} />
+            <RowSeat rowNumber={rowNumber} seatColumns={seatColumns.slice(3)} selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
         </Grid>
       ))}
