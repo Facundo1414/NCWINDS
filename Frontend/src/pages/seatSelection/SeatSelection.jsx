@@ -9,6 +9,7 @@ import "./SeatSelection.css";
 
 const SeatSelection =()=>{
   const [selectedSeats, setSelectedSeats] = useState([]);
+  const [selectPlane, setSelectPlane] = useState(false);
 
 
   return (

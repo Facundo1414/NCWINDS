@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Tooltip, Button } from '@mui/material';
 import { HoverComponent } from '../../atoms/hoverComponent/HoverComponent';
 
+
 const PlaneSeat =({seatNumber, seatPrice, selectedSeats, setSelectedSeats})=>{
 
   const handleSeatClick =()=>{
