@@ -9,40 +9,24 @@ import { useEffect } from 'react';
 import { useContext } from 'react';
 import { ViajesContext } from '../../../context/ViajesContextProvider';
 
-export default function Date({vueltaChecked, bgcolor}) {
+export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelta}) {
     const today = dayjs();
     const [ida, setIda] = React.useState(dayjs(today));
     const [vuelta, setVuelta] = React.useState(dayjs(today));
 
-    // inicio del uso de useContext
-    const { infoVuelo, setInfoVuelo } = useContext(ViajesContext); // Obtén la función de actualización del contexto
-
-    useEffect( ()=>{
-      setInfoVuelo(
-        {
-          ...infoVuelo,
-          fechaIda: ida.format('MM-DD-YYYY')
-        }
+    // cuando se actualicen
+    useEffect(()=>{
+      setFechaIda(
+        ida.format('MM-DD-YYYY')
       )
-    },[ida]
-    )
-    
-    useEffect( ()=>{
-      if (!vueltaChecked) {
-        setInfoVuelo(
-          {
-            ...infoVuelo,
-            fechaVuelta: vuelta.format('MM-DD-YYYY')
-          }
-        )}
-    },[vuelta]
-    )
+      setFechaVuelta(
+        vuelta.format('MM-DD-YYYY')
+      )
+    },[ida,vuelta])
 
-    // end of uso de useContext
 
     return (
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        {/* Modificable */}
         <DemoContainer components={['DatePicker', 'DatePicker']} sx={{ bgcolor: bgcolor }}> 
           <div className="date-pickers-container">
             <DatePicker

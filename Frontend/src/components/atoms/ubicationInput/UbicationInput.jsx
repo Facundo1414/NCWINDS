@@ -36,9 +36,14 @@ const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
       }
     })
 
-  useEffect(()=>{
-    //obteniendo valor del input 
-  },[value])
+    // enviar info del veulo para guardarla en el use Context
+    useEffect(() => {
+      if (value !== null) {
+        setValueVuelo(String(value.option));
+      }
+    }, [value]);
+    
+    //
 
     const options = originAndDestiny?.map((option) => {
       
@@ -53,11 +58,7 @@ const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
   // end of renderizar datos    
 
 
-  // enviar info del veulo para guardarla en el use Context
-  useEffect(()=>{
-    setValueVuelo(value)
-  },[value])
-  //
+
 
     return (
         <Autocomplete
@@ -67,7 +68,6 @@ const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
           options={options?.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
           groupBy={(option) => option.firstLetter}
           getOptionLabel={(option) => option.option}
-          // Modificable
           sx={{ width: 280, bgcolor: bgcolor }} 
           renderInput={(params) => <TextField {...params} label= {label}/>}
         />

@@ -13,10 +13,12 @@ const Search =()=>{
 
   // loading skeleton section 
   const [loading, setLoading] = useState(true);
-  const {infoVuelo, setVueloSeleccionado} = useContext(ViajesContext) // esto deberia ir en cada CARD 
+  const {infoVuelo, setVueloSeleccionado} = useContext(ViajesContext) //TODO esto deberia ir en cada CARD 
+  console.log(infoVuelo);
   const [vuelosFetch, setVuelosFetch] = useState([])
   const endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
     
+  //TODO usar el apiService
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +30,7 @@ const Search =()=>{
         setVuelosFetch(jsonData);
         setLoading(false);
       } catch (error) {
-        console.error('Hubo un error en la solicitud:', error); // si no se muestra: informar al usuario
+        console.error('Hubo un error en la solicitud:', error); //TODO si no se muestra: informar al usuario
         setLoading(false);
       }
     };
