@@ -1,9 +1,11 @@
+import React from "react";
 import { Typography } from "@mui/material";
+import { Carousel } from "../carousel/Carousel";
+import dataDestinations from "../../../utils/destinations/destinations.json"
 import "./Destinations.css";
 
-import dataDestinations from "../../../utils/destinations/destinations.json"
-import Carousel from "../carousel/Carousel";
-export default function Destinations() {
+
+const Destinations =()=>{
     
   return (
     <div className="container-destinations-principal">
@@ -17,3 +19,5 @@ export default function Destinations() {
     </div>
   );
 }
+
+export { Destinations };

@@ -74,4 +74,4 @@ const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
     )
 }
 
-export default UbicacionInput
+export { UbicacionInput };

@@ -39,4 +39,4 @@ const SelectFlight =({setSelectPlane})=>{
   );
 }
 
-export default SelectFlight;
+export { SelectFlight };

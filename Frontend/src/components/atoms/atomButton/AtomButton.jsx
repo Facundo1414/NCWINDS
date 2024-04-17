@@ -9,4 +9,4 @@ const AtomButton =({buttonStyles, variant, inputText})=>{
   );
 }
 
-export default AtomButton;
+export { AtomButton };

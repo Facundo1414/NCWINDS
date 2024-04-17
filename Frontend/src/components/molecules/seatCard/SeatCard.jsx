@@ -1,5 +1,5 @@
-import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import React from "react";
+import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 
 
 const SeatCard =({ seatNumber, seatPrice, passengerNumber, onDelete })=>{

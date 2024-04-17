@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from '@mui/material';
-import PlaneSeat from "../../atoms/planeSeat/PlaneSeat";
+import { PlaneSeat } from "../../atoms/planeSeat/PlaneSeat";
 
 const RowSeat =({rowNumber, seatColumns})=>{
 

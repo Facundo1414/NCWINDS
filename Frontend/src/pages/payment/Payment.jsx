@@ -1,6 +1,6 @@
-import { Button, Grid } from '@mui/material'
 import React from 'react'
-import Title from '../../components/atoms/title/Title'
+import { Grid } from '@mui/material'
+
 
 const Payment = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
+import { Typography, Tooltip, Button } from '@mui/material';
 import { HoverComponent } from '../../atoms/hoverComponent/HoverComponent';
-import { Box, Typography, Tooltip, Button } from '@mui/material';
 
 const PlaneSeat =({seatNumber, price})=>{
 
@@ -13,4 +13,4 @@ const PlaneSeat =({seatNumber, price})=>{
   );
 }
 
-export default PlaneSeat;
+export { PlaneSeat };

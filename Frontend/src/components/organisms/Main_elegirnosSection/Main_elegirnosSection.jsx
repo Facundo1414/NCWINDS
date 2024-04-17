@@ -1,7 +1,7 @@
 import React from 'react'
-import Card_eS from './components/Card_eS'
+import { Box } from '@mui/material';
+import { Card_eS } from './components/Card_eS'
 import './Main_elegirnosSection.css'
-import Box from '@mui/material/Box';
 
 const Main_elegirnosSection = () => {
   return (
@@ -19,4 +19,4 @@ const Main_elegirnosSection = () => {
   )
 }
 
-export default Main_elegirnosSection
+export { Main_elegirnosSection };

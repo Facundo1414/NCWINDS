@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
-import SearchBar from '../../components/molecules/searchBar/SearchBar';
+import { SearchBar } from '../../components/molecules/searchBar/SearchBar';
 import { Plane } from '../../components/organisms/plane/Plane';
 
 

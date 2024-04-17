@@ -1,7 +1,8 @@
-
+import { Title } from "../../atoms/title/Title.jsx";
 import "./Card.css";
-import Title from "../../atoms/title/Title.jsx";
-export default function Card(props) {
+
+
+const Card =(props)=>{
   // eslint-disable-next-line react/prop-types
   const { imagen, ciudad, pais } = props;
   
@@ -12,3 +13,5 @@ export default function Card(props) {
     </div>
   );
 }
+
+export { Card };
