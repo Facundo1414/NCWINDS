@@ -14,4 +14,4 @@ const Search_topCards = () => {
   )
 }
 
-export { Search_topCards };
+export default Search_topCards;

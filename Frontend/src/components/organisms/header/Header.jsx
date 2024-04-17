@@ -1,5 +1,5 @@
 import React from "react";
-import { SearchBar } from "../../molecules/searchBar/SearchBar";
+import SearchBar  from "../../molecules/searchBar/SearchBar";
 import "./header.css";
 
 

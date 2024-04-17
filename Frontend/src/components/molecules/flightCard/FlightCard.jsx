@@ -83,4 +83,4 @@ const FlightCard =({props})=>{
   );
 }
 
-export { FlightCard };
+export default FlightCard;

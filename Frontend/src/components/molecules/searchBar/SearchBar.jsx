@@ -103,4 +103,4 @@ const SearchBar = ({translateStyle, searchStyles}) => {
     );
 };
 
-export { SearchBar };
+export default SearchBar ;
