@@ -59,6 +59,8 @@ const SearchBar = ({translateStyle, searchStyles}) => {
   }
   // end of Buscar
 
+  //TODO : las fechas deberian ser menos estrictas y los input deberian ser estrictamentes requeridos
+
     return (
         <div className={`search-bar-container ${translateStyle? "search-bar-containerTransform" : ""}`} style={{backgroundColor: bgcolorContainer}}>
             <div className='input-viaje-container'>
