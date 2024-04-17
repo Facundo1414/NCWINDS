@@ -89,6 +89,7 @@ const SearchBar = ({translateStyle, searchStyles}) => {
                             alignContent: "center",
                             textAlign: "center"
                         }}
+                        
                     />
                 </div>
             </div>
