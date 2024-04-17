@@ -1,13 +1,12 @@
-import * as React from 'react';
+import React, { useContext, useEffect } from 'react';
 import dayjs from 'dayjs';
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import "./Date.css"
-import { useEffect } from 'react';
-import { useContext } from 'react';
 import { ViajesContext } from '../../../context/ViajesContextProvider';
+import "./Date.css"
+
 
 export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelta}) {
     const today = dayjs();
@@ -45,3 +44,5 @@ export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelt
       </LocalizationProvider>
     );
 }
+
+export { Date };

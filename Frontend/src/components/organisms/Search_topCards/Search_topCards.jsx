@@ -1,7 +1,6 @@
-import React from 'react'
-import Card_Search from './Card_Search'
-import './Search_topCards.css'
-
+import React from 'react';
+import { Card_Search } from './Card_Search';
+import './Search_topCards.css';
 
 
 const Search_topCards = () => {
@@ -15,4 +14,4 @@ const Search_topCards = () => {
   )
 }
 
-export default Search_topCards
+export { Search_topCards };

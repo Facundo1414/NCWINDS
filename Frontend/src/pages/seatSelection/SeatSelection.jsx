@@ -1,36 +1,38 @@
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
-import "./SeatSelection.css";
-import SelectFlight from "../../components/molecules/selectFligth/SelectFlight";
+import { SelectFlight } from "../../components/molecules/selectFligth/SelectFlight";
 import { Plane } from "../../components/organisms/plane/Plane";
-import FligthInfo from "../../components/organisms/flightInfo/FligthInfo";import { SeatList } from '../../components/organisms/seatsList/SeatsList';
+import { FligthInfo } from "../../components/organisms/flightInfo/FligthInfo";
+import { SeatList } from '../../components/organisms/seatsList/SeatsList';
+import "./SeatSelection.css";
 
 
-export default function SeatSelection() {
-  const [selectedSeats, setSelectedSeats] = useState([
-    {id: 2, seatNumber: 'A2', seatPrice: '1250000'},
-    {id: 10, seatNumber: 'D1', seatPrice: '1250000'},
-    {id: 16, seatNumber: 'F5', seatPrice: '1250000'},
-    {id: 6, seatNumber: 'B6', seatPrice: '1250000'}
-  ]);
+const SeatSelection =()=>{
+  const [selectedSeats, setSelectedSeats] = useState([]);
+  const [selectPlane, setSelectPlane] = useState(false);
 
 
   return (
     <div>
-      <Grid container justifyContent={"space-evenly"} >
-        <SelectFlight/>
+      <Grid container justifyContent={"space-evenly"}>
+        <SelectFlight setSelectPlane={setSelectPlane}/>
 
         <Grid container component={'div'} marginY='3rem' padding='1rem' color='black'>
-          <Grid item xs={12} md={3}>
-            {/* Flight details should be in this column */}
+          <Grid item xs={12} md={3} marginY='1rem'>
             <FligthInfo/>
           </Grid>
 
-          <Grid item xs={12} md={6}>
-            <Plane />
+          <Grid item xs={12} md={6} paddingX='1rem' marginY='1rem'>
+          {/* {selectPlane?<div className="container-plane-in">
+            <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
+            </div>:<div className="container-plane-out">
+            <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
+             </div>} */}
+             <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
+        
 
-          <Grid item xs={12} md={3}>
+          <Grid item xs={12} md={3} marginY='1rem'>
             <SeatList selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
         </Grid>
@@ -38,3 +40,5 @@ export default function SeatSelection() {
     </div>
   )
 }
+
+export default SeatSelection;

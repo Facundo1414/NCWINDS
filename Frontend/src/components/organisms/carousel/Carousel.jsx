@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from 'react';
-import Card from '../../molecules/card/Card';
+import { Card } from '../../molecules/card/Card';
 import './Carousel.css';
+
+
 const Carousel = ({ images }) => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -55,4 +57,4 @@ const Carousel = ({ images }) => {
   );
 };
 
-export default Carousel;
+export { Carousel };

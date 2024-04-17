@@ -1,13 +1,21 @@
 import React from "react";
 import { Box } from '@mui/material';
-import PlaneSeat from "../../atoms/planeSeat/PlaneSeat";
+import { PlaneSeat } from "../../atoms/planeSeat/PlaneSeat";
 
-const RowSeat =({rowNumber, seatColumns})=>{
+const RowSeat =({rowNumber, seatColumns, selectedSeats, setSelectedSeats})=>{
 
 
   return(
     <Box display='flex' justifyContent='space-evenly' paddingY='8px'>
-      {seatColumns.map((seatColumn) => <PlaneSeat key={seatColumn+rowNumber} seatNumber={seatColumn+rowNumber} />)}
+      {seatColumns.map((seatColumn) => 
+        <PlaneSeat 
+          key={seatColumn+rowNumber}
+          seatNumber={seatColumn+rowNumber} 
+          selectedSeats={selectedSeats} 
+          setSelectedSeats={setSelectedSeats}
+          seatPrice={'1250000'}
+          />
+      )}
     </Box>
   );
 }

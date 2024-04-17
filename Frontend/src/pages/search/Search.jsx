@@ -8,6 +8,8 @@ import { useEffect } from "react";
 import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
 import jsonFlights from '../../utils/flightCard/flightCard.json';
 import { ViajesContext } from "../../context/ViajesContextProvider";
+import jsonFlights from '../../utils/flightCard/flightCard.json';
+
 
 const Search =()=>{
 
