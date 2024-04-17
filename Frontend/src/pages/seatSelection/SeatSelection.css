@@ -5,3 +5,27 @@
     height: 100%;
     width: 100%;
 }
+@keyframes entradaDesdeIzquierda {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+  @keyframes entradaDesdeDerecha {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0);
+    }
+  }
+.container-plane-out{
+    animation: entradaDesdeDerecha 0.5s ease-in-out;
+  
+}
+.container-plane-in{
+    animation: entradaDesdeIzquierda 0.5s ease-in-out;
+   
+}

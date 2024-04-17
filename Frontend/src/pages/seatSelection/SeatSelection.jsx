@@ -14,12 +14,12 @@ const SeatSelection =()=>{
     {id: 16, seatNumber: 'F5', seatPrice: '1250000'},
     {id: 6, seatNumber: 'B6', seatPrice: '1250000'}
   ]);
-
+  const [selectPlane, setSelectPlane] = useState(true);
 
   return (
     <div>
       <Grid container justifyContent={"space-evenly"}>
-        <SelectFlight/>
+        <SelectFlight setSelectPlane={setSelectPlane}/>
 
         <Grid container component={'div'} marginY='3rem' padding='1rem' color='black'>
           <Grid item xs={12} md={3} marginY='1rem'>
@@ -27,7 +27,13 @@ const SeatSelection =()=>{
           </Grid>
 
           <Grid item xs={12} md={6} paddingX='1rem' marginY='1rem'>
+
+          {selectPlane?<div className="container-plane-in">
             <Plane />
+            </div>:<div className="container-plane-out">
+            <Plane />
+             </div>}
+            
           </Grid>
 
           <Grid item xs={12} md={3} marginY='1rem'>
