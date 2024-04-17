@@ -16,8 +16,12 @@ const Search =()=>{
   const {infoVuelo, setVueloSeleccionado} = useContext(ViajesContext) //TODO esto deberia ir en cada CARD 
   console.log(infoVuelo);
   const [vuelosFetch, setVuelosFetch] = useState([])
-  const endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
-    
+  let endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+  
+  useEffect(()=>{
+    endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+  },[infoVuelo])
+
   //TODO usar el apiService
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +40,9 @@ const Search =()=>{
     };
 
     fetchData();
-  }, [endPoint]);
+    console.log(vuelosFetch);
+    console.log(endPoint);
+  }, [endPoint,infoVuelo]);
 
   // end of loading skeleton section 
   

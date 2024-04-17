@@ -1,10 +1,9 @@
-import React,{useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { fetchData } from '../../../services/apiService';
 
-
-const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
+const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
   const [value, setValue] = useState(null);
   const [data, setData] = useState(null);
 
@@ -26,52 +25,45 @@ const UbicacionInput = ({label, bgcolor , setValueVuelo}) => {
     obtenerDatos();
   }, []);
 
-    let originAndDestiny =[];
-     data?.map((travel)=>{
-      if(!originAndDestiny.includes(travel.origin)){
-        originAndDestiny.push(travel.origin)
-      }
-      if(!originAndDestiny.includes(travel.destiny)){
-        originAndDestiny.push(travel.destiny)
-      }
-    })
+  let originAndDestiny = [];
+  data?.map((travel) => {
+    if (!originAndDestiny.includes(travel.origin)) {
+      originAndDestiny.push(travel.origin);
+    }
+    if (!originAndDestiny.includes(travel.destiny)) {
+      originAndDestiny.push(travel.destiny);
+    }
+  });
 
-    // enviar info del veulo para guardarla en el use Context
-    useEffect(() => {
-      if (value !== null) {
-        setValueVuelo(String(value.option));
-      }
-    }, [value]);
-    
-    //
+  // enviar info del vuelo para guardarla en el use Context
+  useEffect(() => {
+    if (value !== null) {
+      setValueVuelo(String(value.option));
+    }
+  }, [value]);
 
-    const options = originAndDestiny?.map((option) => {
-      
-        const firstLetter = option[0].toUpperCase();
-        
-        return {
-          firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
-          option,
-        };
-      });
+  const options = originAndDestiny?.map((option) => {
+    const firstLetter = option[0].toUpperCase();
 
-  // end of renderizar datos    
+    return {
+      firstLetter: /[0-9]/.test(firstLetter) ? '0-9' : firstLetter,
+      option,
+    };
+  });
 
+  return (
+    <Autocomplete
+      value={value}
+      onChange={handleChange}
+      options={options?.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
+      groupBy={(option) => option.firstLetter}
+      getOptionLabel={(option) => option.option}
+      sx={{ width: 280, bgcolor: bgcolor }}
+      renderInput={(params) => (
+        <TextField {...params} label={label} />
+      )}
+    />
+  );
+};
 
-
-
-    return (
-        <Autocomplete
-          value={value}
-          id="grouped-demo"
-          onChange={handleChange}
-          options={options?.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
-          groupBy={(option) => option.firstLetter}
-          getOptionLabel={(option) => option.option}
-          sx={{ width: 280, bgcolor: bgcolor }} 
-          renderInput={(params) => <TextField {...params} label= {label}/>}
-        />
-    )
-}
-
-export { UbicacionInput };
+export default UbicacionInput;

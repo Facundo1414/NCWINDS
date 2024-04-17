@@ -16,10 +16,10 @@ export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelt
     // cuando se actualicen
     useEffect(()=>{
       setFechaIda(
-        ida.format('MM-DD-YYYY')
+        ida.format('YYYY-MM-DD')
       )
       setFechaVuelta(
-        vuelta.format('MM-DD-YYYY')
+        vuelta.format('YYYY-MM-DD')
       )
     },[ida,vuelta])
 
