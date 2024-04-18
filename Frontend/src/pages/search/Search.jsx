@@ -7,40 +7,50 @@ import Skeleton from '@mui/material/Skeleton';
 import { useEffect } from "react";
 import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
 import { ViajesContext } from "../../context/ViajesContextProvider";
+import { BackendGateWayContext } from "../../context/BackendGateWayContextProvider";
+import ErrorFetchVuelos from "../../components/molecules/errorFetchVuelos/ErrorFetchVuelos";
 
 const Search =()=>{
-
-  // loading skeleton section 
+  const {urlViajesController} = useContext(BackendGateWayContext)
   const [loading, setLoading] = useState(true);
   const {infoVuelo} = useContext(ViajesContext)
-  console.log(infoVuelo);
   const [vuelosFetch, setVuelosFetch] = useState([])
-  let endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+  let endPoint = `${urlViajesController}/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+  const [iferrorFetchVuelos, setIferrorFetchVuelos] = useState(false)
   
+
+  // cambiar endpoint si se cambian los datos de las busqeuda de vuelos
   useEffect(()=>{
-    endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+    if (infoVuelo.origen !== "" && infoVuelo.destino !== "" && infoVuelo.fechaIda !== "") {
+      endPoint = `${urlViajesController}/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+    }
+    else if(infoVuelo.origen !== "" && infoVuelo.destino !== "") {
+      endPoint = `${urlViajesController}/${infoVuelo.origen}/${infoVuelo.destino}`
+    }
   },[infoVuelo])
 
   //TODO usar el apiService
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(endPoint);
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+    if (infoVuelo.origen !== "" && infoVuelo.destino !== "") {
+      const fetchData = async () => {
+        try {
+          const response = await fetch(endPoint);
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          const jsonData = await response.json();
+          setVuelosFetch(jsonData);
+          setLoading(false);
+          setIferrorFetchVuelos(false);
+        } catch (error) {
+          console.error('Hubo un error en la solicitud:', error);
+          setIferrorFetchVuelos(true)
+          setLoading(false);
         }
-        const jsonData = await response.json();
-        setVuelosFetch(jsonData);
-        setLoading(false);
-      } catch (error) {
-        console.error('Hubo un error en la solicitud:', error); //TODO si no se muestra: informar al usuario
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-    console.log(vuelosFetch);
-    console.log(endPoint);
+      };
+  
+      fetchData();
+    }
   }, [endPoint,infoVuelo]);
 
   // end of loading skeleton section 
@@ -71,9 +81,17 @@ const Search =()=>{
         ) : 
         (
           <Box>
-            {vuelosFetch.map((flight)=>{
-              return <FlightCard key={flight.id} flight={flight}/>
-            })}
+            {iferrorFetchVuelos? 
+            (<ErrorFetchVuelos/>) 
+            : 
+            (
+            <Box>
+              {vuelosFetch.map((flight)=>{
+                return <FlightCard key={flight.id} flight={flight}/>
+              })}
+            </Box>
+            )
+            }
           </Box>
         )}
 
