@@ -8,12 +8,11 @@ import { useEffect } from "react";
 import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
 import { ViajesContext } from "../../context/ViajesContextProvider";
 
-
 const Search =()=>{
 
   // loading skeleton section 
   const [loading, setLoading] = useState(true);
-  const {infoVuelo, setVueloSeleccionado} = useContext(ViajesContext) //TODO esto deberia ir en cada CARD 
+  const {infoVuelo} = useContext(ViajesContext)
   console.log(infoVuelo);
   const [vuelosFetch, setVuelosFetch] = useState([])
   let endPoint = `http://localhost:8080/viajes/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
@@ -46,7 +45,6 @@ const Search =()=>{
 
   // end of loading skeleton section 
   
-
   return(
     <Grid container sx={{width:'95%'}}>
 
@@ -74,15 +72,7 @@ const Search =()=>{
         (
           <Box>
             {vuelosFetch.map((flight)=>{
-                let propsFightCard = {
-                  origen: flight.origin.split(','),
-                  destino: flight.destiny.split(','),
-                  horaSalida: flight.dateOfOrigin,
-                  horaLlegada: flight.dateOfDestiny,
-                  duracionVuelo: flight.duration,
-                  precio: flight.price
-                }
-              return <FlightCard key={flight.id} props={propsFightCard}/>
+              return <FlightCard key={flight.id} flight={flight}/>
             })}
           </Box>
         )}
