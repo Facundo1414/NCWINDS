@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Navbar } from './components/organisms/navbar/Navbar'
 import { Footer } from './components/organisms/footer/Footer'
 import { ViajesContextProvider } from './context/ViajesContextProvider'
+import { UsuarioProvider } from './context/usuario/UsuarioProvider'
 import Main from './pages/main/Main'
 import Search from './pages/search/Search'
 import Login from './pages/login/Login'
@@ -19,6 +20,7 @@ const App =()=>{
   },[location.pathname])
   return (
       <>
+      <UsuarioProvider>
         <ViajesContextProvider>
           <Navbar currentPage={currentPage}/>
           <Routes>
@@ -31,6 +33,7 @@ const App =()=>{
           </Routes>
           <Footer/>
         </ViajesContextProvider>
+      </UsuarioProvider>
       </>
   )
 }

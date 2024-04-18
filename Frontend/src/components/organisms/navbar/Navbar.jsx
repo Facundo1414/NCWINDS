@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useUsuario } from "../../../context/usuario/UsuarioProvider";
 import { Link } from "react-router-dom";
 import {
   Box,
@@ -12,6 +13,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
+import MenuSession from "../../molecules/menuSesion/MenuSession";
 
 
 const Navbar = (currentPage) => {
@@ -24,7 +26,7 @@ const Navbar = (currentPage) => {
   const handleCloseNavMenu = () => {
     setAnchorNav(null);
   };
-
+  const {usuario} =useUsuario();
   return (
     <AppBar
       className={
@@ -90,9 +92,9 @@ const Navbar = (currentPage) => {
             </MenuItem>
 
             <MenuItem sx={{ justifyContent: "center" }}>
-              <Button component={Link} to="/login" className="login-btn">
+            {usuario?<MenuSession userName={usuario?.nombre}/>:<Button component={Link} to="/login" className="login-btn">
                 Login
-              </Button>
+              </Button>}
             </MenuItem>
           </Menu>
         </Box>
@@ -122,14 +124,9 @@ const Navbar = (currentPage) => {
           >
             Información
           </Button>
-          <Button
-            component={Link}
-            to="/login"
-            color="inherit"
-            className="login-btn"
-          >
-            Login
-          </Button>
+          {usuario?<MenuSession userName={usuario?.nombre}/>:<Button component={Link} to="/login" className="login-btn">
+                Login
+              </Button>}
         </Box>
       </Toolbar>
     </AppBar>
