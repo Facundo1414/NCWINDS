@@ -12,10 +12,10 @@ const Date =({vueltaChecked, bgcolor})=>{
     const today = dayjs();
     const [ida, setIda] = React.useState(dayjs(today));
     const [vuelta, setVuelta] = React.useState(dayjs(today));
-
+    
     // inicio del uso de useContext
     const { infoVuelo, setInfoVuelo } = useContext(ViajesContext); // Obtén la función de actualización del contexto
-
+    
     useEffect( ()=>{
       setInfoVuelo(
         {
@@ -48,12 +48,14 @@ const Date =({vueltaChecked, bgcolor})=>{
               label="IDA"
               value={ida}
               onChange={(newValue) => setIda(newValue)}
+              disablePast
             />
             <DatePicker
               label="VUELTA"
               value={vuelta}
               onChange={(newValue) => setVuelta(newValue)}
               disabled={vueltaChecked}
+              disablePast
             />
           </div>
         </DemoContainer>
