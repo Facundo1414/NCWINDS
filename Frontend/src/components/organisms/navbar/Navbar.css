@@ -1,7 +1,6 @@
 .toolBar {
     display: flex;
     justify-content: space-between;
-    
 }
 
 .logoContainer{
@@ -10,15 +9,15 @@
     justify-content: flex-start;
 }  
 
-.buttonContainer{
-    display: flex;
-    justify-content: space-between;
-    width: 40%;
-}
-
 .transparent-navbar {
     background-color: transparent !important;
+    position: absolute !important;
   }
+.background-navbar {
+    background-color: rgb(0, 37, 97) !important;
+    position: sticky !important;
+
+}
   
   .brand {
     color: white;
@@ -38,7 +37,6 @@
   
 .login-btn {
     background-color: #FFB500 !important;
-    border-color: black !important;
     color: black !important;
     font-weight: bold !important;
     border-radius: 37px !important;
