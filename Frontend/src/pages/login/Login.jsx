@@ -1,23 +1,29 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Alert, Snackbar } from '@mui/material';
 import LoginPage, { Input} from '@react-login-page/page7';
 import LoginC from 'react-login-page'
 import { sendData } from '../../services/apiService';
 import {useFormik} from 'formik'
+import { useUsuario } from '../../context/usuario/UsuarioProvider';
 import './Login.css';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const {setUsuario} = useUsuario();
     const [isNotValidCredentialsAlertVisible, setIisNotValidCredentialsAlertVisible] = useState(false);
     const formik = useFormik({
         initialValues: {
-            email: '',
+            correo: '',
             password: '',
           },
           onSubmit: (values) => {
             async function obtenerRespuesta() {
                 try {
-                  const response = await sendData('', values);
+                  const response = await sendData('api/auth/login', values);
+                  const usuario= { "nombre": response.nombre, "perfil": response.perfil, "token":response.token}
+                  setUsuario(usuario)
+                  navigate('/')
                   
                 } catch (error) {
                   console.error('Error al enviar datos:', error);
@@ -43,7 +49,7 @@ const Login = () => {
         </LoginPage.Logo>
         <LoginPage.Title>Inicia Sesion</LoginPage.Title>
         <Input name="username" visible={false}/>
-        <Input name="email" type="email" placeholder="Correo" index={1} id='email' value={formik.values.email} onChange={formik.handleChange} />
+        <Input name="correo" type="correo" placeholder="Correo" index={1} id='email' value={formik.values.correo} onChange={formik.handleChange} />
         <Input name="password" type="password" placeholder="Contraseña" index={2} id='password'  value={formik.values.password} onChange={formik.handleChange}/>
         <LoginC.Button keyname="submit" index={1} type="submit" onClick={formik.handleSubmit} >
                 Ingresar
