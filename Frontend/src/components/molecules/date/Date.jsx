@@ -9,19 +9,19 @@ import "./Date.css"
 
 
 export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelta}) {
-    const today = dayjs();
-    const [ida, setIda] = React.useState(dayjs(today));
-    const [vuelta, setVuelta] = React.useState(dayjs(today));
+  const today = dayjs();
+  const [ida, setIda] = React.useState(dayjs(today));
+  const [vuelta, setVuelta] = React.useState(dayjs(today));
 
-    // cuando se actualicen
-    useEffect(()=>{
-      setFechaIda(
-        ida.format('YYYY-MM-DD')
-      )
-      setFechaVuelta(
-        vuelta.format('YYYY-MM-DD')
-      )
-    },[ida,vuelta])
+  // cuando se actualicen
+  useEffect(()=>{
+    setFechaIda(
+      ida.format('YYYY-MM-DD')
+    )
+    setFechaVuelta(
+      vuelta.format('YYYY-MM-DD')
+    )
+  },[ida,vuelta])
 
 
     return (
@@ -32,12 +32,14 @@ export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelt
               label="IDA"
               value={ida}
               onChange={(newValue) => setIda(newValue)}
+              disablePast
             />
             <DatePicker
               label="VUELTA"
               value={vuelta}
               onChange={(newValue) => setVuelta(newValue)}
               disabled={vueltaChecked}
+              disablePast
             />
           </div>
         </DemoContainer>
