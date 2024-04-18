@@ -23,8 +23,14 @@ const SeatSelection =()=>{
           </Grid>
 
           <Grid item xs={12} md={6} paddingX='1rem' marginY='1rem'>
+          {/* {selectPlane?<div className="container-plane-in">
             <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
+            </div>:<div className="container-plane-out">
+            <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
+             </div>} */}
+             <Plane selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
           </Grid>
+        
 
           <Grid item xs={12} md={3} marginY='1rem'>
             <SeatList selectedSeats={selectedSeats} setSelectedSeats={setSelectedSeats}/>
