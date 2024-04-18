@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useUsuario } from "../../../context/usuario/UsuarioProvider";
 import { Link } from "react-router-dom";
 import {
@@ -15,7 +15,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import "./Navbar.css";
 import MenuSession from "../../molecules/menuSesion/MenuSession";
 
-
 const Navbar = (currentPage) => {
   const [anchorNav, setAnchorNav] = useState(null);
 
@@ -26,7 +25,13 @@ const Navbar = (currentPage) => {
   const handleCloseNavMenu = () => {
     setAnchorNav(null);
   };
-  const {usuario} =useUsuario();
+
+  const { usuario, setUsuario } = useUsuario();
+  const handleLogout = () => {
+    setUsuario(null);
+    setAnchorNav(null);
+  };
+
   return (
     <AppBar
       className={
@@ -92,9 +97,16 @@ const Navbar = (currentPage) => {
             </MenuItem>
 
             <MenuItem sx={{ justifyContent: "center" }}>
-            {usuario?<MenuSession userName={usuario?.nombre}/>:<Button component={Link} to="/login" className="login-btn">
-                Login
-              </Button>}
+              {usuario ? (
+                <MenuSession
+                  userName={usuario?.nombre}
+                  onLogout={handleLogout}
+                />
+              ) : (
+                <Button component={Link} to="/login" className="login-btn">
+                  Login
+                </Button>
+              )}
             </MenuItem>
           </Menu>
         </Box>
@@ -124,9 +136,13 @@ const Navbar = (currentPage) => {
           >
             Información
           </Button>
-          {usuario?<MenuSession userName={usuario?.nombre}/>:<Button component={Link} to="/login" className="login-btn">
-                Login
-              </Button>}
+          {usuario ? (
+            <MenuSession userName={usuario?.nombre} onLogout={handleLogout} />
+          ) : (
+            <Button component={Link} to="/login" className="login-btn">
+              Login
+            </Button>
+          )}
         </Box>
       </Toolbar>
     </AppBar>
