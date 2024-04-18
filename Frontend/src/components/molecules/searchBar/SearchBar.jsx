@@ -32,24 +32,25 @@ const SearchBar = ({translateStyle, searchStyles}) => {
   const [valueFechaVuelta, setValueFechaVuelta] = useState("");
   // end of use context
 
+
   //BUSCAR
   const handleClick = () => {
-    if (infoVuelo.origen != "" && infoVuelo.destino != "") {
-        if (tipoViaje) {
-          setInfoVuelo({
-            origen: valueOrigen,
-            destino: valueDestino,
-            fechaIda: valueFechaIda,
-            fechaVuelta: '',
-          });
-        } else {
-          setInfoVuelo({
-            origen: valueOrigen,
-            destino: valueDestino,
-            fechaIda: valueFechaIda,
-            fechaVuelta: valueFechaVuelta,
-          });
-        }
+      if (tipoViaje) {
+        setInfoVuelo({
+          origen: valueOrigen,
+          destino: valueDestino,
+          fechaIda: valueFechaIda,
+          fechaVuelta: '',
+        });
+      } else {
+        setInfoVuelo({
+          origen: valueOrigen,
+          destino: valueDestino,
+          fechaIda: valueFechaIda,
+          fechaVuelta: valueFechaVuelta,
+        });
+      }
+    if (infoVuelo.origen !== "" && infoVuelo.destino !== "") {
         navigate('/search')
     }
     else{
