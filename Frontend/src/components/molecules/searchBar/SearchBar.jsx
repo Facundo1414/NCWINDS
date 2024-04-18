@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const SearchBar = ({translateStyle, searchStyles}) => {
+    const navigate = useNavigate()
     // viaje de ida y vuelta o solo ida
     const {setInfoVuelo} = useContext(ViajesContext)
     const [tipoViaje, setTipoViaje] = useState(false);
@@ -48,7 +49,7 @@ const SearchBar = ({translateStyle, searchStyles}) => {
         fechaVuelta: valueFechaVuelta,
       });
     }
-    // useNavigate('/search'); // Navegar a la página "/search"
+    navigate('/search')
   };
 
   // end of Buscar
@@ -70,7 +71,6 @@ const SearchBar = ({translateStyle, searchStyles}) => {
                     <Date bgcolor={bgcolor} vueltaChecked={tipoViaje} setFechaIda={setValueFechaIda} setFechaVuelta={setValueFechaVuelta}/>
                 </div>
                 <div className='search-button'>
-                  <Link to={"/search"}>
                     <AtomButton 
                         variant={'contained'} 
                         inputText={'Buscar'}
@@ -87,9 +87,7 @@ const SearchBar = ({translateStyle, searchStyles}) => {
                             textAlign: "center"
                         }}
                         handleClick={handleClick}
-                      
                     />
-                  </Link>
                 </div>
             </div>
             <FormControl className='check-container' style={{color:bgcolor}}>
