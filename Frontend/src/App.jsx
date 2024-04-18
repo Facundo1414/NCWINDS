@@ -10,6 +10,7 @@ import Login from './pages/login/Login'
 import SignUp from './pages/login/SignUp'
 import Payment from './pages/payment/Payment'
 import SeatSelection from './pages/seatSelection/SeatSelection'
+import ClientInfo from './pages/clientInfo/ClientInfo';
 
 
 const App =()=>{
@@ -30,6 +31,7 @@ const App =()=>{
             <Route path='/signUp' element={<SignUp/>}></Route>  
             <Route path='/payment' element={<Payment/>}></Route>  
             <Route path='/seatSelection' element={<SeatSelection/>}></Route>  
+            <Route path='/clientInfo' element={<ClientInfo/>}></Route>
           </Routes>
           <Footer/>
         </ViajesContextProvider>
