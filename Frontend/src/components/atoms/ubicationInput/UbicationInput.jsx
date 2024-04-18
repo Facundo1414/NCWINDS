@@ -11,11 +11,11 @@ const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
     setValue(newValue);
   };
 
-  // Renderizar datos: Se encarga de buscar la ubicacion de los viajes disponibles a renderizar
+  //TODO Renderizar datos: Se encarga de buscar la ubicacion de los viajes disponibles a renderizar
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
-        const data = await fetchData('viajes');
+        const data = await fetchData('http://localhost:8080/api/v1/viajes');
         setData(data);
       } catch (error) {
         console.error('Error al obtener datos:', error);
@@ -51,6 +51,33 @@ const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
     };
   });
 
+  //const error o success
+  const [infoColor, setInfoColor] = useState({
+    color: "",
+    focussed: false
+  })
+  const selectChange = ()=>{
+    if (value === "") {
+      setInfoColor({
+        color: "error",
+        focussed: true
+      })
+    }
+      else if (value != null) {
+        setInfoColor({
+          color: "success",
+          focussed: true
+        })
+      }
+        else{
+          setInfoColor({
+            color: "",
+            focussed: false
+          })
+        }
+    
+  }
+
   return (
     <Autocomplete
       value={value}
@@ -60,7 +87,7 @@ const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
       getOptionLabel={(option) => option.option}
       sx={{ width: 280, bgcolor: bgcolor }}
       renderInput={(params) => (
-        <TextField {...params} label={label} />
+        <TextField {...params} label={label} color={infoColor.color} focused={infoColor.focussed} onChange={selectChange} />
       )}
     />
   );
