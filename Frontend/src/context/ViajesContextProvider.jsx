@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react'
+import React, { useState, createContext } from 'react';
 
 
 export const ViajesContext = createContext()
@@ -27,11 +27,15 @@ const ViajesContextProvider = ({children}) => {
         duration: ""
     })
 
+    const [listaAsientos, setListaAsientos] = useState([]);
+
     const data = {
         infoVuelo,
         setInfoVuelo,
         vueloSeleccionado,
-        setVueloSeleccionado
+        setVueloSeleccionado,
+        listaAsientos,
+        setListaAsientos
     }
 
     return   (

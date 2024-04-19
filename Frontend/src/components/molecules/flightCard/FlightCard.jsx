@@ -8,7 +8,6 @@ import { ViajesContext } from "../../../context/ViajesContextProvider";
 const FlightCard = ({ flight }) => {
   const navigate = useNavigate();
   const { setVueloSeleccionado } = useContext(ViajesContext);
-
   const { origin, destiny, dateOfOrigin, dateOfDestiny, duration, price, departureTime , arrivalTime, scaleNumbers,description} = flight;
 
   const propsFlightCard = {
@@ -38,7 +37,7 @@ const FlightCard = ({ flight }) => {
     navigate("/seatSelection");
   };
 
-  return (
+  return(
     <Link href='#' underline="none" sx={{ cursor: 'pointer' }} onClick={onClick}>
       <Grid container component='article' minHeight='160px' alignItems='center' marginY='15px' padding='20px' borderRadius='12px' color={'black'} sx={{ backgroundColor: 'white', boxShadow: 3, borderLeft: '8px solid #FFB500' }}>
         <Grid item container xs={12} md={9}>
