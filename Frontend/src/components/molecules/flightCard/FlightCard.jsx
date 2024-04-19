@@ -14,7 +14,7 @@ const FlightCard =({props})=>{
   const precio = props.precio;
 
   return(
-    <Link href='#' underline="none" sx={{cursor: 'pointer'}}>
+    <Link href='/seatSelection' underline="none" sx={{cursor: 'pointer'}}>
       <Grid container component='article' minHeight='160px' alignItems='center' marginY='15px' padding='20px' borderRadius='12px' color={'black'} sx={{backgroundColor: 'white', boxShadow: 3, borderLeft: '8px solid #FFB500'}}>
         <Grid item container xs='12' md='9'>
 
