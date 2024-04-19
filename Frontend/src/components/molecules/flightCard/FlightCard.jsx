@@ -7,11 +7,37 @@ import { useNavigate } from "react-router-dom";
 const FlightCard = ({ flight }) => {
   const navigate = useNavigate();
   const { setVueloSeleccionado } = useContext(ViajesContext);
-
   const { origin, destiny, dateOfOrigin, dateOfDestiny, duration, price, departureTime , arrivalTime, scaleNumbers,description} = flight;
 
+  const propsFlightCard = {
+    origen: origin.split(','),
+    destino: destiny.split(','),
+    horaSalida: dateOfOrigin,
+    horaLlegada: dateOfDestiny,
+    duracionVuelo: duration,
+    precio: price
+  };
+
+  const onClick = () => {
+    setVueloSeleccionado({
+      id: flight.id,
+      origin: origin,
+      destiny: destiny,
+      price: price,
+      dateOfOrigin: dateOfOrigin,
+      dateOfDestiny: dateOfDestiny,
+      departureTime: departureTime,
+      arrivalTime: arrivalTime,
+      scaleNumbers: scaleNumbers,
+      description: description,
+      duration: duration
+    });
+
+    navigate("/seatSelection");
+  };
+
   return(
-    <Link href='/seatSelection' underline="none" sx={{cursor: 'pointer'}}>
+    <Link href='#' underline="none" sx={{ cursor: 'pointer' }} onClick={onClick}>
       <Grid container component='article' minHeight='160px' alignItems='center' marginY='15px' padding='20px' borderRadius='12px' color={'black'} sx={{backgroundColor: 'white', boxShadow: 3, borderLeft: '8px solid #FFB500'}}>
         <Grid item container xs='12' md='9'>
           <Grid item xs='6' md='3' alignContent='center' textAlign='center'>
