@@ -19,6 +19,7 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
   };
 
   const handleButtonClick =()=>{
+    setListaAsientos(selectedSeats);
   }
 
 
