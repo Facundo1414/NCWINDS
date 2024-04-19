@@ -1,12 +1,45 @@
-import React, { useContext } from "react";
-import { Grid, Box, Typography, TextField } from '@mui/material';
+import React, { useContext, useState } from "react";
+import { Grid, Box, Typography, TextField, Autocomplete, Button } from '@mui/material';
 import { FligthInfo } from "../../components/organisms/flightInfo/FligthInfo";
 import { ViajesContext } from "../../context/ViajesContextProvider";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateField } from '@mui/x-date-pickers/DateField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+import { ViajesContextProvider } from "../../context/ViajesContextProvider";
 
 
 const ClientInfo =()=>{
-  const {listaAsientos} = useContext(ViajesContext);
-  console.log(listaAsientos);
+  const nacionalidades = [
+    'Argentina', 'Chile', 'Bolivia','México',
+    'España', 'Francia','Estados Unidos',
+    'Alemania', 'Reino Unido', 'Dinamarca',
+  ];
+  const generos = ['Hombre', 'Mujer', 'No definido',];
+
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [numberDocument, setNumberDocument] = useState(0);
+  const [residenceCountry, setResidenceCountry] = useState('');
+  const [dateOfBirth, setDateOfBirth] = useState('');
+  const [gender, setGender] = useState('');
+
+  const {listaAsientos, setReserva, reserva} = useContext(ViajesContext);
+
+
+  const handleButtonContinuar =()=>{
+    const userData = {
+      viaje: {id: ""},
+      usuario: {id: ""},
+      name: name,
+      lastName: lastName,
+      numberDocument: numberDocument,
+      residenceCountry: residenceCountry,
+      dateOfBirth: dateOfBirth,
+      gender: gender,
+    };
+    setReserva(userData);
+  };
 
 
   return(
@@ -18,23 +51,53 @@ const ClientInfo =()=>{
           </Box>
           <Grid container component='form'>
             <Grid xs='6' paddingX='1rem'>
-              <TextField label="Nombre" variant="outlined" margin='normal' fullWidth/>
-              <TextField label="Documento" variant="outlined" margin='normal' fullWidth/>
-              <TextField label="Fecha de Nacimiento" variant="outlined" margin='normal' fullWidth/>
+              <TextField onChange={(e)=>{setName(e.target.value)}} label="Nombre" variant="outlined" margin='normal' fullWidth/>
+              <TextField onChange={(e)=>{setNumberDocument(e.target.value)}} label="Documento" variant="outlined" margin='normal' fullWidth/>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DateField onChange={(e)=>{setDateOfBirth(e.target.value)}} label='Fecha de vencimiento' format='MM-YY' defaultValue={dayjs('2026-04')} margin='normal' fullWidth/>
+              </LocalizationProvider>
             </Grid>
 
             <Grid xs='6' paddingX='1rem'>
-              <TextField label="Apellido" variant="outlined" margin='normal' fullWidth/>
-              <TextField label="Nacionalidad" variant="outlined" margin='normal' fullWidth/>
-              <TextField label="Género" variant="outlined" margin='normal' fullWidth/>
+              <TextField onChange={(e)=>{setLastName(e.target.value)}} label="Apellido" variant="outlined" margin='normal' fullWidth/>
+              <Autocomplete 
+                freeSolo
+                options={nacionalidades}
+                renderInput={(params) => (
+                  <TextField {...params} onChange={(e)=>{setResidenceCountry(e.target.value)}} label="Nacionalidad" variant="outlined" margin='normal' fullWidth/>
+                )}
+              />
+              <Autocomplete 
+                freeSolo
+                options={generos}
+                renderInput={(params) => (
+                  <TextField {...params} onChange={(e)=>{setGender(e.target.value)}} label="Género" variant="outlined" margin='normal' fullWidth/>
+                )}
+              />
             </Grid>
           </Grid>
         </Box>
       </Grid>
 
       <Grid item xs='5' padding='2rem 1rem'>
-        <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}}>
+        <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}} display='flex' flexDirection='column' justifyContent='right'>
           <FligthInfo />
+
+          <Button
+            onClick={handleButtonContinuar}
+            href='/payment'
+            variant='contained'
+            sx={{
+                backgroundColor: '#FFB500',
+                margin: '1.4rem auto',
+                padding: '10px 5rem',
+                borderRadius: '12px',
+                color: 'black',
+                fontWeight: 'bold',
+                fontSize: '1.2rem',
+                ":hover": {backgroundColor: '#FFB500'}
+            }}
+          >Comprar</Button>
 
         </Box>
       </Grid>

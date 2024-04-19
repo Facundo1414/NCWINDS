@@ -7,7 +7,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 
 
-
 const Payment = () => {
   return (
     <main>
@@ -36,7 +35,7 @@ const Payment = () => {
                         sx={{
                             backgroundColor: '#FFB500',
                             margin: '1.4rem auto',
-                            padding: '10px 4rem',
+                            padding: '10px 5rem',
                             borderRadius: '12px',
                             color: 'black',
                             fontWeight: 'bold',
