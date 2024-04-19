@@ -5,54 +5,54 @@ import Search_topCards from '../../components/organisms/Search_topCards/Search_t
 import SearchBar from '../../components/molecules/searchBar/SearchBar'
 import Skeleton from '@mui/material/Skeleton';
 import FlightDetails from '../../components/organisms/flightDetails/FlightDetails';
-import { ViajesContext } from "../../context/ViajesContextProvider";
 import { BackendGateWayContext } from "../../context/BackendGateWayContextProvider";
 import ErrorFetchVuelos from "../../components/molecules/errorFetchVuelos/ErrorFetchVuelos";
+import { ViajesContext } from "../../context/ViajesContextProvider";
+import { fetchData } from "../../services/apiService";
 
 const Search =()=>{
   const {urlViajesController} = useContext(BackendGateWayContext)
-  const [loading, setLoading] = useState(true);
   const {infoVuelo} = useContext(ViajesContext)
+  const [loading, setLoading] = useState(true);
   const [vuelosFetch, setVuelosFetch] = useState([])
-  let endPoint = `${urlViajesController}/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
   const [iferrorFetchVuelos, setIferrorFetchVuelos] = useState(false)
   
+  let endPointViajeSinFechas = `${urlViajesController}/originAndDestiny/${infoVuelo.origen}/${infoVuelo.destino}`
+  let endPointViajeConFechaOrigen = `${urlViajesController}/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+  //let endPointViajeConAmbasFechas = `${urlViajesController}/findByOriginAndDestinyAndDateOfDestiny/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
 
-  // cambiar endpoint si se cambian los datos de las busqeuda de vuelos
-  useEffect(()=>{
-    if (infoVuelo.origen !== "" && infoVuelo.destino !== "" && infoVuelo.fechaIda !== "") {
-      endPoint = `${urlViajesController}/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
-    }
-    else if(infoVuelo.origen !== "" && infoVuelo.destino !== "") {
-      endPoint = `${urlViajesController}/${infoVuelo.origen}/${infoVuelo.destino}`
-    }
-  },[infoVuelo])
 
-  //TODO usar el apiService
+  // segunda version
   useEffect(() => {
-    if (infoVuelo.origen !== "" && infoVuelo.destino !== "") {
-      const fetchData = async () => {
-        try {
-          const response = await fetch(endPoint);
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          const jsonData = await response.json();
-          setVuelosFetch(jsonData);
+    if (infoVuelo.origen !== "" && infoVuelo.destino !== "" ) {
+      const fetchDataAsync = async () => {
+        let responseData = "";
+        
+        if (infoVuelo.fechaVuelta !== "") {
+          console.log("fecha vuelta no implementada por el backend");
+          //responseData = await fetchData(endPointViajeConAmbasFechas);
+        } else {
+          responseData = await fetchData(endPointViajeConFechaOrigen);
+        } 
+        if(responseData.length === 0) {
+
+          responseData = await fetchData(endPointViajeSinFechas);
+        }
+          if (responseData.length > 0) {
+          setVuelosFetch(responseData);
           setLoading(false);
           setIferrorFetchVuelos(false);
-        } catch (error) {
-          console.error('Hubo un error en la solicitud:', error);
-          setIferrorFetchVuelos(true)
+        } else {
+          // Handle case where responseData is empty
           setLoading(false);
+          setIferrorFetchVuelos(true);
         }
       };
   
-      fetchData();
+      fetchDataAsync();
     }
-  }, [endPoint,infoVuelo]);
-
-  // end of loading skeleton section 
+  }, [infoVuelo]);
+  
   
   return(
     <Grid container sx={{width:'95%'}}>
@@ -81,7 +81,11 @@ const Search =()=>{
         (
           <Box>
             {iferrorFetchVuelos? 
-            (<ErrorFetchVuelos/>) 
+            (
+              <Box>
+                <ErrorFetchVuelos/>
+              </Box>
+            ) 
             : 
             (
             <Box>
