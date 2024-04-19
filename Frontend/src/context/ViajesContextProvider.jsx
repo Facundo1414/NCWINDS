@@ -29,13 +29,31 @@ const ViajesContextProvider = ({children}) => {
 
     const [listaAsientos, setListaAsientos] = useState([]);
 
+    const [reserva, setReserva] = useState({
+        viaje: {
+            id: ""
+        },
+        usuario: {
+            id: ""
+        },
+        totalNumberOfSeats: 0,
+        name: "",
+        lastName: "",
+        residenceCountry: "",
+        numberDocument: "",
+        dateOfBirth: "",
+        gender: ""
+    });
+
     const data = {
         infoVuelo,
         setInfoVuelo,
         vueloSeleccionado,
         setVueloSeleccionado,
         listaAsientos,
-        setListaAsientos
+        setListaAsientos,
+        reserva,
+        setReserva
     }
 
     return   (
