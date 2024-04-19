@@ -117,7 +117,7 @@ With this data you will create a travel
 ## Members
 ### Backend: 
 - **Luciana Coronel**: Backend Developer
-- **Gustavo Martinez**: Backend Developer
+<a href="https://github.com/trujisxd1"> **Gustavo Martinez**: Backend Developer <a/>
 - **Manuel Claros**: Backend Developer
 
 ### Frontend:
