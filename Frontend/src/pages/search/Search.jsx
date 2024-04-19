@@ -10,7 +10,6 @@ import { BackendGateWayContext } from "../../context/BackendGateWayContextProvid
 import ErrorFetchVuelos from "../../components/molecules/errorFetchVuelos/ErrorFetchVuelos";
 import { ViajesContext } from "../../context/ViajesContextProvider";
 import { fetchData } from "../../services/apiService";
-import BasicAlerts from "../../components/molecules/BasicAlerts/BasicAlerts";
 
 const Search =()=>{
   const {urlViajesController} = useContext(BackendGateWayContext)
@@ -18,7 +17,6 @@ const Search =()=>{
   const [loading, setLoading] = useState(true);
   const [vuelosFetch, setVuelosFetch] = useState([])
   const [iferrorFetchVuelos, setIferrorFetchVuelos] = useState(false)
-  const [alert, setAlert] = useState("")
   
   let endPointViajeSinFechas = `${urlViajesController}/originAndDestiny/${infoVuelo.origen}/${infoVuelo.destino}`
   let endPointViajeConFechaOrigen = `${urlViajesController}/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
@@ -84,11 +82,14 @@ const Search =()=>{
         (
           <Box>
             {iferrorFetchVuelos? 
-            (<ErrorFetchVuelos/>) 
+            (
+              <Box>
+                <ErrorFetchVuelos/>
+              </Box>
+            ) 
             : 
             (
             <Box>
-              <BasicAlerts severity={'success'} text={"Vuelos disponibles"} />
               {vuelosFetch.map((flight)=>{
                 return <FlightCard key={flight.id} flight={flight}/>
               })}

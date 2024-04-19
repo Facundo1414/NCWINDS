@@ -10,7 +10,7 @@ export default function BasicAlerts({severity,text}) {
   //severity="error"
   return (
     <Stack sx={{ width: '100%' }} spacing={2}>
-      <Alert variant="filled" severity={severity}>{text}</Alert>
+      <Alert severity={severity}>{text}</Alert>
     </Stack>
   );
 }
