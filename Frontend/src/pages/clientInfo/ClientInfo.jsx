@@ -1,12 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid, Box, Typography, TextField } from '@mui/material';
 import { FligthInfo } from "../../components/organisms/flightInfo/FligthInfo";
-import { AtomButton } from "../../components/atoms/atomButton/AtomButton";
-import { SeatList } from "../../components/organisms/seatsList/SeatsList";
+import { ViajesContext } from "../../context/ViajesContextProvider";
 
 
 const ClientInfo =()=>{
-
+  const {listaAsientos} = useContext(ViajesContext);
+  console.log(listaAsientos);
 
 
   return(
@@ -36,7 +36,6 @@ const ClientInfo =()=>{
         <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}}>
           <FligthInfo />
 
-          {/* <SeatList /> */}
         </Box>
       </Grid>
     </Grid>

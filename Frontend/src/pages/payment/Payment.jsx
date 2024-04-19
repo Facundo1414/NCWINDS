@@ -1,34 +1,53 @@
-import React from 'react'
-import { Grid } from '@mui/material'
+import React from 'react';
+import { Box, Button, Grid, TextField, Typography } from '@mui/material';
+import { FligthInfo } from '../../components/organisms/flightInfo/FligthInfo';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DateField } from '@mui/x-date-pickers/DateField';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+
 
 
 const Payment = () => {
   return (
-    <div style={{height: "50rem"}}>
-        <Grid container height={"100%"} padding={"1rem"} justifyContent={"space-evenly"}>
-            <Grid xs={12} md={12} display={'flex'} justifyContent={'center'} alignItems={'center'} color={"black"} height={"5%"}>
-                    <h2>Personal information and Payment</h2>
-            </Grid>
-            {/* columnas */}
-            <Grid item xs={5} md={5} display={'flex'} justifyContent={'center'} alignItems={"center"} bgcolor={'#D9D9D9'} color={"black"} sx={{height: '80%'}}>
-                <h2>Payment detail</h2>
-            </Grid>
-            
-            <Grid item xs={5} md={5} sx={{height: '80%'}}>
-                <Grid container display={'flex'} height={"100%"} gap={"2rem"}>
-                    <Grid item xs={12} md={12} bgcolor={'#D9D9D9'} color={"black"} height={"60%"} display={'flex'} justifyContent={"center"} padding={"1rem"}>
-                        <h1>Seat detail</h1>
-                    </Grid>
-                    <Grid item xs={12} md={12} bgcolor={'#D9D9D9'} color={"black"} height={"20%"} display={'flex'} justifyContent={"center"} alignItems={"center"} padding={"1rem"}>
-                        {/* Este button es momentaneo */}
-                        <button style={{height:'3rem', padding: "2rem", width:"10rem", display:"flex" , justifyContent:"center",alignItems: "center"}}>Pay</button>
-                    </Grid>
-                </Grid>
+    <main>
+        <Grid container>
+            <Grid item xs={7} padding='1rem'> 
+                <Box color='black' borderRadius='8px' boxShadow='3' padding='1rem' sx={{backgroundColor: 'white'}}>
+                    <Typography variant='h4'>Información de Pago</Typography>
+                    <Box component='form'>
+                        <TextField label="Nombre completo" variant="outlined" margin='normal' fullWidth/>
+                        <TextField label="Número de tarjeta" variant="outlined" margin='normal' fullWidth/>
+                        <LocalizationProvider dateAdapter={AdapterDayjs}>
+                            <DateField label='Fecha de vencimiento' format='MM-YY' defaultValue={dayjs('2026-04')} margin='normal'/>
+                        </LocalizationProvider>
+                        <TextField label="Código de seguridad" variant="outlined" margin='normal' fullWidth/>
+                    </Box>
+                </Box>
             </Grid>
 
+            <Grid item xs={5} padding='1rem'>
+                <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}} display='flex' flexDirection='column' justifyContent='right'>
+                    <FligthInfo />
 
+                    <Button
+                        href='/'
+                        variant='contained'
+                        sx={{
+                            backgroundColor: '#FFB500',
+                            margin: '1.4rem auto',
+                            padding: '10px 4rem',
+                            borderRadius: '12px',
+                            color: 'black',
+                            fontWeight: 'bold',
+                            fontSize: '1.2rem',
+                            ":hover": {backgroundColor: '#FFB500'}
+                        }}
+                    >Comprar</Button>
+                </Box>
+            </Grid>
         </Grid>
-    </div>
+    </main>
   )
 }
 

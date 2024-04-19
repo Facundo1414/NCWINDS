@@ -1,10 +1,11 @@
-import React from "react";
-import { Box, Divider, Typography, colors } from '@mui/material';
+import React, { useContext } from "react";
+import { Box, Divider, Typography, Button } from '@mui/material';
 import { SeatCard } from '../../molecules/seatCard/SeatCard';
-import { AtomButton } from '../../atoms/atomButton/AtomButton';
+import { ViajesContext } from "../../../context/ViajesContextProvider";
 
 
 const SeatList =({ selectedSeats, setSelectedSeats })=>{
+  const {listaAsientos, setListaAsientos} = useContext(ViajesContext);
   let finalPrice = 0;
 
   const deleteSeat = (seatNumber) => {
@@ -16,6 +17,10 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
       finalPrice += parseInt(seat.seatPrice);
      })
   };
+
+  const handleButtonClick =()=>{
+    setListaAsientos(selectedSeats);
+  }
 
 
   return(
@@ -31,17 +36,20 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
         })}
       </Box>
       <Box display='flex' justifyContent='center'>
-        <AtomButton
-          buttonStyles={{
-            borderRadius: '1.5rem', 
-            backgroundColor: '#FFB500',
-            color: 'black',
-            fontWeight: 'bold',
-            width: '80%',
-            padding: '8px',
-            fontSize: '1.2rem'
-          }} 
-          inputText={'Comprar'}/>
+        <Button sx={{
+          borderRadius: '1.5rem', 
+          backgroundColor: '#FFB500',
+          color: 'black',
+          fontWeight: 'bold',
+          width: '80%',
+          padding: '8px',
+          fontSize: '1.2rem'
+        }}
+        onClick={handleButtonClick}
+        href="/clientInfo"
+        >
+          Comprar
+        </Button>
       </Box>
       <Divider sx={{marginY: '10px'}}/>
       <Box display='flex' justifyContent='space-between' color='#002561' paddingX='8px'>
