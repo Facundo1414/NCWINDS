@@ -1,21 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { fetchData } from '../../../services/apiService';
+import { BackendGateWayContext } from '../../../context/BackendGateWayContextProvider';
 
 const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
   const [value, setValue] = useState(null);
   const [data, setData] = useState(null);
+  const {urlViajesController} = useContext(BackendGateWayContext)
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
-  // Renderizar datos: Se encarga de buscar la ubicacion de los viajes disponibles a renderizar
+  //renderiza los datos de los paises para los inputs
   useEffect(() => {
     const obtenerDatos = async () => {
       try {
-        const data = await fetchData('viajes');
+        const data = await fetchData(urlViajesController);
         setData(data);
       } catch (error) {
         console.error('Error al obtener datos:', error);
@@ -51,6 +53,33 @@ const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
     };
   });
 
+  //const error o success
+  const [infoColor, setInfoColor] = useState({
+    color: "",
+    focussed: false
+  })
+  const selectBlur = ()=>{
+    if (value === "" ) {
+      setInfoColor({
+        color: "error",
+        focussed: true
+      })
+    }
+      else if (value !== null) {
+        setInfoColor({
+          color: "success",
+          focussed: true
+        })
+      }
+        else{
+          setInfoColor({
+            color: "error",
+            focussed: true
+          })
+        }
+    
+  }
+
   return (
     <Autocomplete
       value={value}
@@ -60,7 +89,7 @@ const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
       getOptionLabel={(option) => option.option}
       sx={{ width: 280, bgcolor: bgcolor }}
       renderInput={(params) => (
-        <TextField {...params} label={label} />
+        <TextField {...params} label={label} color={infoColor.color} focused={infoColor.focussed} onBlur={selectBlur}  />
       )}
     />
   );
