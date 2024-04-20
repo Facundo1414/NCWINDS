@@ -9,11 +9,13 @@ const BackendGateWayContextProvider = ({children}) => {
     const urlViajesController = `${localHost}/api/v1/viajes`
     const urlReservaController = `${localHost}/api/v1/reserva`
     const urlUsuarioController = `${localHost}/api`
+    const urlLoginController = `${localHost}/api/auth/login`
 
     const data = {
         urlViajesController,
         urlReservaController,
-        urlUsuarioController
+        urlUsuarioController,
+        urlLoginController
     }
 
   return (

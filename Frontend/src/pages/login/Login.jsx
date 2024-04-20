@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Alert, Snackbar } from "@mui/material";
 import LoginPage, { Input } from "@react-login-page/page7";
@@ -6,9 +6,11 @@ import LoginC from "react-login-page";
 import { sendData } from "../../services/apiService";
 import { useFormik } from "formik";
 import { useUsuario } from "../../context/usuario/UsuarioProvider";
+import { BackendGateWayContext } from "../../context/BackendGateWayContextProvider";
 import "./Login.css";
 
 const Login = () => {
+  const {urlLoginController} = useContext(BackendGateWayContext);
   const navigate = useNavigate();
   const { setUsuario, actualizarUsuario } = useUsuario();
   const [
@@ -23,7 +25,7 @@ const Login = () => {
     onSubmit: (values) => {
       async function obtenerRespuesta() {
         try {
-          const response = await sendData("api/auth/login", values);
+          const response = await sendData(urlLoginController, values);
           const usuario = {
             nombre: response.nombre,
             perfil: response.perfil,
@@ -82,7 +84,7 @@ const Login = () => {
         Ingresar
       </LoginC.Button>
       <LoginPage.Footer>
-        No eres un miembro? <Link to={"/signUp"}>Registrate ahora</Link>
+      ¿No eres un miembro? <Link to={"/signUp"}>Registrate ahora</Link>
       </LoginPage.Footer>
       {isNotValidCredentialsAlertVisible ? (
         <Snackbar

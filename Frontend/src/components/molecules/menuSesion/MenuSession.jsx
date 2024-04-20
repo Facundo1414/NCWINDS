@@ -13,10 +13,21 @@ export default function MenuSession({ userName, onLogout }) {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
+    setAnchorEl(null);
+  };
+  const handleLogout = ()=>{
     localStorage.removeItem("usuario");
     onLogout();
     navigate("/login");
     setAnchorEl(null);
+  }
+  
+  const styles = {
+    button: {
+      cursor: 'pointer',
+    border: 'none', // Sin borde
+    outline: 'none', // Sin contorno de enfoque
+    },
   };
   return (
     <>
@@ -28,9 +39,11 @@ export default function MenuSession({ userName, onLogout }) {
         onClick={handleMenu}
         color="inherit"
         disableRipple
+        style={styles.button}
+       
       >
-        <AccountCircle />
-        <Typography>{userName}</Typography>
+        <AccountCircle disableRipple />
+        <Typography >{userName}</Typography>
       </IconButton>
       <Menu
         id="menu-appbar"
@@ -47,7 +60,7 @@ export default function MenuSession({ userName, onLogout }) {
         open={Boolean(anchorEl)}
         onClose={handleClose}
       >
-        <MenuItem onClick={handleClose}>Cerrar Sesion</MenuItem>
+        <MenuItem onClick={handleLogout}>Cerrar Sesion</MenuItem>
       </Menu>
     </>
   );
