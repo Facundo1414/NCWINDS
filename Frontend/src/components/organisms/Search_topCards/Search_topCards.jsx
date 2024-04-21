@@ -1,7 +1,6 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import { Card_Search } from './Card_Search';
-import './Search_topCards.css';
 
 
 const Search_topCards = () => {
