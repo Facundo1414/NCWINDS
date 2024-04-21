@@ -47,6 +47,7 @@ const FlightCard = ({ flight }) => {
             <Typography>{propsFlightCard.origen[0]}</Typography>
             <Typography>{propsFlightCard.origen[1]}</Typography>
           </Grid>
+
           <Hidden mdDown>
             <Grid item xs={12} md={6} alignContent='center' textAlign='center'>
               <Typography variant='h5' letterSpacing='2px' fontWeight='700'>{propsFlightCard.duracionVuelo}</Typography>
@@ -59,14 +60,17 @@ const FlightCard = ({ flight }) => {
                   <CircleIcon />
                 </Box>
               </Box>
+              <Typography variant="h6" letterSpacing='2px' fontWeight='700'>escalas: {scaleNumbers}</Typography>
             </Grid>
           </Hidden>
+
           <Grid item xs={6} md={3} alignContent='center' textAlign='center'>
             <Typography variant='h4' fontWeight='600' letterSpacing={2}>{propsFlightCard.horaLlegada}</Typography>
             <Typography>{propsFlightCard.destino[0]}</Typography>
             <Typography>{propsFlightCard.destino[1]}</Typography>
           </Grid>
         </Grid>
+
         <Hidden mdUp>
           <Grid item xs={12} md={6} alignContent='center' textAlign='center' margin='20px'>
             <Typography variant='h5' letterSpacing='2px' fontWeight='700'>{propsFlightCard.duracionVuelo}</Typography>
@@ -79,6 +83,7 @@ const FlightCard = ({ flight }) => {
                 <CircleIcon />
               </Box>
             </Box>
+            <Typography variant="h6" letterSpacing='2px' fontWeight='700'>escalas: {scaleNumbers}</Typography>
           </Grid>
         </Hidden>
         <Grid item xs={12} md={3} alignContent='center'>
