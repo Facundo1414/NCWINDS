@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
-import { Box, Divider, Typography, Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { Box, Divider, Typography, Link } from '@mui/material';
 import { SeatCard } from '../../molecules/seatCard/SeatCard';
 import { ViajesContext } from "../../../context/ViajesContextProvider";
 
 
 const SeatList =({ selectedSeats, setSelectedSeats })=>{
-  const {listaAsientos, setListaAsientos} = useContext(ViajesContext);
+  const navigate = useNavigate();
+  const { setListaAsientos } = useContext(ViajesContext);
   let finalPrice = 0;
 
   const deleteSeat = (seatNumber) => {
@@ -20,6 +22,7 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
 
   const handleButtonClick =()=>{
     setListaAsientos(selectedSeats);
+    navigate("/clientInfo");
   }
 
 
@@ -36,7 +39,7 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
         })}
       </Box>
       <Box display='flex' justifyContent='center'>
-        <Button sx={{
+        <Link sx={{
           borderRadius: '1.5rem', 
           backgroundColor: '#FFB500',
           color: 'black',
@@ -46,10 +49,9 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
           fontSize: '1.2rem'
         }}
         onClick={handleButtonClick}
-        href="/clientInfo"
         >
           Comprar
-        </Button>
+        </Link>
       </Box>
       <Divider sx={{marginY: '10px'}}/>
       <Box display='flex' justifyContent='space-between' color='#002561' paddingX='8px'>
