@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Grid, Box, Typography, TextField, Autocomplete, Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
+import { Grid, Box, Typography, TextField, Autocomplete, Link } from '@mui/material';
 import { FligthInfo } from "../../components/organisms/flightInfo/FligthInfo";
 import { ViajesContext } from "../../context/ViajesContextProvider";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,6 +11,7 @@ import { ViajesContextProvider } from "../../context/ViajesContextProvider";
 
 
 const ClientInfo =()=>{
+  const navigate = useNavigate();
   const nacionalidades = [
     'Argentina', 'Chile', 'Bolivia','México',
     'España', 'Francia','Estados Unidos',
@@ -39,6 +41,7 @@ const ClientInfo =()=>{
       gender: gender,
     };
     setReserva(userData);
+    navigate('/payment');
   };
 
 
@@ -83,9 +86,8 @@ const ClientInfo =()=>{
         <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}} display='flex' flexDirection='column' justifyContent='right'>
           <FligthInfo />
 
-          <Button
+          <Link
             onClick={handleButtonContinuar}
-            href='/payment'
             variant='contained'
             sx={{
                 backgroundColor: '#FFB500',
@@ -96,8 +98,9 @@ const ClientInfo =()=>{
                 fontWeight: 'bold',
                 fontSize: '1.2rem',
                 ":hover": {backgroundColor: '#FFB500'}
-            }}
-          >Comprar</Button>
+          }}>
+            Comprar
+          </Link>
 
         </Box>
       </Grid>

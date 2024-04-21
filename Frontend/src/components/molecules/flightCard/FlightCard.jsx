@@ -5,6 +5,7 @@ import { AtomButton } from '../../atoms/atomButton/AtomButton';
 import { useNavigate } from "react-router-dom";
 import { ViajesContext } from "../../../context/ViajesContextProvider";
 
+
 const FlightCard = ({ flight }) => {
   const navigate = useNavigate();
   const { setVueloSeleccionado } = useContext(ViajesContext);
@@ -34,12 +35,12 @@ const FlightCard = ({ flight }) => {
       description: description,
       duration: duration
     });
-
     navigate("/seatSelection");
   };
 
+
   return(
-    <Link href='#' underline="none" sx={{ cursor: 'pointer' }} onClick={onClick}>
+    <Link underline="none" sx={{ cursor: 'pointer' }} onClick={onClick}>
       <Grid container component='article' minHeight='160px' alignItems='center' marginY='15px' padding='20px' borderRadius='12px' color={'black'} sx={{ backgroundColor: 'white', boxShadow: 3, borderLeft: '8px solid #FFB500' }}>
         <Grid item container xs={12} md={9}>
           <Grid item xs={6} md={3} alignContent='center' textAlign='center'>
