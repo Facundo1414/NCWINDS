@@ -1,29 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Box, Divider, Typography, Link } from '@mui/material';
 import { SeatCard } from '../../molecules/seatCard/SeatCard';
 import { ViajesContext } from "../../../context/ViajesContextProvider";
 
 
-const SeatList =({ selectedSeats, setSelectedSeats })=>{
+// const SeatList =({ selectedSeats, setSelectedSeats })=>{
+const SeatList =()=>{
   const navigate = useNavigate();
-  const { setListaAsientos } = useContext(ViajesContext);
-  let finalPrice = 0;
+  const { listaAsientos,setListaAsientos } = useContext(ViajesContext);
+  const [finalPrice, setFinalPrice] = useState(0);
+
+  useEffect(() => {
+    let price = 0;
+    listaAsientos.forEach(seat => {
+        price += parseInt(seat.seatPrice);
+    });
+    setFinalPrice(price);
+}, [listaAsientos]);
+
 
   const deleteSeat = (seatNumber) => {
-    setSelectedSeats(selectedSeats.filter((seat) => seat.seatNumber !== seatNumber));
-  };
-
-  const calculateFinalPrice = () => {
-     selectedSeats.forEach(seat => {
-      finalPrice += parseInt(seat.seatPrice);
-     })
+    setListaAsientos(listaAsientos.filter((seat) => seat.seatNumber !== seatNumber));
   };
 
   const handleButtonClick =()=>{
-    setListaAsientos(selectedSeats);
     navigate("/clientInfo");
-  }
+  };
 
 
   return(
@@ -32,12 +35,12 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
         <Typography variant="h5">Pasajeros</Typography>
       </Box>
       <Box>
-        {selectedSeats.map((value, index) =>{
-          calculateFinalPrice();
+        {listaAsientos.map((value, index) =>{
           return <SeatCard key={index} passengerNumber={index+1} seatNumber={value.seatNumber} 
                   seatPrice={value.seatPrice}  onDelete={()=> deleteSeat(value.seatNumber)}/>
-        })}
+        })}    
       </Box>
+
       <Box display='flex' justifyContent='center'>
         <Link sx={{
           borderRadius: '1.5rem', 
@@ -53,6 +56,7 @@ const SeatList =({ selectedSeats, setSelectedSeats })=>{
           Comprar
         </Link>
       </Box>
+
       <Divider sx={{marginY: '10px'}}/>
       <Box display='flex' justifyContent='space-between' color='#002561' paddingX='8px'>
         <Typography fontSize='1.1rem'>Precio Final:</Typography>
