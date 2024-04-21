@@ -2,7 +2,8 @@ import React from "react";
 import { Box } from '@mui/material';
 import { PlaneSeat } from "../../atoms/planeSeat/PlaneSeat";
 
-const RowSeat =({rowNumber, seatColumns, selectedSeats, setSelectedSeats})=>{
+// const RowSeat =({rowNumber, seatColumns, selectedSeats, setSelectedSeats})=>{
+const RowSeat =({ rowNumber, seatColumns })=>{
 
 
   return(
@@ -11,8 +12,8 @@ const RowSeat =({rowNumber, seatColumns, selectedSeats, setSelectedSeats})=>{
         <PlaneSeat 
           key={seatColumn+rowNumber}
           seatNumber={seatColumn+rowNumber} 
-          selectedSeats={selectedSeats} 
-          setSelectedSeats={setSelectedSeats}
+          // selectedSeats={selectedSeats} 
+          // setSelectedSeats={setSelectedSeats}
           seatPrice={'1250000'}
           />
       )}

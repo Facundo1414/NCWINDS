@@ -5,7 +5,6 @@ export const ViajesContext = createContext()
 
 
 const ViajesContextProvider = ({children}) => {
-
     const [infoVuelo, setInfoVuelo] = useState({
         origen: "",
         destino: "",
