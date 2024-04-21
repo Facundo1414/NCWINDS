@@ -1,14 +1,16 @@
 import React from 'react'
-import { Paper } from '@mui/material';
+import { Card, CardActionArea } from '@mui/material';
 import "./Card_Search.css"
 
-const Card_Search = ({tipo,precio, horas}) => {
+const Card_Search = ({tipo,precio, horas, link}) => {
   return (
-    <Paper className='card' elevation={6}>
-        <h3 className='card_tipo'>{tipo}</h3>
-        <h2 className='card_precio'>$ {precio}</h2>
-        <p className='card_horas'>{horas}</p>
-    </Paper>
+    <CardActionArea component='a' href={link}>
+      <Card  className='card' elevation={6}>
+          <h3 className='card_tipo'>{tipo}</h3>
+          <h2 className='card_precio'>$ {precio}</h2>
+          <p className='card_horas'>{horas}</p>
+      </Card>
+    </CardActionArea>
   )
 }
 
