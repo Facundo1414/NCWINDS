@@ -10,11 +10,12 @@ const FlightCard = ({ flight }) => {
   const { setVueloSeleccionado } = useContext(ViajesContext);
   const { origin, destiny, dateOfOrigin, dateOfDestiny, duration, price, departureTime , arrivalTime, scaleNumbers,description} = flight;
 
+  //Los props no deberían ser modificados en el componente
   const propsFlightCard = {
     origen: origin.split(','),
     destino: destiny.split(','),
-    horaSalida: dateOfOrigin,
-    horaLlegada: dateOfDestiny,
+    horaSalida: departureTime.slice(0, 5),
+    horaLlegada: arrivalTime.slice(0, 5),
     duracionVuelo: duration,
     precio: price
   };
