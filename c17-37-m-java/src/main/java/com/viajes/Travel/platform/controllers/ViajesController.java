@@ -18,7 +18,8 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/viajes")
+@RequestMapping("/api/v1/viajes")
+@CrossOrigin("*")
 public class ViajesController {
 
 
@@ -27,7 +28,6 @@ public class ViajesController {
 
     //endpoint de listar viajes
     @GetMapping()
-
     public ResponseEntity<?>listar(){
 
         return  ResponseEntity.status(HttpStatus.OK).body(this.services.listar());

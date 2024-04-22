@@ -8,7 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/reserva")
+@RequestMapping("/api/v1/reserva")
+@CrossOrigin("*")
 public class ReservaController {
     @Autowired
    private ReservaService reservaService;
