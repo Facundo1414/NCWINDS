@@ -11,7 +11,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@NoArgsConstructor
+
 @AllArgsConstructor
 public class Usuario {
     @Id
@@ -45,6 +45,25 @@ public class Usuario {
     private EstadosModel estadosId;
 
 
+	public Usuario(@Email @NotBlank String correo, @NotBlank String nombre, @NotBlank String password, String token,
+			Date fecha, PerfilModel perfilId, EstadosModel estadosId) {
+		super();
+		this.correo = correo;
+		this.nombre = nombre;
+		this.password = password;
+		this.token = token;
+		this.fecha = fecha;
+		this.perfilId = perfilId;
+		this.estadosId = estadosId;
+	}
 
+
+	public Usuario() {
+		super();
+	}
+
+
+
+    
 
 }
