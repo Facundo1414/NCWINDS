@@ -11,6 +11,7 @@ import { ViajesContext } from "../../context/ViajesContextProvider";
 import { fetchData } from "../../services/apiService";
 
 const Search =()=>{
+  const [dataFilter, setDataFilter] = useState(null)
   const {urlViajesController} = useContext(BackendGateWayContext)
   const {infoVuelo} = useContext(ViajesContext)
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,6 @@ const Search =()=>{
   let endPointViajeSinFechas = `${urlViajesController}/originAndDestiny/${infoVuelo.origen}/${infoVuelo.destino}`
   let endPointViajeConFechaOrigen = `${urlViajesController}/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
   //let endPointViajeConAmbasFechas = `${urlViajesController}/findByOriginAndDestinyAndDateOfDestiny/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
-
 
   // segunda version
   useEffect(() => {
@@ -53,13 +53,16 @@ const Search =()=>{
     }
   }, [infoVuelo]);
   
+  useEffect(()=>{
+    setDataFilter(vuelosFetch)
+  },[vuelosFetch])
   
   return(
     <Grid container sx={{width:'95%'}}>
 
       <Grid item xs={12} md={4} padding='15px'>
         <SearchBar searchStyles={{bgcolor: 'white',bgcolorContainer: "#002561"}}/>
-        <FlightDetails />
+        <FlightDetails dataFlights={vuelosFetch} setDataFromParentFilter={setDataFilter} />
       </Grid>
       
       <Grid item xs={12} md={8} paddingX={'15px'}>
@@ -89,7 +92,7 @@ const Search =()=>{
             : 
             (
             <Box>
-              {vuelosFetch.map((flight)=>{
+              {dataFilter.map((flight)=>{
                 return <FlightCard key={flight.id} flight={flight}/>
               })}
             </Box>
