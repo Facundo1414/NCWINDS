@@ -79,5 +79,13 @@ public class ViajesServices implements  ViajesServicesImp{
         viajesRepository.delete(viajes);
    }
 
+	@Override
+	public List<Viajes> findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(String origin, String destiny,
+			String dateOfOrigin, String DateOfDestiny) {
+		// TODO Auto-generated method stub
+		return this.viajesRepository.findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny
+				(origin, destiny, dateOfOrigin, DateOfDestiny);
+	}
+
 
 }

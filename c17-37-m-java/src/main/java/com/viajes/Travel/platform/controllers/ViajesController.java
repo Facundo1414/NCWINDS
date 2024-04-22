@@ -73,6 +73,17 @@ public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @
 }
 
 
+
+@GetMapping("/findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny/{origin}/{destiny}/{dateOfOrigin}/{DateOfDestiny}")
+public ResponseEntity<?>findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(@PathVariable String origin,@PathVariable String destiny,@PathVariable String dateOfOrigin, @PathVariable String DateOfDestiny){
+	
+	
+	return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(origin, destiny, dateOfOrigin, DateOfDestiny));
+	
+	
+}
+
+
     @GetMapping("/{id}")
 
     public ResponseEntity<?>buscarPorId(@PathVariable Integer id){
