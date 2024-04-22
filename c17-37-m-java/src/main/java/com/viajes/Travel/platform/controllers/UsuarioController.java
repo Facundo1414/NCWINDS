@@ -2,6 +2,7 @@ package com.viajes.Travel.platform.controllers;
 
 import com.viajes.Travel.platform.Dto.JwtResponseDto;
 import com.viajes.Travel.platform.Dto.LoginDto;
+import com.viajes.Travel.platform.Dto.UsuariosResponseDto;
 import com.viajes.Travel.platform.entity.Usuario;
 import com.viajes.Travel.platform.entity.Viajes;
 import com.viajes.Travel.platform.jwt.JwtService;
@@ -12,7 +13,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api")
@@ -77,5 +80,24 @@ public class UsuarioController {
     }
 
 
+    @GetMapping("/auth/usuarios")
+    
+    public ResponseEntity<?>listarUsuarios(){
+    	
+    	
+    	
+    	List<UsuariosResponseDto>lista= new ArrayList<>();
+    	List<Usuario>datos = this.usuarioServ.listar();
+    	
+    	datos.forEach((dato)->{
+    		lista.add(new UsuariosResponseDto(dato.getId()
+    				,dato.getNombre(),dato.getCorreo(),
+    				dato.getPerfilId().getNombre(),
+    				dato.getPerfilId().getId(), dato.getEstadosId().getId()
+    				, dato.getEstadosId().getNombre()));
+    	});
+    	
+    	return ResponseEntity.status(HttpStatus.OK).body(lista);
+    }
 }
 
