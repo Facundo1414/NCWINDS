@@ -1,13 +1,18 @@
-import React, { useState } from "react";
-import { Box, Typography, Divider, Slider } from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Box, Typography, Divider, Slider, duration } from "@mui/material";
 import "./FlightDetails.css";
 
-const FlightDetails = () => {
-  const [price, setPrice] = useState([0, 4000000]);
+const FlightDetails = ({dataFlights , setDataFromParentFilter}) => {
+  const [dataFilter, setDataFilter] = useState(null)
+  const [price, setPrice] = useState([0, 4000]);
   const [duracionVuelo, setDuracionVuelo] = useState([0, 48]);
   const [departureTime, setDepartureTime] = useState([0, 24]);
   const [scales, setScales] = useState([0, 10]);
 
+  useEffect(()=>{
+    setDataFilter(dataFlights)
+  },[dataFlights])
+  
   const handleChangePrice = (event, newPrice) => {
     setPrice(newPrice);
   };
@@ -23,6 +28,26 @@ const FlightDetails = () => {
   const handleChangeScales = (event, newScale) => {
     setScales(newScale);
   };
+
+useEffect(()=>{
+ 
+  const setDataFlightsByFilters = ()=>{
+    
+      const newData = dataFlights?.filter(item => 
+        item.scaleNumbers >= scales[0] && item.scaleNumbers <= scales[1] &&
+        item.price >= price[0] && item.price <= price[1] &&
+        item.departureTime.split(":")[0] >= departureTime[0] && item.departureTime.split(":")[0] <= departureTime[1] &&
+        item.duration.split(" ")[0] >= duracionVuelo[0] &&  item.duration.split(" ")[0] <= duracionVuelo[1] 
+        
+      );
+      
+      setDataFilter(newData)
+      setDataFromParentFilter(newData)
+   
+  }
+  setDataFlightsByFilters()
+},[price,duracionVuelo, departureTime,scales])
+
   return (
     <Box
       component="section"
@@ -52,7 +77,7 @@ const FlightDetails = () => {
             valueLabelDisplay="auto"
             aria-labelledby="range-slider"
             min={0}
-            max={4000000}
+            max={4000}
           />
         </div>
       </Box>
