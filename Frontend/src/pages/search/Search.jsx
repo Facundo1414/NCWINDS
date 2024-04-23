@@ -18,26 +18,43 @@ const Search =()=>{
   const [vuelosFetch, setVuelosFetch] = useState([])
   const [iferrorFetchVuelos, setIferrorFetchVuelos] = useState(false)
   
+  
+  let endPointViajeSoloOrigen = `${urlViajesController}/origin/${infoVuelo.origen}`
+  let endPointViajeSoloDestino = `${urlViajesController}/destiny/${infoVuelo.destino}`
   let endPointViajeSinFechas = `${urlViajesController}/originAndDestiny/${infoVuelo.origen}/${infoVuelo.destino}`
   let endPointViajeConFechaOrigen = `${urlViajesController}/originAndDestinyAndDateOfOrigin/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
-  //let endPointViajeConAmbasFechas = `${urlViajesController}/findByOriginAndDestinyAndDateOfDestiny/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}`
+  //let endPointViajeConAmbasFechas = `${urlViajesController}/findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny/${infoVuelo.origen}/${infoVuelo.destino}/${infoVuelo.fechaIda}/${infoVuelo.fechaVuelta}`
 
   // segunda version
   useEffect(() => {
-    if (infoVuelo.origen !== "" && infoVuelo.destino !== "" ) {
+    if (infoVuelo.origen !== "" || infoVuelo.destino !== "" ) {
       const fetchDataAsync = async () => {
         let responseData = "";
-        
+        console.log(infoVuelo);
+        //primero busca origen-destino-fIda-fVuelta
         if (infoVuelo.fechaVuelta !== "") {
-          console.log("fecha vuelta no implementada por el backend");
           //responseData = await fetchData(endPointViajeConAmbasFechas);
-        } else {
+          console.log("primero busca origen-destino-fIda-fVuelta");
+        } else { //sino busca origen-destino-fIda
           responseData = await fetchData(endPointViajeConFechaOrigen);
+          console.log("//sino busca origen-destino-fIda");
         } 
+        // busca origen y destino
         if(responseData.length === 0) {
-
-          responseData = await fetchData(endPointViajeSinFechas);
+          if (infoVuelo.destino === "") { // busca por origen
+            responseData = await fetchData(endPointViajeSoloOrigen)
+            console.log("//busca por origen");
+          }
+          else if(infoVuelo.origen === ""){ // busca por destino
+            responseData = await fetchData(endPointViajeSoloDestino)
+            console.log("//busca por origen");
+          }
+          else{ //busca por origen y destino
+            responseData = await fetchData(endPointViajeSinFechas);
+          }
         }
+
+        // resultados
           if (responseData.length > 0) {
           setVuelosFetch(responseData);
           setLoading(false);

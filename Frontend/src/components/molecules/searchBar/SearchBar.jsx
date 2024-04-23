@@ -10,8 +10,8 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const SearchBar = ({translateStyle, searchStyles}) => {
     const navigate = useNavigate()
-    // viaje de ida y vuelta o solo ida
     const {infoVuelo,setInfoVuelo} = useContext(ViajesContext)
+    // viaje de ida y vuelta o solo ida
     const [tipoViaje, setTipoViaje] = useState(false);
     const handleTipoViajeChange =(event)=>{
         setTipoViaje(event.target.value === 'true');   
@@ -50,17 +50,13 @@ const SearchBar = ({translateStyle, searchStyles}) => {
           fechaVuelta: valueFechaVuelta,
         });
       }
-    if (infoVuelo.origen !== "" && infoVuelo.destino !== "") {
+    
         navigate('/search')
-    }
-    else{
-        //alert("error")
-    }
+
   };
 
   // end of Buscar
 
-  //TODO : las fechas deberian ser menos estrictas 
 
     return (
         <div className={`search-bar-container ${translateStyle? "search-bar-containerTransform" : ""}`} style={{backgroundColor: bgcolorContainer}}>
