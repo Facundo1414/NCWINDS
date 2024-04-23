@@ -1,4 +1,5 @@
 import { Document, Page, Text, StyleSheet, View, Image } from '@react-pdf/renderer';
+import { useState, useEffect } from 'react';
 
 
 const styles = StyleSheet.create({
@@ -48,6 +49,17 @@ const styles = StyleSheet.create({
 
 
 const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
+  const [finalPrice, setFinalPrice] = useState(0);
+
+  useEffect(() => {
+    let price = 0;
+    listaAsientos.forEach(seat => {
+        price += parseInt(seat.seatPrice);
+    });
+    setFinalPrice(price);
+}, [listaAsientos]);
+
+
   const name = reserva.name + " " + reserva.lastName;
   const nacionalidad = reserva.residenceCountry;
 
@@ -102,7 +114,7 @@ const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
           <Text style={styles.subTittle}>Lista de asientos</Text>
 
           {listaAsientos.map((value, index) => { 
-            console.log("map ejecutado")
+
             return(             
               <View  style={styles.seatContainer}>
                 <Text style={styles.text}>Pasajero {index}</Text>
@@ -113,7 +125,7 @@ const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
             );
           })}
 
-          <Text style={styles.totalPrice}>Precio total: $2000</Text>
+          <Text style={styles.totalPrice}>Precio total: ${finalPrice}</Text>
       </Page>
     </Document>
   );
