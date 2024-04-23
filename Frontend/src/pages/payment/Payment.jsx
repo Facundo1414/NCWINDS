@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import { FligthInfo } from '../../components/organisms/flightInfo/FligthInfo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -7,12 +7,15 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { PDF_Render } from '../../components/atoms/PDF_Render/PDF_Render';
 import { pdf } from '@react-pdf/renderer';
 import dayjs from 'dayjs';
+import { ViajesContext } from '../../context/ViajesContextProvider';
 
 
 const Payment = () => {
+    const { reserva, vueloSeleccionado, listaAsientos } = useContext(ViajesContext);
+
 
     const downloadPDF = async () => {
-        const doc = <PDF_Render />;
+        const doc = <PDF_Render reserva={reserva} vueloSeleccionado={vueloSeleccionado} listaAsientos={listaAsientos} />;
         const asPdf = pdf([]);
         asPdf.updateContainer(doc);
         const blob = await asPdf.toBlob();
