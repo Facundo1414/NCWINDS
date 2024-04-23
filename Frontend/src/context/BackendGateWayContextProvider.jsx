@@ -5,17 +5,19 @@ export const BackendGateWayContext = createContext()
 
 const BackendGateWayContextProvider = ({children}) => {
 
-    const localHost = 'http://localhost:8080'
-    const urlViajesController = `${localHost}/api/v1/viajes`
-    const urlReservaController = `${localHost}/api/v1/reserva`
-    const urlUsuarioController = `${localHost}/api`
-    const urlLoginController = `${localHost}/api/auth/login`
+    const BASE_URL = 'http://localhost:8080'
+    const urlViajesController = `${BASE_URL}/api/v1/viajes`
+    const urlReservaController = `${BASE_URL}/api/v1/reserva`
+    const urlUsuarioController = `${BASE_URL}/api`
+    const urlLoginController = `${BASE_URL}/api/auth/login`
+    const urlSignUpController = `${BASE_URL}/api/auth/usuarios`
 
     const data = {
         urlViajesController,
         urlReservaController,
         urlUsuarioController,
-        urlLoginController
+        urlLoginController,
+        urlSignUpController
     }
 
   return (
