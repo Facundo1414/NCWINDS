@@ -9,11 +9,9 @@ const Main_elegirnosSection = () => {
         <Box className='blueContainer'>
             <div className='textContainer'>
                 <h2>¿Por qué elegirnos?</h2>
-                <h4>Lorem ipsum es el texto de relleno más conocido y proviene de varios pasajes de un libro de Cicerón, escrito en el 45 a.C.</h4>
+                <h4>Al elegirnos, nuestros clientes disfrutan de una experiencia de viaje excepcional con comodidad, seguridad y tarifas competitivas en una amplia variedad de destinos internacionales.</h4>
             </div>
-            
             <Card_eS/>
-           
         </Box>
     </div>
   )
