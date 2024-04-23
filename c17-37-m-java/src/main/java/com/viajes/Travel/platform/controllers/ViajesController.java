@@ -7,13 +7,16 @@ import com.viajes.Travel.platform.entity.Viajes;
 import com.viajes.Travel.platform.services.ViajesServices;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -71,6 +74,13 @@ public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @
 
         return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfDestiny(origin,destiny,DateOfDestiny));
 }
+
+    @GetMapping("/findByOriginAndDestinyAndDates/{origin}/{destiny}/{dateOfOrigin}/{dateOfDestiny}")
+
+    public  ResponseEntity<?>findByOriginAndDestinyAndDates(@PathVariable String origin, @PathVariable String destiny,@PathVariable String dateOfOrigin , @PathVariable String dateOfDestiny){
+
+        return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(origin, destiny, dateOfOrigin, dateOfDestiny));
+    }
 
 
     @GetMapping("/{id}")
