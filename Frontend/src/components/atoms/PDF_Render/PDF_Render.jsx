@@ -1,5 +1,6 @@
 import { Document, Page, Text, StyleSheet, View, Image } from '@react-pdf/renderer';
 
+
 const styles = StyleSheet.create({
   body: {
     paddingTop: 35,
@@ -45,63 +46,77 @@ const styles = StyleSheet.create({
   }
 });
 
-const PDF_Render = () => (
-  <Document>
-    <Page style={styles.body}>
-      <View style={styles.header}>
-        <Text>FlyAirlines</Text>
-      </View>
-      <View style={styles.tittle}>
-        <Text>Recibo de compra electrónico: 000001</Text>
-      </View>
 
-      <View style={styles.columnContainer}>
-        <View style={styles.columnSection}>
-          <Text style={styles.subTittle}>Cliente</Text>
-          <Text style={styles.text}>Nombre: John Doe</Text>
-          <Text style={styles.text}>Correo: john.doe@example.com</Text>
-          <Text style={styles.text}>Nacionalidad: Argentina</Text>
+const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
+  const name = reserva.name + " " + reserva.lastName;
+  const nacionalidad = reserva.residenceCountry;
+
+  const fechaSalida = vueloSeleccionado.dateOfOrigin;
+  const horaSalida = vueloSeleccionado.departureTime;
+  const lugarOrigen = vueloSeleccionado.origin;
+
+  const fechaLlegada = vueloSeleccionado.dateOfDestiny;
+  const horaLlegada = vueloSeleccionado.arrivalTime;
+  const lugarLlegada = vueloSeleccionado.destiny;
+
+
+  return(
+    <Document>
+      <Page style={styles.body}>
+        <View style={styles.header}>
+          <Text>FlyAirlines</Text>
+        </View>
+        <View style={styles.tittle}>
+          <Text>Recibo de compra electrónico: 000001</Text>
         </View>
 
-        <View style={styles.columnSection}>
-          <Image style={styles.qrCode} src="src/assets/QRCode.png"/>
-        </View>
-      </View>
-
-        <Text style={styles.subTittle}>Información de vuelo</Text>
         <View style={styles.columnContainer}>
           <View style={styles.columnSection}>
-            <Text style={styles.text}>Fecha de salida: 01/04/2023</Text>
-            <Text style={styles.text}>Hora de salida: 21:00</Text>
-            <Text style={styles.text}>Salida: Argentina</Text>
+            <Text style={styles.subTittle}>Cliente</Text>
+            <Text style={styles.text}>Nombre: {name}</Text>
+            {/* <Text style={styles.text}>Correo: john.doe@example.com</Text> */}
+            <Text style={styles.text}>Nacionalidad: {nacionalidad}</Text>
           </View>
 
           <View style={styles.columnSection}>
-            <Text style={styles.text}>Fecha llegada: 02/04/2023</Text>
-            <Text style={styles.text}>Hora de llegada: 07:45</Text>
-            <Text style={styles.text}>Llegada: Dinamarca</Text>
+            <Image style={styles.qrCode} src="src/assets/QRCode.png"/>
           </View>
         </View>
 
+          <Text style={styles.subTittle}>Información de vuelo</Text>
+          <View style={styles.columnContainer}>
+            <View style={styles.columnSection}>
+              <Text style={styles.text}>Fecha de salida: {fechaSalida}</Text>
+              <Text style={styles.text}>Hora de salida: {horaSalida}</Text>
+              <Text style={styles.text}>Salida: {lugarOrigen}</Text>
+            </View>
 
-        <Text style={styles.subTittle}>Lista de asientos</Text>
-          <View  style={styles.seatContainer}>
-            <Text style={styles.text}>Pasajero 1</Text>
-            <Text style={styles.text}>Asiento: A1</Text>
-            <Text style={styles.text}>Clase: Turista</Text>
-            <Text style={styles.text}>Precio: $1000</Text>
+            <View style={styles.columnSection}>
+              <Text style={styles.text}>Fecha llegada: {fechaLlegada}</Text>
+              <Text style={styles.text}>Hora de llegada: {horaLlegada}</Text>
+              <Text style={styles.text}>Llegada: {lugarLlegada}</Text>
+            </View>
           </View>
 
-          <View  style={styles.seatContainer}>
-            <Text style={styles.text}>Pasajero 2</Text>
-            <Text style={styles.text}>Asiento: B2</Text>
-            <Text style={styles.text}>Clase: Turista</Text>
-            <Text style={styles.text}>Precio: $1000</Text>
-          </View>
 
-        <Text style={styles.totalPrice}>Precio total: $2000</Text>
-    </Page>
-  </Document>
-);
+          <Text style={styles.subTittle}>Lista de asientos</Text>
+
+          {listaAsientos.map((value, index) => { 
+            console.log("map ejecutado")
+            return(             
+              <View  style={styles.seatContainer}>
+                <Text style={styles.text}>Pasajero {index}</Text>
+                <Text style={styles.text}>Asiento: {value.seatNumber}</Text>
+                <Text style={styles.text}>Clase: Turista</Text>
+                <Text style={styles.text}>Precio: {value.seatPrice}</Text>
+              </View>
+            );
+          })}
+
+          <Text style={styles.totalPrice}>Precio total: $2000</Text>
+      </Page>
+    </Document>
+  );
+};
 
 export { PDF_Render };

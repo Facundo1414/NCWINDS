@@ -5,10 +5,9 @@ import { SeatCard } from '../../molecules/seatCard/SeatCard';
 import { ViajesContext } from "../../../context/ViajesContextProvider";
 
 
-// const SeatList =({ selectedSeats, setSelectedSeats })=>{
 const SeatList =()=>{
   const navigate = useNavigate();
-  const { listaAsientos,setListaAsientos } = useContext(ViajesContext);
+  const { listaAsientos, setListaAsientos } = useContext(ViajesContext);
   const [finalPrice, setFinalPrice] = useState(0);
 
   useEffect(() => {
@@ -28,7 +27,7 @@ const SeatList =()=>{
     navigate("/clientInfo");
   };
 
-
+  console.log(listaAsientos);
   return(
     <Box borderRadius='12px' padding='20px 10px' sx={{backgroundColor: 'white'}} boxShadow='3'>
       <Box>
