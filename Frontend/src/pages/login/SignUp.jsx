@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Alert, Snackbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 import LoginPage, { Input } from '@react-login-page/page7';
 import Login from 'react-login-page';
 import {useFormik} from 'formik'
 import { sendData } from '../../services/apiService';
+import { BackendGateWayContext } from '../../context/BackendGateWayContextProvider';
 import './Login.css';
 
 const SignUp = () => {
+
+  const {urlSignUpController} = useContext(BackendGateWayContext);
     const formik = useFormik({
         initialValues: {
             nombre: '',
-            email: '',
+            correo: '',
             password: '',
           },
           onSubmit: (values) => {
             async function obtenerRespuesta() {
                 try {
-                  const response = await sendData('usuario', values);
+                  const response = await sendData(urlSignUpController, values);
                   setIsRegisteredUserAlertVisible(true)
                 } catch (error) {
                   console.error('Error al enviar datos:', error);
@@ -54,7 +57,7 @@ const SignUp = () => {
             <LoginPage.Title>Registrate</LoginPage.Title>
             <Input name="username" visible={false}/>
             <Input name="nombre" type="nombre" placeholder="Usuario" index={0} id='usuario' value={formik.values.nombre} onChange={formik.handleChange}  />
-            <Input name="email" type="email" placeholder="Correo" index={1} id='email' value={formik.values.email} onChange={formik.handleChange} />
+            <Input name="correo" type="correo" placeholder="Correo" index={1} id='email' value={formik.values.correo} onChange={formik.handleChange} />
             <Input name="password" type="password" placeholder="Contraseña" index={2} id='password'  value={formik.values.password} onChange={formik.handleChange}/>
             <Login.Button keyname="submit" index={1} type="submit" onClick={formik.handleSubmit} >
                 Crear cuenta
