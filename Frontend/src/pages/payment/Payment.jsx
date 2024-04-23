@@ -19,7 +19,7 @@ const Payment = () => {
         const url = URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = 'document.pdf';
+        link.download = 'Recibo_FlyAirlines.pdf';
         link.click();
     };
 
