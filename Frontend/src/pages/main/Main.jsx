@@ -1,7 +1,7 @@
 import { About } from '../../components/organisms/about/About';
 import { Destinations } from '../../components/organisms/destinations/Destinations'
-import { Main_elegirnosSection } from '../../components/organisms/Main_elegirnosSection/Main_elegirnosSection'
 import { Header } from '../../components/organisms/header/Header';
+import { ChooseUsSection } from '../../components/organisms/chooseUsSection/ChooseUsSection';
 import "./Main.css"
 
 
@@ -11,7 +11,7 @@ const Main = () => {
     <div className='container-main'>   
       <Header/>
       <Destinations/>
-      <Main_elegirnosSection/>  
+      <ChooseUsSection />
       <About />
     </div>
     
