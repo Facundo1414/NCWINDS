@@ -35,5 +35,5 @@ public interface ViajesServicesImp {
 
     void delete (Viajes viajes);
 
-
+    List<Viajes> findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(String origin, String destiny, String dateOfOrigin, String dateOfDestiny);
 }
