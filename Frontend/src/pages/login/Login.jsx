@@ -57,7 +57,7 @@ const Login = () => {
       <LoginPage.Logo>
         <img src="./planeLogin.png" alt="" />
       </LoginPage.Logo>
-      <LoginPage.Title>Inicia Sesion</LoginPage.Title>
+      <LoginPage.Title>Inicia Sesión</LoginPage.Title>
       <Input name="username" visible={false} />
       
       <Input
@@ -82,19 +82,21 @@ const Login = () => {
         index={1}
         type="submit"
         onClick={formik.handleSubmit}
+        
       >
         Ingresar
       </LoginC.Button>
       <LoginPage.Footer>
-      ¿No eres un miembro? <Link to={"/signUp"}>Registrate ahora</Link>
+      ¿No eres un miembro? <Link to={"/signUp"}>Regístrate ahora</Link>
       </LoginPage.Footer>
       
         <Snackbar
           open={isNotValidCredentialsAlertVisible}
           autoHideDuration={5000}
           onClose={()=>setIisNotValidCredentialsAlertVisible(false)}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         >
-          <Alert severity="error">Algo salio mal</Alert>
+          <Alert severity="error">Ups, algo salió mal</Alert>
         </Snackbar>
       
     </LoginPage>
