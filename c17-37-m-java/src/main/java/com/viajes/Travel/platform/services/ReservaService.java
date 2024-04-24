@@ -5,20 +5,29 @@ import com.viajes.Travel.platform.respository.ReservaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.List;
+
 @Service
-public class ReservaService implements ReservaServiceImp{
+public class ReservaService implements  ReservaImp{
 
     @Autowired
     private ReservaRepository reservaRepository;
-    
-    @Override
-    public void guardarReserva(Reserva res) {
+
+
+    public List<Reserva>listar(){
+
+        return this.reservaRepository.findAll();}
+
+    public void guardar(Reserva res){
         this.reservaRepository.save(res);
     }
+    public void eliminar(Integer id){
 
-    @Override
-    public void eliminarReserva(Integer id) {
-        reservaRepository.deleteById(id);
+        this.reservaRepository.deleteById(id);
     }
+
+
+
     
 }

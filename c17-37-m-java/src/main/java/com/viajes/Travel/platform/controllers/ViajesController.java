@@ -21,7 +21,8 @@ import java.util.Map;
 
 
 @RestController
-@RequestMapping("/viajes")
+@RequestMapping("/api/v1/viajes")
+@CrossOrigin("*")
 public class ViajesController {
 
 
@@ -30,7 +31,6 @@ public class ViajesController {
 
     //endpoint de listar viajes
     @GetMapping()
-
     public ResponseEntity<?>listar(){
 
         return  ResponseEntity.status(HttpStatus.OK).body(this.services.listar());
@@ -81,6 +81,17 @@ public  ResponseEntity<?>buscarPorDestinoAndFecha(@PathVariable String origin, @
 
         return ResponseEntity.status(HttpStatus.OK).body(this.services.findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(origin, destiny, dateOfOrigin, dateOfDestiny));
     }
+
+
+
+@GetMapping("/findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny/{origin}/{destiny}/{dateOfOrigin}/{DateOfDestiny}")
+public ResponseEntity<?>findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(@PathVariable String origin,@PathVariable String destiny,@PathVariable String dateOfOrigin, @PathVariable String DateOfDestiny){
+	
+	
+	return ResponseEntity.status(HttpStatus.ACCEPTED).body(this.services.findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny(origin, destiny, dateOfOrigin, DateOfDestiny));
+	
+	
+}
 
 
     @GetMapping("/{id}")

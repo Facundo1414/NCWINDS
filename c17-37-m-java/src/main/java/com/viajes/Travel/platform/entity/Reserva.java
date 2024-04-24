@@ -1,9 +1,6 @@
 package com.viajes.Travel.platform.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,9 +13,17 @@ public class Reserva {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idReserva;
+    private Integer id;
 
-    
+    @ManyToOne
+    @JoinColumn(name = "viaje_id")
+    private Viajes viaje;
+
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     private Integer totalNumberOfSeats;
     
     
@@ -40,8 +45,5 @@ public class Reserva {
     private String gender;
     
     
-    private Integer idViaje;
-    
-    
-    private Integer idUsuario;
+
 }

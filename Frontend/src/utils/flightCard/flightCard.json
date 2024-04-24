@@ -1,0 +1,47 @@
+[
+  {
+    "id": 0,
+    "origen": "Buenos Aires, Argentina",
+    "destino": "Madrid, España",
+    "horaSalida": "12:00",
+    "horaLlegada": "08:30",
+    "duracionVuelo": "12:40",
+    "precio": "1200000"
+  },
+  {
+    "id": 1,
+    "origen": "Santiago, Chile",
+    "destino": "Lima, Perú",
+    "horaSalida": "09:00",
+    "horaLlegada": "11:30",
+    "duracionVuelo": "02:30",
+    "precio": "300000"
+  },
+  {
+    "id": 2,
+    "origen": "Bogotá, Colombia",
+    "destino": "Ciudad de México, México",
+    "horaSalida": "15:00",
+    "horaLlegada": "19:00",
+    "duracionVuelo": "04:00",
+    "precio": "500000"
+  },
+  {
+    "id": 3,
+    "origen": "Lisboa, Portugal",
+    "destino": "Roma, Italia",
+    "horaSalida": "07:00",
+    "horaLlegada": "10:00",
+    "duracionVuelo": "03:00",
+    "precio": "750000"
+  },
+  {
+    "id": 4,
+    "origen": "Tokio, Japón",
+    "destino": "Sídney, Australia",
+    "horaSalida": "20:00",
+    "horaLlegada": "06:00",
+    "duracionVuelo": "10:00",
+    "precio": "1500000"
+  }
+]

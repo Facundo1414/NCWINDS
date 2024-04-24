@@ -1,50 +1,147 @@
 package com.viajes.Travel.platform.controllers;
 
+import com.viajes.Travel.platform.Dto.JwtResponseDto;
+import com.viajes.Travel.platform.Dto.LoginDto;
+import com.viajes.Travel.platform.Dto.UsuariosRequestDto;
+import com.viajes.Travel.platform.Dto.UsuariosResponseDto;
 import com.viajes.Travel.platform.entity.Usuario;
 import com.viajes.Travel.platform.entity.Viajes;
+import com.viajes.Travel.platform.jwt.JwtService;
+import com.viajes.Travel.platform.services.EstadosService;
+import com.viajes.Travel.platform.services.PerfilService;
 import com.viajes.Travel.platform.services.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
 @RestController
-@RequestMapping("/usuario")
+@RequestMapping("/api")
+@CrossOrigin("*")
 public class UsuarioController {
 
     @Autowired
     private UsuarioService usuarioServ;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncode;
+    @Autowired
+    private JwtService jwtService;
+    
+    @Autowired
+    private PerfilService perfilService;
+    
+    @Autowired
+    private EstadosService estadosService;
 
-    // Endpoint para obtener un usuario por su ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Usuario> obtenerUsuarioPorId(@PathVariable("id") Integer id) {
-        Usuario usuario = usuarioServ.buscarUsuarioPorId(id);
-        if (usuario != null) {
-            return ResponseEntity.ok(usuario);
-        } else {
-            return ResponseEntity.notFound().build();
+
+    @PostMapping("/auth/login")
+    public ResponseEntity<?>login(@RequestBody LoginDto dto){
+
+        Usuario usuario= this.usuarioServ.buscarPorCorreoActivo(dto.getCorreo());
+        if (usuario==null){
+
+            return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<>(){
+                {
+                    put("mensaje", "Las credenciales ingresadas no son válidas");
+                }
+            });
+        }else{
+            if (this.passwordEncode.matches(dto.getPassword(), usuario.getPassword())){
+                String token=this.jwtService.generarToken(usuario.getCorreo());
+
+                return ResponseEntity.status(HttpStatus.OK).body(
+                        new JwtResponseDto(
+                                usuario.getId(), usuario.getNombre(), usuario.getPerfilId().getNombre(), usuario.getPerfilId().getId(),  token
+                        )
+                );
+            }else{
+                return  ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<>(){
+                    {
+                        put("mensaje", "Las credenciales ingresadas no son válidas");
+                    }
+                });
+            }
         }
     }
 
-    // Endpoint para crear un nuevo usuario
-    @PostMapping("/create")
-    public ResponseEntity<Usuario> crearUsuario(@RequestBody Usuario us) {
-        usuarioServ.guardarUsuario(us);
-        return ResponseEntity.status(HttpStatus.CREATED).body(us);
+    @GetMapping("/auth/refresh/{id}")
+
+    public ResponseEntity<?>refresh (@PathVariable ("id") Integer id){
+
+        Usuario usuario=this.usuarioServ.buscarPorId(id);
+
+        if (usuario==null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<>(){
+                {
+                    put("mensaje","Ocurrio un error inesparado");
+                }
+            });
+        }else {
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new JwtResponseDto( usuario.getId(), usuario.getNombre(), usuario.getPerfilId().getNombre(), usuario.getPerfilId().getId(), this.jwtService.generarToken(usuario.getCorreo())));
+        }
+
     }
 
-    // Endpoint para eliminar un usuario por su ID
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> borrarUsuario(@PathVariable("id") Integer id) {
-        usuarioServ.eliminarUsuario(id);
-        return ResponseEntity.noContent().build();
+
+    @GetMapping("/auth/usuarios")
+    
+    public ResponseEntity<?>listarUsuarios(){
+    	
+    	
+    	
+    	List<UsuariosResponseDto>lista= new ArrayList<>();
+    	List<Usuario>datos = this.usuarioServ.listar();
+    	
+    	datos.forEach((dato)->{
+    		lista.add(new UsuariosResponseDto(
+    				dato.getId(),
+    				dato.getNombre(),dato.getCorreo(),
+    				dato.getPerfilId().getNombre(),
+    				dato.getPerfilId().getId(), dato.getEstadosId().getId(),
+    				dato.getEstadosId().getNombre()));
+    	});
+    	
+    	return ResponseEntity.status(HttpStatus.OK).body(lista);
     }
     
     
-    /*@PostMapping("/reserva")
-    public ResponseEntity<viajes> reservarViaje_(@RequestBody Integer idres) {
-        usuarioServ.reservarViaje(idres);
-        return ResponseEntity.status(HttpStatus.CREATED).body(idres);
-    }*/
+    @PostMapping("/auth/usuarios")
+    
+    public ResponseEntity<?>crearUsuario(@RequestBody UsuariosRequestDto dto){
+    	
+    	Usuario usu=this.usuarioServ.buscarPorCorreo(dto.getCorreo());
+    	
+    	
+    	if(usu==null) {
+    		
+    		this.usuarioServ.guardar(new Usuario(dto.getCorreo()
+    				,dto.getNombre()
+    				,this.passwordEncode.encode(dto.getPassword())
+    				,"",new Date(),this.perfilService.buscarPorId(2L)
+    				,this.estadosService.buscarPorId(1L)));
+    		
+    		return ResponseEntity.status(HttpStatus.CREATED).body(new HashMap<String,String>() {
+    			{
+    				put("creado","se creo el usuario correctamente");
+    			}
+    		});
+    		
+    	}else {
+    		
+    		return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new HashMap<String,String>() {
+    			{
+    				put("error","ocurrio un error inesperado");
+    			}
+    		});
+    	}
+    	
+    }
 }
 

@@ -1,0 +1,17 @@
+.search_cards_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    width: 100%; 
+    /* background-color: rgb(66, 70, 70);  */
+    padding: 1rem 1.5rem; /* Adjust padding as needed */
+    gap: 1rem; /* Adjust gap as needed */
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .search_cards_container {
+        padding: 1rem; /* Adjust padding for smaller screens */
+    }
+}
