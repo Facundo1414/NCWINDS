@@ -57,7 +57,7 @@ const ClientInfo =()=>{
               <TextField onChange={(e)=>{setName(e.target.value)}} label="Nombre" variant="outlined" margin='normal' fullWidth/>
               <TextField onChange={(e)=>{setNumberDocument(e.target.value)}} label="Documento" variant="outlined" margin='normal' fullWidth/>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateField onChange={(e)=>{setDateOfBirth(e.target.value)}} label='Fecha de vencimiento' format='MM-YY' defaultValue={dayjs('2026-04')} margin='normal' fullWidth/>
+                <DateField onChange={(e)=>{setDateOfBirth(e.target.value)}} label='Fecha de nacimiento' format='DD-MM-YY' defaultValue={dayjs('2026-04')} margin='normal' fullWidth/>
               </LocalizationProvider>
             </Grid>
 

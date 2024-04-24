@@ -17,6 +17,8 @@ const FlightCard = ({ flight }) => {
     destino: destiny.split(','),
     horaSalida: departureTime.slice(0, 5),
     horaLlegada: arrivalTime.slice(0, 5),
+    fechaSalida: dateOfOrigin,
+    fechaLlegada: dateOfDestiny,
     duracionVuelo: duration,
     precio: price
   };
@@ -44,6 +46,7 @@ const FlightCard = ({ flight }) => {
       <Grid container component='article' minHeight='160px' alignItems='center' marginY='15px' padding='20px' borderRadius='12px' color={'black'} sx={{ backgroundColor: 'white', boxShadow: 3, borderLeft: '8px solid #FFB500' }}>
         <Grid item container xs={12} md={9}>
           <Grid item xs={6} md={3} alignContent='center' textAlign='center'>
+            <Typography>{propsFlightCard.fechaSalida}</Typography>
             <Typography variant='h4' fontWeight='600' letterSpacing={2}>{propsFlightCard.horaSalida}</Typography>
             <Typography>{propsFlightCard.origen[0]}</Typography>
             <Typography>{propsFlightCard.origen[1]}</Typography>
@@ -66,6 +69,7 @@ const FlightCard = ({ flight }) => {
           </Hidden>
 
           <Grid item xs={6} md={3} alignContent='center' textAlign='center'>
+          <Typography>{propsFlightCard.fechaLlegada}</Typography>
             <Typography variant='h4' fontWeight='600' letterSpacing={2}>{propsFlightCard.horaLlegada}</Typography>
             <Typography>{propsFlightCard.destino[0]}</Typography>
             <Typography>{propsFlightCard.destino[1]}</Typography>
