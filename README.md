@@ -317,17 +317,17 @@ endpoint para eliminar una reserva por ID.
     </td>
     <td align='center'>
       <div >
-        <a href="https://github.com/marcorios26" target="_blank" rel="author">
-          <img width="110" src="https://media.licdn.com/dms/image/D4D03AQEYEY7uneoGXQ/profile-displayphoto-shrink_200_200/0/1677028124918?e=1719446400&v=beta&t=2lKWmzwuHe8eCMfAYLNqIIdyjhIVehSpuchMIDzqqFs"/>
+        <a href="" target="_blank" rel="author">
+          <img width="110" src="https://files.slack.com/files-pri/T02KS88FB0E-F070G2XEZFU/t02ks88fb0e-u06qcnrcgda-3dac3291e450-192.jpg"/>
         </a>
         <a href="" target="_blank" rel="author">
-          <h4 style="margin-top: 1rem;">Marco Antonio</br><small>Fullstack</small></h4>
+          <h4 style="margin-top: 1rem;">Manuel Claros</br><small>Backend</small></h4>
         </a>
         <div style='display: flex; flex-direction: column'>
-        <a href="https://github.com/marcorios26" target="_blank">
+        <a href="" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/static/v1?style=for-the-badge&message=GitHub&color=172B4D&logo=GitHub&logoColor=FFFFFF&label="/>
         </a>
-        <a href="https://www.linkedin.com/in/marco-antonio-rios-ramos-a8724515b/" target="_blank">
+        <a href="https://www.linkedin.com/in/manuel-c-6976222" target="_blank">
           <img style='width:8rem' src="https://img.shields.io/badge/linkedin%20-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white"/>
         </a>
         </div>
