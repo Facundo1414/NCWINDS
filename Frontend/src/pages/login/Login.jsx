@@ -1,6 +1,6 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Alert, Snackbar } from "@mui/material";
+import { Alert, InputBase, Snackbar, TextField } from "@mui/material";
 import LoginPage, { Input } from "@react-login-page/page7";
 import LoginC from "react-login-page";
 import { sendData } from "../../services/apiService";
@@ -13,19 +13,23 @@ const Login = () => {
   const {urlLoginController} = useContext(BackendGateWayContext);
   const navigate = useNavigate();
   const { setUsuario, actualizarUsuario } = useUsuario();
+  const [dataForm, setDataForm] = useState({ correo: "", password: "" });
   const [
     isNotValidCredentialsAlertVisible,
     setIisNotValidCredentialsAlertVisible,
   ] = useState(false);
+
+  const [items, addItems] = useState([]);
   const formik = useFormik({
     initialValues: {
       correo: "",
       password: "",
     },
-    onSubmit: (values) => {
+    onSubmit: () => {
+      
       async function obtenerRespuesta() {
         try {
-          const response = await sendData(urlLoginController, values);
+          const response = await sendData(urlLoginController, dataForm);
           const usuario = {
             nombre: response.nombre,
             perfil: response.perfil,
@@ -42,29 +46,28 @@ const Login = () => {
       obtenerRespuesta();
     },
   });
-  const handleCloseErrorBadCredentialsMessage = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
 
-    setIisNotValidCredentialsAlertVisible(false);
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setDataForm({ ...dataForm, [name]: value });
   };
-
   return (
+    <>
     <LoginPage style={{ height: 690 }} className="login-page7">
       <LoginPage.Logo>
         <img src="./planeLogin.png" alt="" />
       </LoginPage.Logo>
       <LoginPage.Title>Inicia Sesion</LoginPage.Title>
       <Input name="username" visible={false} />
+      
       <Input
         name="correo"
         type="correo"
         placeholder="Correo"
         index={1}
         id="email"
-        value={formik.values.correo}
-        onChange={formik.handleChange}
+        onChange={handleInputChange}
+       
       />
       <Input
         name="password"
@@ -72,8 +75,7 @@ const Login = () => {
         placeholder="Contraseña"
         index={2}
         id="password"
-        value={formik.values.password}
-        onChange={formik.handleChange}
+        onChange={handleInputChange}
       />
       <LoginC.Button
         keyname="submit"
@@ -86,18 +88,18 @@ const Login = () => {
       <LoginPage.Footer>
       ¿No eres un miembro? <Link to={"/signUp"}>Registrate ahora</Link>
       </LoginPage.Footer>
-      {isNotValidCredentialsAlertVisible ? (
+      
         <Snackbar
           open={isNotValidCredentialsAlertVisible}
           autoHideDuration={5000}
-          onClose={handleCloseErrorBadCredentialsMessage}
+          onClose={()=>setIisNotValidCredentialsAlertVisible(false)}
         >
           <Alert severity="error">Algo salio mal</Alert>
         </Snackbar>
-      ) : (
-        <></>
-      )}
+      
     </LoginPage>
+  
+    </>
   );
 };
 
