@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import {useNavigate} from 'react-router-dom'
 import { Box, Button, Grid, TextField, Typography } from '@mui/material';
 import { FligthInfo } from '../../components/organisms/flightInfo/FligthInfo';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -9,6 +10,7 @@ import { pdf } from '@react-pdf/renderer';
 import dayjs from 'dayjs';
 import { ViajesContext } from '../../context/ViajesContextProvider';
 import { useState } from 'react';
+import ModalVoucher from '../../components/organisms/modalVoucher/ModalVoucher';
 
 
 const formatCreditCardNumber = (value) => {
@@ -24,6 +26,9 @@ const formatCreditCardNumber = (value) => {
   };
 
 const Payment = () => {
+
+    const navigation = useNavigate();
+    const [isVisibleModalVoucher, setIsVisibleModalVoucher] = useState(false);
     const [fullName, setFullName] = useState("");
     const [creditCardNumber, setCreditCardNumber] = useState("");
     const { reserva, vueloSeleccionado, listaAsientos } = useContext(ViajesContext);
@@ -50,6 +55,13 @@ const Payment = () => {
         link.click();
     };
 
+    const handlerOpenModal = ()=>{
+        setIsVisibleModalVoucher(true)
+    }
+    const handlerCloseModal = ()=>{
+        setIsVisibleModalVoucher(false)
+        navigation('/')
+    }
 
   return (
     <>
@@ -78,6 +90,7 @@ const Payment = () => {
                         <Button
                             variant='contained'
                             onClick={()=> {
+                                handlerOpenModal();
                                 downloadPDF();
                             }}
                             sx={{
@@ -94,6 +107,7 @@ const Payment = () => {
                     </Box>
                 </Grid>
             </Grid>
+            <ModalVoucher isVisible={isVisibleModalVoucher} handlerCloseModal={handlerCloseModal} />
         </main>
     </>
   )
