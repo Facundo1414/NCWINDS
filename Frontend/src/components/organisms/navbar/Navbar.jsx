@@ -48,7 +48,7 @@ const Navbar = (currentPage) => {
           className="logoContainer"
         >
           <Link to="/" className={currentPage.currentPage==="/login" ||currentPage.currentPage==="/signUp"? "brandLogin":"brand"}>
-            FlyAirlines
+            NoCountry Wings
           </Link>
         </Typography>
 
