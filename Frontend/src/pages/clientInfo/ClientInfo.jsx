@@ -8,6 +8,7 @@ import { DateField } from '@mui/x-date-pickers/DateField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
 import { ViajesContextProvider } from "../../context/ViajesContextProvider";
+import { AtomButton } from "../../components/atoms/atomButton/AtomButton";
 
 
 const ClientInfo =()=>{
@@ -86,21 +87,21 @@ const ClientInfo =()=>{
         <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}} display='flex' flexDirection='column' justifyContent='right'>
           <FligthInfo />
 
-          <Link
-            onClick={handleButtonContinuar}
-            variant='contained'
-            sx={{
-                backgroundColor: '#FFB500',
-                margin: '1.4rem auto',
-                padding: '10px 5rem',
-                borderRadius: '12px',
-                color: 'black',
-                fontWeight: 'bold',
-                fontSize: '1.2rem',
-                ":hover": {backgroundColor: '#FFB500'}
-          }}>
-            Comprar
-          </Link>
+          <AtomButton
+            handleClick={handleButtonContinuar}
+            variant={'outlined'}
+            buttonStyles={{
+              backgroundColor: '#FFB500',
+              margin: '1.4rem auto',
+              padding: '10px 5rem',
+              borderRadius: '12px',
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: '1.2rem',
+              '&:hover': {backgroundColor: '#FFB500'}
+              }}
+              inputText={'Siguiente'}
+          />
 
         </Box>
       </Grid>
