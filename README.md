@@ -8,7 +8,7 @@ A donde quieras ir, nosotros te llevamos.
 ![Vite Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/40e2a945-f2f3-47f0-b645-d7ff4777a766)
 ![React Router Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/05ef002a-358c-44e4-a5c8-f2545738ddf9)
 ![Formik Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/e7378374-c399-4422-876e-cb892ce4d57e)
-![Material IU Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/c3b9ef8e-210a-4235-82df-7d6dbf678318)
+![MaterialIU Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/6d0a029c-c06f-429c-9700-d84b532cc4bf)
 ![ThreeJs Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/af47c42e-c42d-4dca-a48c-7c7531165799)
 ![Eslint Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/0e79e158-06f1-43a8-b6db-6334211c7bb3)
 
@@ -19,10 +19,7 @@ A donde quieras ir, nosotros te llevamos.
 ![PostMan Icon](https://github.com/No-Country/c17-37-m-java/assets/125413569/41335804-d3a2-4794-ab53-934b0796c1e7)
 
 # Organización
-<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTHX3o3EsKGAe6Ww3J8UgbryEzRvU2im9AX0dKEL7jKkw&s" alt="Slack Logo" width="90" height="90">
-<img src="https://asset.brandfetch.io/idAnDTFapY/idG4aRyg5R.svg?updated=1669900249741" alt="Miro Logo" width="90" height="90">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma Logo" width="60" height="60">
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain-wordmark.svg" alt="Trello Logo" width="90" height="90">
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain-wordmark.svg" alt="Slack Logo" width="90" height="90"><img src="https://asset.brandfetch.io/idAnDTFapY/idG4aRyg5R.svg?updated=1669900249741" alt="Miro Logo" width="90" height="90"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma Logo" width="60" height="60"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/trello/trello-plain-wordmark.svg" alt="Trello Logo" width="90" height="90">
 
 
 ## Instalación
@@ -102,28 +99,7 @@ BODY = {
 Con estos datos crearás un travel
 
 
-
-
-# Equipo C17-37-M-Java
-### Backend: 
-- **Luciana Coronel**: Backend Developer
-- <a href="https://github.com/trujisxd1"> **Gustavo Martinez** <a/>:Backend Developer
-- **Manuel Claros**: Backend Developer
-
-### Frontend:
-- **Bruno Sosa**: Frontend Developer
-
-### Fullstack:
-- **Marco Antonio**: Fullstack Developer
-- **Facundo Allende**: Fullstack Developer
-
-### Diseño UX/UI:
-- **Bruno Sosa**: UX/UI Designer
-
-### Team Leader:
-- **Lucas Koch**: Team Leader
-
-
+# Equipo C17-37-M-Java 
 
 <table align='center'>
   <tr>
