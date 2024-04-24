@@ -1,6 +1,6 @@
-import React, { useContext, useState, useRef } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Alert, InputBase, Snackbar, TextField } from "@mui/material";
+import { Alert, InputBase, Snackbar } from "@mui/material";
 import LoginPage, { Input } from "@react-login-page/page7";
 import LoginC from "react-login-page";
 import { sendData } from "../../services/apiService";
@@ -19,7 +19,6 @@ const Login = () => {
     setIisNotValidCredentialsAlertVisible,
   ] = useState(false);
 
-  const [items, addItems] = useState([]);
   const formik = useFormik({
     initialValues: {
       correo: "",
