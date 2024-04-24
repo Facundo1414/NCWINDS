@@ -181,7 +181,30 @@ endpoint que devuelve una lista de reservas regsitradas.
 ```
 POST = http://localhost:8080/api/v1/reserva
 BODY ={
-
+"viaje": {
+	"origin": "Ciudad de México",
+	"destiny": "Dallas, Texas",
+	"price": 250.75,
+	"dateOfOrigin": "2024-04-10 08:30:00.000000"
+	"dateOfDestiny": "2024-04-12 10:45:00.000000"
+	"departureTime": null,
+	"arrivalTime": null,
+	"scaleNumbers": 1,
+	"description": "Viaje de negocios",
+	"duration": "PT26H15M"
+	},
+"usuario": {
+		"email": "info@tamila.cl",
+		"nombre": "gustavo",
+		"password": "123456"
+	    },
+"totalNumberOfSeats": 2,
+"name": "Jane",
+"lastName": "Doe",
+"residenceCountry": "United States",
+"numberDocument": "123456789",
+"dateOfBirth": "1990-01-01",
+"gender": "Female"
 }
 ```
 endpoint para crear una reserva.
