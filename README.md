@@ -55,7 +55,7 @@ Ahora puedes abrir [http://localhost:5173](http://localhost:5173) y comenzar a c
 
 ### Aplicación Spring Boot
 
-##### Setting Database
+##### Configuracion de la base de datos
 
 ```
 host: localhost/ip
@@ -74,29 +74,123 @@ Sigue estas intrucciones para ejecutar la aplicación:
 
 ##### Documentación de Endpoints
 
-##### CREAR USER ENDPOINT
+##### LOGEAR USUARIO ENDPOINT
+```
+POST = http://localhost:8080/api/auth/login
+BODY = 
+{
+    "correo":"info@tamila.cl",
+    "password":"123456"
+}
+```
+Con estos datos se se devuelve informacion del usuario y el token de acceso
 
-POST =
+##### REGISTRAR/CREAR USUARIO ENDPOINT
+```
+POST = http://localhost:8080/api/auth/usuarios
 BODY = {
+    "nombre":"Juan Perez",
+    "password":"123456",
+    "correo":"correo@gmail.com"
+}
+```
+
+Con estos datos se creará un usuario.
+
+##### lISTAR USUARIOS ENDPOINT
+```
+GET = http://localhost:8080/api/auth/usuarios
+```
+Con estos datos se listara los usuarios registrados.
+
+##### CREAR VIAJE ENDPOINT
+```
+POST = http://localhost:8080/api/v1/viajes
+BODY = {
+        "origin": "Bolivia",
+        "destiny": "USA",
+        "price": 1500.0,
+        "dateOfOrigin": "2024-05-01",
+        "dateOfDestiny": "2024-05-03",
+        "departureTime": "10:00:00",
+        "arrivalTime": "12:00:00",
+        "scaleNumbers": 2,
+        "description": "Viaje a USA",
+        "duration": "14 horas"
+}
+```
+Con estos datos se regristrara un viaje.
+
+##### OBTENER UN VIAJE ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/{id}
+```
+Se devolvera un viaje con un determinado .
+
+
+##### LISTAR VIAJES ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes
+```
+Con estos datos se listara los viajes registrados.
+
+##### ENCONTRAR VIAJE POR PRECIO ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/price/{price}
+```
+endpoint que devuelve una lista de viajes a un determinado precio
+
+##### ENCONTRAR VIAJE POR ORIGEN ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/origin/{origin}
+```
+endpoint que devuelve una lista de viajes con un determinado origen
+
+##### ENCONTRAR VIAJE POR DESTINO ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/destiny/{destiny}
+```
+endpoint que devuelve una lista de viajes con un determinado destino
+
+##### ENCONTRAR VIAJE POR ORIGEN Y DESTINO ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/originAndDestiny/{origin}/{destiny}
+```
+endpoint que devuelve una lista de viajes con un determinado origen y destino
+
+##### ENCONTRAR VIAJE POR ORIGEN, DESTINO Y FECHA DE SALIDA ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/findByOriginAndDestinyAndDateOfDestiny/{origin}/{destiny}/{DateOfDestiny}
+```
+endpoint que devuelve una lista de viajes con un determinado origen, destino y fecha de salida
+
+##### ENCONTRAR VIAJE POR ORIGEN, DESTINO Y FECHA DE SALIDA Y LLEGADA ENDPOINT
+```
+GET = http://localhost:8080/api/v1/viajes/findByOriginAndDestinyAndDateOfOriginAndDateOfDestiny/{origin}/{destiny}/{dateOfOrigin}/{DateOfDestiny}
+```
+endpoint que devuelve una lista de viajes con un determinado origen, destino, fecha de salida y fecha de llegada
+
+
+##### LISTAR RESERVAS ENDPOINT
+```
+GET = http://localhost:8080/api/v1/reserva
+```
+endpoint que devuelve una lista de reservas regsitradas.
+
+##### CREAR RESERVA ENDPOINT
+```
+POST = http://localhost:8080/api/v1/reserva
+BODY ={
 
 }
+```
+endpoint para crear una reserva.
 
-Con estos datos crearás el usuario que necesitarás para crear el token.
-##### CREAR TRAVELS ENDPOINT
-
-POST = http://localhost:8080/viajes
-BODY = {
-    "destiny": "Santa Cruz Bolivia",
-    "price": 730,
-    "description": "this is a description",
-    "origin": "Miami",
-    "duration":"2hrs",
-    "scaleNumbers":"1",
-    "dateOfDestiny":"2024-04-12T08:45:10",
-    "dateOfOrigin":"2024-04-13T16:45:10"   
-}
-
-Con estos datos crearás un travel
+##### ELIMINAR RESERVA ENDPOINT
+```
+DELETE = http://localhost:8080/api/v1/reserva/{id}
+```
+endpoint para eliminar una reserva por ID.
 
 
 # Equipo C17-37-M-Java 
