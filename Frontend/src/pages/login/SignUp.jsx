@@ -11,16 +11,17 @@ import './Login.css';
 const SignUp = () => {
 
   const {urlSignUpController} = useContext(BackendGateWayContext);
+  const [dataForm, setDataForm] = useState({ nombre: "", correo: "", password: ""})
     const formik = useFormik({
         initialValues: {
             nombre: '',
             correo: '',
             password: '',
           },
-          onSubmit: (values) => {
+          onSubmit: () => {
             async function obtenerRespuesta() {
                 try {
-                  const response = await sendData(urlSignUpController, values);
+                  const response = await sendData(urlSignUpController, dataForm);
                   setIsRegisteredUserAlertVisible(true)
                 } catch (error) {
                   console.error('Error al enviar datos:', error);
@@ -49,6 +50,11 @@ const SignUp = () => {
     
         setIsNotRegisteredUserAlertVisible(false);
       };
+
+      const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setDataForm({ ...dataForm, [name]: value });
+      };
     return (
         <LoginPage style={{ height: 690 }} className='login-page7' >
             <LoginPage.Logo>
@@ -56,9 +62,9 @@ const SignUp = () => {
             </LoginPage.Logo>
             <LoginPage.Title>Registrate</LoginPage.Title>
             <Input name="username" visible={false}/>
-            <Input name="nombre" type="nombre" placeholder="Usuario" index={0} id='usuario' value={formik.values.nombre} onChange={formik.handleChange}  />
-            <Input name="correo" type="correo" placeholder="Correo" index={1} id='email' value={formik.values.correo} onChange={formik.handleChange} />
-            <Input name="password" type="password" placeholder="Contraseña" index={2} id='password'  value={formik.values.password} onChange={formik.handleChange}/>
+            <Input name="nombre" type="nombre" placeholder="Usuario" index={0} id='usuario'  onChange={handleInputChange}  />
+            <Input name="correo" type="correo" placeholder="Correo" index={1} id='email'  onChange={handleInputChange} />
+            <Input name="password" type="password" placeholder="Contraseña" index={2} id='password'  onChange={handleInputChange}/>
             <Login.Button keyname="submit" index={1} type="submit" onClick={formik.handleSubmit} >
                 Crear cuenta
             </Login.Button>
