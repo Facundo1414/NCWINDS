@@ -35,7 +35,7 @@ const Navbar = (currentPage) => {
   return (
     <AppBar
       className={
-        currentPage.currentPage === "/"
+        currentPage.currentPage === "/" || currentPage.currentPage === "/login" || currentPage.currentPage === "/signUp"
           ? "transparent-navbar"
           : "background-navbar"
       }
@@ -47,7 +47,7 @@ const Navbar = (currentPage) => {
           sx={{ color: "white" }}
           className="logoContainer"
         >
-          <Link to="/" className="brand">
+          <Link to="/" className={currentPage.currentPage==="/login" ||currentPage.currentPage==="/signUp"? "brandLogin":"brand"}>
             FlyAirlines
           </Link>
         </Typography>
