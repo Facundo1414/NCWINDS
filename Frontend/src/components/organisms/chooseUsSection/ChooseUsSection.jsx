@@ -5,7 +5,7 @@ import aboutCards from "../../../utils/aboutCards/aboutCards.json";
 
 const ChooseUsSection = () => {
   return (
-    <Box component="section" borderRadius="1rem" margin="0 2rem 5rem 2rem" padding={{ xs: '2rem 0.5rem', md: '2rem 1rem' }} sx={{ backgroundColor: '#002561' }}>
+    <Box component="section" borderRadius="1rem" margin="0 2rem 5rem 2rem" padding={{ xs: '2rem 0.5rem', md: '2rem 1rem' }} sx={{ backgroundColor: '#002561' }} id='porque-elegirnos'>
       <Grid container spacing={3}>
         <Grid item xs={12} md={3} display="flex" justifyContent="center" alignItems="center">
           <Box padding="0.5rem">
