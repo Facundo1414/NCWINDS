@@ -45,21 +45,21 @@ const Footer = () => {
             </List>
         </Grid>
 
-        <Grid xs={12} sm={4} item sx={{ display: 'flex', flexDirection: 'column'}} marginBottom={'20px'} alignItems={'center'} paddingLeft={'12rem'}>
-          <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'} >
+        <Grid xs={12} sm={4} item sx={{ display: 'flex', flexDirection: 'column'}} marginBottom={'20px'} alignItems={'end'} paddingRight={'5rem'}>
+          <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
             Nuestras redes
           </Typography>
-          <Box component={'div'} marginTop={'15px'}  >
+          <Box component={'div'} marginTop={'15px'} >
             <Link href={'#'}>
-              <InstagramIcon sx={{height: '80px', width: '80px', marginRight: '8px', color: 'black'}}/>
+              <InstagramIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
 
             <Link href={'#'}>
-              <FacebookIcon sx={{height: '80px', width: '80px', marginRight: '8px', color: 'black'}}/>
+              <FacebookIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
 
             <Link href={'#'}>
-              <XIcon sx={{height: '80px', width: '80px', marginRight: '8px', color: 'black'}}/>
+              <XIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
           </Box>
         </Grid>
