@@ -26,7 +26,7 @@ const ClientInfo =()=>{
   const [dateOfBirth, setDateOfBirth] = useState('');
   const [gender, setGender] = useState('');
 
-  const {listaAsientos, setReserva, reserva} = useContext(ViajesContext);
+  const { setReserva } = useContext(ViajesContext);
 
 
   const handleButtonContinuar =()=>{
@@ -40,6 +40,7 @@ const ClientInfo =()=>{
       dateOfBirth: dateOfBirth,
       gender: gender,
     };
+    console.log(userData)
     setReserva(userData);
     navigate('/payment');
   };
@@ -67,15 +68,17 @@ const ClientInfo =()=>{
                 freeSolo
                 options={nacionalidades}
                 renderInput={(params) => (
-                  <TextField {...params} onChange={(e)=>{setResidenceCountry(e.target.value)}} label="Nacionalidad" variant="outlined" margin='normal' fullWidth/>
+                  <TextField {...params} label="Nacionalidad" variant="outlined" margin='normal' fullWidth/>
                 )}
+                onChange={(event, value) => setResidenceCountry(value)}
               />
               <Autocomplete 
                 freeSolo
                 options={generos}
                 renderInput={(params) => (
-                  <TextField {...params} onChange={(e)=>{setGender(e.target.value)}} label="Género" variant="outlined" margin='normal' fullWidth/>
+                  <TextField {...params} label="Género" variant="outlined" margin='normal' fullWidth/>
                 )}
+                onChange={(event, value) => setGender(value)}
               />
             </Grid>
           </Grid>
