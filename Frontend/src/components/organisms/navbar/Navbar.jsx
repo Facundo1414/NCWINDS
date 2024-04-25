@@ -33,6 +33,7 @@ const Navbar = (currentPage) => {
   };
 
   return (
+
     <AppBar
       className={
         currentPage.currentPage === "/" ||
