@@ -83,7 +83,7 @@ const Search =()=>{
       </Grid>
       
       <Grid item xs={12} md={8} paddingX={'15px'}>
-        <Search_topCards/>
+        <Search_topCards vuelosFetch={vuelosFetch}/>
         {loading? (
           <Box width="100%">
             <Skeleton sx={{ bgcolor: 'grey.400' }} variant="rectangular" width="100%" height={160}>
