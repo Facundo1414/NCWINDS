@@ -51,7 +51,6 @@ const SeatList =()=>{
             width: '60%',
             padding: '8px',
             fontSize: '1.2rem',
-            color: 'black'
           }}      
           handleClick={handleButtonClick}
           variant={'outlined'}
