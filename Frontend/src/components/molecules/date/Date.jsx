@@ -26,7 +26,7 @@ export default function Date({vueltaChecked, bgcolor, setFechaIda, setFechaVuelt
 
     return (
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DemoContainer components={['DatePicker', 'DatePicker']} sx={{ bgcolor: bgcolor }}> 
+        <DemoContainer components={['DatePicker', 'DatePicker']} sx={{ bgcolor: bgcolor, padding: 1, borderRadius: 2 }}> 
           <div className="date-pickers-container">
             <DatePicker
               label="IDA"

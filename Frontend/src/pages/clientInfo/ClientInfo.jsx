@@ -1,13 +1,13 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Grid, Box, Typography, TextField, Autocomplete, Link } from '@mui/material';
+import { Grid, Box, Typography, TextField, Autocomplete } from '@mui/material';
 import { FligthInfo } from "../../components/organisms/flightInfo/FligthInfo";
 import { ViajesContext } from "../../context/ViajesContextProvider";
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DateField } from '@mui/x-date-pickers/DateField';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { ViajesContextProvider } from "../../context/ViajesContextProvider";
+import { AtomButton } from "../../components/atoms/atomButton/AtomButton";
 
 
 const ClientInfo =()=>{
@@ -57,7 +57,7 @@ const ClientInfo =()=>{
               <TextField onChange={(e)=>{setName(e.target.value)}} label="Nombre" variant="outlined" margin='normal' fullWidth/>
               <TextField onChange={(e)=>{setNumberDocument(e.target.value)}} label="Documento" variant="outlined" margin='normal' fullWidth/>
               <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DateField onChange={(e)=>{setDateOfBirth(e.target.value)}} label='Fecha de vencimiento' format='MM-YY' defaultValue={dayjs('2026-04')} margin='normal' fullWidth/>
+                <DateField onChange={(e)=>{setDateOfBirth(e.target.value)}} label='Fecha de nacimiento' format='DD-MM-YY' defaultValue={dayjs('2026-04')} margin='normal' fullWidth/>
               </LocalizationProvider>
             </Grid>
 
@@ -86,21 +86,21 @@ const ClientInfo =()=>{
         <Box borderRadius='8px' boxShadow='3' sx={{backgroundColor: 'white'}} display='flex' flexDirection='column' justifyContent='right'>
           <FligthInfo />
 
-          <Link
-            onClick={handleButtonContinuar}
-            variant='contained'
-            sx={{
-                backgroundColor: '#FFB500',
-                margin: '1.4rem auto',
-                padding: '10px 5rem',
-                borderRadius: '12px',
-                color: 'black',
-                fontWeight: 'bold',
-                fontSize: '1.2rem',
-                ":hover": {backgroundColor: '#FFB500'}
-          }}>
-            Comprar
-          </Link>
+          <AtomButton
+            handleClick={handleButtonContinuar}
+            variant={'outlined'}
+            buttonStyles={{
+              backgroundColor: '#FFB500',
+              margin: '1.4rem auto',
+              padding: '10px 5rem',
+              borderRadius: '12px',
+              color: 'black',
+              fontWeight: 'bold',
+              fontSize: '1.2rem',
+              '&:hover': {backgroundColor: '#FFB500'}
+              }}
+              inputText={'Siguiente'}
+          />
 
         </Box>
       </Grid>

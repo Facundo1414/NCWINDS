@@ -41,7 +41,7 @@ const ViajesContextProvider = ({children}) => {
         residenceCountry: "",
         numberDocument: "",
         dateOfBirth: "",
-        gender: ""
+        gender: "",
     });
 
     const data = {

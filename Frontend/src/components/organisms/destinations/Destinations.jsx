@@ -8,7 +8,7 @@ import "./Destinations.css";
 const Destinations =()=>{
     
   return (
-    <div className="container-destinations-principal">
+    <div className="container-destinations-principal" id="destines">
       <Typography 
         style={{ fontWeight: "medium", fontSize: 40 ,marginLeft:"10%"}} color={'#002561'}
       >

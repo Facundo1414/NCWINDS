@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Box, Divider, Typography, Link } from '@mui/material';
 import { SeatCard } from '../../molecules/seatCard/SeatCard';
 import { ViajesContext } from "../../../context/ViajesContextProvider";
+import { AtomButton } from "../../atoms/atomButton/AtomButton";
 
 
-// const SeatList =({ selectedSeats, setSelectedSeats })=>{
 const SeatList =()=>{
   const navigate = useNavigate();
-  const { listaAsientos,setListaAsientos } = useContext(ViajesContext);
+  const { listaAsientos, setListaAsientos } = useContext(ViajesContext);
   const [finalPrice, setFinalPrice] = useState(0);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const SeatList =()=>{
     navigate("/clientInfo");
   };
 
-
+  console.log(listaAsientos);
   return(
     <Box borderRadius='12px' padding='20px 10px' sx={{backgroundColor: 'white'}} boxShadow='3'>
       <Box>
@@ -42,19 +42,21 @@ const SeatList =()=>{
       </Box>
 
       <Box display='flex' justifyContent='center'>
-        <Link sx={{
-          borderRadius: '1.5rem', 
-          backgroundColor: '#FFB500',
-          color: 'black',
-          fontWeight: 'bold',
-          width: '80%',
-          padding: '8px',
-          fontSize: '1.2rem'
-        }}
-        onClick={handleButtonClick}
-        >
-          Comprar
-        </Link>
+        <AtomButton
+            buttonStyles={{
+            borderRadius: '1.5rem', 
+            backgroundColor: '#FFB500',
+            color: 'black',
+            fontWeight: 'bold',
+            width: '60%',
+            padding: '8px',
+            fontSize: '1.2rem',
+            color: 'black'
+          }}      
+          handleClick={handleButtonClick}
+          variant={'outlined'}
+          inputText={"Siguiente"}
+        />
       </Box>
 
       <Divider sx={{marginY: '10px'}}/>

@@ -3,6 +3,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { fetchData } from '../../../services/apiService';
 import { BackendGateWayContext } from '../../../context/BackendGateWayContextProvider';
+import './UbicacionInput.css'
 
 const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
   const [value, setValue] = useState(null);
@@ -87,9 +88,9 @@ const UbicacionInput = ({ label, bgcolor, setValueVuelo }) => {
       options={options?.sort((a, b) => -b.firstLetter.localeCompare(a.firstLetter))}
       groupBy={(option) => option.firstLetter}
       getOptionLabel={(option) => option.option}
-      sx={{ width: 280, bgcolor: bgcolor }}
+      sx={{bgcolor: bgcolor, padding: 1, borderRadius: 2, width: '100% !important', maxWidth: '100%'}} 
       renderInput={(params) => (
-        <TextField {...params} label={label} color={infoColor.color} focused={infoColor.focussed} onBlur={selectBlur}  />
+        <TextField {...params} label={label} color={infoColor.color} focused={infoColor.focussed} onBlur={selectBlur} sx={{ width: '100%', maxWidth: '100%'}} />
       )}
     />
   );

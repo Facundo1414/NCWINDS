@@ -32,10 +32,11 @@ const Navbar = (currentPage) => {
     setAnchorNav(null);
   };
 
+   
   return (
     <AppBar
       className={
-        currentPage.currentPage === "/"
+        currentPage.currentPage === "/" || currentPage.currentPage === "/login" || currentPage.currentPage === "/signUp"
           ? "transparent-navbar"
           : "background-navbar"
       }
@@ -47,8 +48,8 @@ const Navbar = (currentPage) => {
           sx={{ color: "white" }}
           className="logoContainer"
         >
-          <Link to="/" className="brand">
-            FlyAirlines
+          <Link to="/" className={currentPage.currentPage==="/login" ||currentPage.currentPage==="/signUp"? "brandLogin":"brand"}>
+            NoCountry Wings
           </Link>
         </Typography>
 
@@ -74,24 +75,24 @@ const Navbar = (currentPage) => {
           >
             <MenuItem
               onClick={handleCloseNavMenu}
-              component={Link}
-              to="/search"
+              component="a"
+              href="#destines"
             >
               Destinos
             </MenuItem>
 
             <MenuItem
               onClick={handleCloseNavMenu}
-              component={Link}
-              to="/paquetes"
+              component="a"
+              href="#section-container"
             >
-              Paquetes
+              Nosotros
             </MenuItem>
 
             <MenuItem
               onClick={handleCloseNavMenu}
-              component={Link}
-              to="/informacion"
+              component="a"
+              href="#porque-elegirnos"
             >
               Información
             </MenuItem>
@@ -111,28 +112,31 @@ const Navbar = (currentPage) => {
           </Menu>
         </Box>
 
-        <Box sx={{ display: { xs: "none", md: "flex" } }}>
+        <Box sx={{ display: { xs: "none", md: "flex" } }} gap={'2rem'}>
           <Button
-            component={Link}
-            to="/search"
+            component="a"
+            href="#destines"
             color="inherit"
             className="nav-link"
+            
           >
             Destinos
           </Button>
           <Button
-            component={Link}
-            to="/paquetes"
+            component="a"
+            href="#section-container"
             color="inherit"
             className="nav-link"
+            
           >
-            Paquetes
+            Nosotros
           </Button>
           <Button
-            component={Link}
-            to="/informacion"
+            component="a"
+            href="#porque-elegirnos"
             color="inherit"
             className="nav-link"
+           
           >
             Información
           </Button>

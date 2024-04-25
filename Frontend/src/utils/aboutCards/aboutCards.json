@@ -1,0 +1,21 @@
+[
+    {
+        "id": 1,
+        "icon": "/card_eS/aviones.png" ,
+        "title": "FLOTA ÚNICA" ,
+        "text": "Un solo tipo de avión, un solo tipo de asientos. ¡Le decimos sí a la clase única!"
+    },
+    {
+        "id": 2,
+        "icon": "/card_eS/billetera.png" ,
+        "title": "SOLO PAGÁS POR LO QUE NECESITÁS" ,
+        "text": "Te dejamos a vos decidir qué querés que tu pasaje incluya."
+    },
+    {
+        "id": 3,
+        "icon": "/card_eS/notebook.png" ,
+        "title": "FLOTA ÚNICA" ,
+        "text": "Sacá tu pasaje donde quieras, siempre a través directo de nuestra web. Sin comisiones."
+    }
+]
+
