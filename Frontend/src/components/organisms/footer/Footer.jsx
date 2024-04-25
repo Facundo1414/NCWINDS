@@ -10,12 +10,12 @@ const Footer = () => {
   return (
     <footer>
       <Divider sx={{backgroundColor: 'white'}}/>
-      <Grid container padding={'30px 30px'}>
-        <Grid xs={12} sm={4} item marginBottom={'20px'}>
+      <Grid container padding={'30px 30px'} display={'flex'} justifyContent={'space-around'} >
+        <Grid xs={12} sm={4} item marginBottom={'20px'} paddingLeft={'2rem'} >
           <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
             FlyAirlines
           </Typography>
-          <List>
+          <List style={{marginTop: "15px"}}>
               <ListItemText>
                 <Link href='#' color={'black'} underline='none'>Acerca de FlyAirLines</Link>
               </ListItemText>
@@ -31,11 +31,11 @@ const Footer = () => {
             </List>
         </Grid>
 
-        <Grid xs={12} sm={4} item marginBottom={'20px'}>
+        <Grid xs={12} sm={4} item marginBottom={'20px'} >
           <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
               Información Legal
             </Typography>
-            <List>
+            <List style={{marginTop: "15px"}}>
               <ListItemText>
                   <Link href='#' color={'black'} underline='none'>Términos y servicios</Link>
                 </ListItemText>
@@ -45,11 +45,11 @@ const Footer = () => {
             </List>
         </Grid>
 
-        <Grid xs={12} sm={4} item sx={{ display: 'flex', flexDirection: 'column'}} marginBottom={'20px'}>
+        <Grid xs={12} sm={4} item sx={{ display: 'flex', flexDirection: 'column'}} marginBottom={'20px'} alignItems={'end'} paddingRight={'5rem'}>
           <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
             Nuestras redes
           </Typography>
-          <Box component={'div'}>
+          <Box component={'div'} marginTop={'15px'} >
             <Link href={'#'}>
               <InstagramIcon sx={{height: '50px', width: '50px', marginRight: '8px', color: 'black'}}/>
             </Link>
