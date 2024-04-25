@@ -71,7 +71,7 @@ useEffect(()=>{
         </Typography>
         <div className="sliderStyles">
           <Slider
-            sx={{ color: "#0658BE", width: "90%" }}
+            sx={{ color: "#FFB500", width: "90%" }}
             value={price}
             onChange={handleChangePrice}
             valueLabelDisplay="auto"
@@ -90,7 +90,7 @@ useEffect(()=>{
         </Typography>
         <div className="sliderStyles">
           <Slider
-            sx={{ color: "#0658BE", width: "90%" }}
+            sx={{ color: "#FFB500", width: "90%" }}
             value={duracionVuelo}
             onChange={handleChangeDuracion}
             valueLabelDisplay="auto"
@@ -109,7 +109,7 @@ useEffect(()=>{
         </Typography>
         <div className="sliderStyles">
           <Slider
-            sx={{ color: "#0658BE", width: "90%" }}
+            sx={{ color: "#FFB500", width: "90%" }}
             value={departureTime}
             onChange={handleChangeDepartureTime}
             valueLabelDisplay="auto"
@@ -128,7 +128,7 @@ useEffect(()=>{
         </Typography>
         <div className="sliderStyles">
           <Slider
-            sx={{ color: "#0658BE", width: "90%" }}
+            sx={{ color: "#FFB500", width: "90%" }}
             value={scales}
             onChange={handleChangeScales}
             valueLabelDisplay="auto"
