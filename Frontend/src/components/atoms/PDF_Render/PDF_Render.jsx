@@ -61,6 +61,7 @@ const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
 
 
   const name = reserva.name + " " + reserva.lastName;
+  const documento = reserva.numberDocument;
   const nacionalidad = reserva.residenceCountry;
 
   const fechaSalida = vueloSeleccionado.dateOfOrigin;
@@ -86,7 +87,7 @@ const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
           <View style={styles.columnSection}>
             <Text style={styles.subTittle}>Cliente</Text>
             <Text style={styles.text}>Nombre: {name}</Text>
-            {/* <Text style={styles.text}>Correo: john.doe@example.com</Text> */}
+            <Text style={styles.text}>Documento: {documento}</Text>
             <Text style={styles.text}>Nacionalidad: {nacionalidad}</Text>
           </View>
 
@@ -117,7 +118,7 @@ const PDF_Render = ({ reserva, vueloSeleccionado, listaAsientos }) => {
 
             return(             
               <View  style={styles.seatContainer}>
-                <Text style={styles.text}>Pasajero {index}</Text>
+                <Text style={styles.text}>Pasajero {index+1}</Text>
                 <Text style={styles.text}>Asiento: {value.seatNumber}</Text>
                 <Text style={styles.text}>Clase: Turista</Text>
                 <Text style={styles.text}>Precio: {value.seatPrice}</Text>
