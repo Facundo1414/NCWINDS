@@ -1,7 +1,7 @@
 .login-page7 {
     --login-bg: #FFB500;
     --login-linear-gradien: linear-gradient(to bottom right, #FFB500 0%, #002561 100%);
-    --login-color: #000000;
+    --login-color: #ffffff;
     --login-input: #000000;
     --login-input-bg: rgba(255, 255, 255, 0.2);
     --login-input-placeholder: #fff;
