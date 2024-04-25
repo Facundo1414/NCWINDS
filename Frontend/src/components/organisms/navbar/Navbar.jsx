@@ -32,11 +32,12 @@ const Navbar = (currentPage) => {
     setAnchorNav(null);
   };
 
-   
   return (
     <AppBar
       className={
-        currentPage.currentPage === "/" || currentPage.currentPage === "/login" || currentPage.currentPage === "/signUp"
+        currentPage.currentPage === "/" ||
+        currentPage.currentPage === "/login" ||
+        currentPage.currentPage === "/signUp"
           ? "transparent-navbar"
           : "background-navbar"
       }
@@ -48,7 +49,15 @@ const Navbar = (currentPage) => {
           sx={{ color: "white" }}
           className="logoContainer"
         >
-          <Link to="/" className={currentPage.currentPage==="/login" ||currentPage.currentPage==="/signUp"? "brandLogin":"brand"}>
+          <Link
+            to="/"
+            className={
+              currentPage.currentPage === "/login" ||
+              currentPage.currentPage === "/signUp"
+                ? "brandLogin"
+                : "brand"
+            }
+          >
             NoCountry Wings
           </Link>
         </Typography>
@@ -112,34 +121,35 @@ const Navbar = (currentPage) => {
           </Menu>
         </Box>
 
-        <Box sx={{ display: { xs: "none", md: "flex" } }} gap={'2rem'}>
-          <Button
-            component="a"
-            href="#destines"
-            color="inherit"
-            className="nav-link"
-            
-          >
-            Destinos
-          </Button>
-          <Button
-            component="a"
-            href="#section-container"
-            color="inherit"
-            className="nav-link"
-            
-          >
-            Nosotros
-          </Button>
-          <Button
-            component="a"
-            href="#porque-elegirnos"
-            color="inherit"
-            className="nav-link"
-           
-          >
-            Información
-          </Button>
+        <Box sx={{ display: { xs: "none", md: "flex" } }} gap={"2rem"}>
+          {currentPage.currentPage === "/" && (
+            <>
+              <Button
+                component="a"
+                href="#destines"
+                color="inherit"
+                className="nav-link"
+              >
+                Destinos
+              </Button>
+              <Button
+                component="a"
+                href="#section-container"
+                color="inherit"
+                className="nav-link"
+              >
+                Nosotros
+              </Button>
+              <Button
+                component="a"
+                href="#porque-elegirnos"
+                color="inherit"
+                className="nav-link"
+              >
+                Información
+              </Button>
+            </>
+          )}
           {usuario ? (
             <MenuSession userName={usuario?.nombre} onLogout={handleLogout} />
           ) : (

@@ -11,7 +11,7 @@ const Footer = () => {
     <footer>
       <Divider sx={{backgroundColor: 'white'}}/>
       <Grid container padding={'30px 30px'} display={'flex'} justifyContent={'space-around'} >
-        <Grid xs={12} sm={4} item marginBottom={'20px'} paddingLeft={'2rem'} >
+        <Grid xs={12} sm={4} item marginBottom={'20px'} paddingLeft={'100px'} >
           <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
             FlyAirlines
           </Typography>
@@ -31,7 +31,7 @@ const Footer = () => {
             </List>
         </Grid>
 
-        <Grid xs={12} sm={4} item marginBottom={'20px'} >
+        <Grid xs={12} sm={4} item marginBottom={'20px'} paddingLeft='100px' >
           <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
               Información Legal
             </Typography>
@@ -45,7 +45,7 @@ const Footer = () => {
             </List>
         </Grid>
 
-        <Grid xs={12} sm={4} item sx={{ display: 'flex', flexDirection: 'column'}} marginBottom={'20px'} alignItems={'end'} paddingRight={'5rem'}>
+        <Grid xs={12} sm={4} item sx={{ display: 'flex', flexDirection: 'column'}} marginBottom={'20px'}  paddingLeft='100px'>
           <Typography variant='h5' component='h5' color={'#002561'} fontWeight={'bold'}>
             Nuestras redes
           </Typography>
