@@ -1,0 +1,9 @@
+services:
+- type: web
+  name: backend
+  env: docker
+  plan: free
+  repo: https://github.com/Facundo1414/NCWINDS
+  branch: backend
+  dockerfilePath: ./Dockerfile
+  buildCommand: ./build.sh
