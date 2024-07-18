@@ -2,66 +2,66 @@
     {
         "ciudad": "Buenos Aires",
         "pais": "Argentina",
-        "imagen": "src/assets/buenosAires.jpeg"
+        "imagen": "/destiny/buenosAires.jpeg"
     },
     {
         "ciudad": "Madrid",
         "pais": "España",
-        "imagen": "src/assets/madrid.jpg"
+        "imagen": "/destiny/madrid.jpg"
     },
     {
         "ciudad": "Ciudad de Mexico",
         "pais": "Mexico",
-        "imagen": "src/assets/ciudadmexico.jpeg"
+        "imagen": "/destiny/ciudadmexico.jpeg"
     },
     {
       "ciudad": "París",
       "pais": "Francia",
-      "imagen": "src/assets/paris.jpg"
+      "imagen": "/destiny/paris.jpg"
     },
     {
       "ciudad": "Nueva York",
       "pais": "Estados Unidos",
-      "imagen": "src/assets/newyork.jpg"
+      "imagen": "/destiny/newyork.jpg"
     },
     {
       "ciudad": "Tokio",
       "pais": "Japón",
-      "imagen": "src/assets/tokio.jpg"
+      "imagen": "/destiny/tokio.jpg"
     },
     {
       "ciudad": "Buenos Aires",
       "pais": "Argentina",
-      "imagen": "src/assets/buenosAires.jpeg"
+      "imagen": "/destiny/buenosAires.jpeg"
   },
   {
       "ciudad": "Madrid",
       "pais": "España",
-      "imagen": "src/assets/madrid.jpg"
+      "imagen": "/destiny/madrid.jpg"
   },
   {
       "ciudad": "Ciudad de Mexico",
       "pais": "Mexico",
-      "imagen": "src/assets/ciudadmexico.jpeg"
+      "imagen": "/destiny/ciudadmexico.jpeg"
   },
   {
     "ciudad": "París",
     "pais": "Francia",
-    "imagen": "src/assets/paris.jpg"
+    "imagen": "/destiny/paris.jpg"
   },
   {
     "ciudad": "Nueva York",
     "pais": "Estados Unidos",
-    "imagen": "src/assets/newyork.jpg"
+    "imagen": "/destiny/newyork.jpg"
   },
   {
     "ciudad": "Tokio",
     "pais": "Japón",
-    "imagen": "src/assets/tokio.jpg"
+    "imagen": "/destiny/tokio.jpg"
   },
   {
     "ciudad": "Tokio",
     "pais": "Japón",
-    "imagen": "src/assets/tokio.jpg"
+    "imagen": "/destiny/tokio.jpg"
   }
   ]
