@@ -1,19 +1,19 @@
 [
     {
         "id": 1,
-        "icon": "../../../public/card_eS/aviones.png" ,
+        "icon": "/card_eS/" ,
         "title": "FLOTA ÚNICA" ,
         "text": "Un solo tipo de avión, un solo tipo de asientos. ¡Le decimos sí a la clase única!"
     },
     {
         "id": 2,
-        "icon": "../../../public/card_eS/billetera.png" ,
+        "icon": "/card_eS/billetera.png" ,
         "title": "SOLO PAGÁS POR LO QUE NECESITÁS" ,
         "text": "Te dejamos a vos decidir qué querés que tu pasaje incluya."
     },
     {
         "id": 3,
-        "icon": "../../../public/card_eS/notebook.png" ,
+        "icon": "/card_eS/notebook.png" ,
         "title": "COMPRAS ONLINE" ,
         "text": "Sacá tu pasaje donde quieras, siempre a través directo de nuestra web."
     }
